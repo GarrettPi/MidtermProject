@@ -62,7 +62,7 @@ public class ActivityType {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ActivityTypeTest other = (ActivityTypeTest) obj;
+		ActivityType other = (ActivityType) obj;
 		return id == other.id;
 	}
 

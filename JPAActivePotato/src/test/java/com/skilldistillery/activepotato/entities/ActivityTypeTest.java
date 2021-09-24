@@ -17,7 +17,7 @@ class ActivityTypeTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private ActivityRating ar;
+	private ActivityType at;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -32,19 +32,19 @@ class ActivityTypeTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		ar = em.find(ActivityRating.class, 1);
+		at = em.find(ActivityType.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		ar = null;
+		at = null;
 	}
 
 	@Test
 	void test_User_entity_mapping() {
-		assertNotNull(ar);
-		assertEquals("jt", ar.getName());
+		assertNotNull(at);
+		assertEquals("jt", at.getName());
 	}
 
 }
