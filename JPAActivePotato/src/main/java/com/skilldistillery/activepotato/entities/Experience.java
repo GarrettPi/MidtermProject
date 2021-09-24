@@ -28,6 +28,9 @@ public class Experience {
 	@JoinColumn(name="interest_id")
 	private Interest interest;
 	
+	@Column(name="experience_date")
+	private LocalDate experienceDate;
+	
 	public Interest getInterest() {
 		return interest;
 	}
@@ -68,8 +71,6 @@ public class Experience {
 	}
 
 
-	@Column(name="experience_date")
-	private LocalDate experienceDate;
 
 	@Override
 	public int hashCode() {
