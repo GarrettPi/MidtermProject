@@ -3,8 +3,13 @@ package com.skilldistillery.activepotato.entities;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Persistence;
 
 import org.junit.jupiter.api.AfterAll;
@@ -41,10 +46,34 @@ class ActivityTest {
 		a = null;
 	}
 
-	@Test
-	void test_User_entity_mapping() {
-		assertNotNull(a);
-		assertEquals("jt", a.getName());
-	}
+//	@Test
+//	void test_User_entity_mapping() {
+//		assertNotNull(a);
+//		assertEquals("jt", a.getName());
+//	}
+//
+//	@Test
+//	void test_activity_OneToMany_activityRatings_mapping() {
+//		assertNotNull(a);
+//		assertEquals("jt", a.getName());
+//	}
+//
+//	@Test
+//	void test_activity_ManyToOne_activityType_mapping() {
+//		assertNotNull(a);
+//		assertEquals("jt", a.getName());
+//	}
+//
+//	@Test
+//		void test_activity_ManyToOne_User_mapping() {
+//		assertNotNull(a);
+//		assertEquals("jt", a.getName());
+//		}
+//
+//	@Test
+//	void test_activity_OneToMany_comments_mapping() {
+//		assertNotNull(a);
+//		assertEquals("jt", a.getName());
+//	}
 
 }
