@@ -48,7 +48,7 @@ public class Activity {
 
 	@OneToMany(mappedBy = "activity")
 	private List<Comment> comments;
-	
+
 	@OneToMany(mappedBy = "activity")
 	private List<Interest> interest;
 

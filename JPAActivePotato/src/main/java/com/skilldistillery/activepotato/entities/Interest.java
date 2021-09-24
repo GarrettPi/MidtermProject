@@ -21,18 +21,18 @@ public class Interest {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	@ManyToOne
-	@JoinColumn(name="user_id")
+	@JoinColumn(name = "user_id")
 	private User user;
-	
+
 	@ManyToOne
-	@JoinColumn(name="activity_id")
+	@JoinColumn(name = "activity_id")
 	private Activity activity;
-	
-	@OneToMany(mappedBy="interest")
+
+	@OneToMany(mappedBy = "interest")
 	private List<Experience> experience;
-	
+
 	public User getUser() {
 		return user;
 	}
@@ -86,8 +86,5 @@ public class Interest {
 	public String toString() {
 		return "Interest [id=" + id + "]";
 	}
-
-
-	
 
 }
