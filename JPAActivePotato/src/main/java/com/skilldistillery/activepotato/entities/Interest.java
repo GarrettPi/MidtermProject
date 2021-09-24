@@ -1,35 +1,37 @@
 package com.skilldistillery.activepotato.entities;
 
-import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Comment {
+public class Interest {
+
+	public Interest() {
+		super();
+	}
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	private String comment;
-	
-	@Column(name="comment_date")
-	private LocalDate commentDate;
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
 	
 	@ManyToOne
 	@JoinColumn(name="activity_id")
 	private Activity activity;
-
-	@ManyToOne
-	@JoinColumn(name="user_id")
-	private User user;
+	
+	@OneToMany(mappedBy="interest")
+	private List<Experience> experience;
 	
 	public User getUser() {
 		return user;
@@ -47,8 +49,12 @@ public class Comment {
 		this.activity = activity;
 	}
 
-	public Comment() {
-		super();
+	public List<Experience> getExperience() {
+		return experience;
+	}
+
+	public void setExperience(List<Experience> experience) {
+		this.experience = experience;
 	}
 
 	public int getId() {
@@ -59,27 +65,11 @@ public class Comment {
 		this.id = id;
 	}
 
-	public String getComment() {
-		return comment;
-	}
-
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
-
-	public LocalDate getCommentDate() {
-		return commentDate;
-	}
-
-	public void setCommentDate(LocalDate commentDate) {
-		this.commentDate = commentDate;
-	}
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -88,14 +78,16 @@ public class Comment {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Comment other = (Comment) obj;
+		Interest other = (Interest) obj;
 		return id == other.id;
 	}
 
 	@Override
 	public String toString() {
-		return "Comment [id=" + id + ", comment=" + comment + ", commentDate=" + commentDate + "]";
+		return "Interest [id=" + id + "]";
 	}
 
+
+	
 
 }

@@ -9,7 +9,11 @@
     </provider>
 
 		<class>com.skilldistillery.activepotato.entities.Activity</class>
+		<class>com.skilldistillery.activepotato.entities.ActivityRating</class>
+		<class>com.skilldistillery.activepotato.entities.ActivityType</class>
 		<class>com.skilldistillery.activepotato.entities.Comment</class>
+		<class>com.skilldistillery.activepotato.entities.Experience</class>
+		<class>com.skilldistillery.activepotato.entities.Interest</class>
 		<class>com.skilldistillery.activepotato.entities.User</class>
 
 		<properties>
