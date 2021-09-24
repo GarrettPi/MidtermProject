@@ -18,34 +18,37 @@ import javax.persistence.OneToMany;
 public class Activity {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String name;
-	
-	@Column(name="expected_duration")
+
+	@Column(name = "expected_duration")
 	private int expectedDuration;
-	
+
 	private String description;
 	private String url;
-	
-	@Column(name="image_url")
+
+	@Column(name = "image_url")
 	private String imageUrl;
 
-	@Column(name="create_date")
+	@Column(name = "create_date")
 	private LocalDate createDate;
 
-	@OneToMany(mappedBy="activity")
+	@OneToMany(mappedBy = "activity")
 	private List<ActivityRating> activityRatings;
-	
+
 	@ManyToOne
-	@JoinColumn(name="activity_type_id")
+	@JoinColumn(name = "activity_type_id")
 	private ActivityType activityType;
-	
+
 	@ManyToOne
-	@JoinColumn(name="user_id")
+	@JoinColumn(name = "user_id")
 	private User user;
-	
+
+	@OneToMany(mappedBy = "activity")
+	private List<Comment> comments;
+
 	public int getId() {
 		return id;
 	}
@@ -118,6 +121,22 @@ public class Activity {
 		this.activityType = activityType;
 	}
 
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
 	@Override
 	public String toString() {
 		return "Activity [id=" + id + ", name=" + name + ", expectedDuration=" + expectedDuration + ", description="
@@ -140,7 +159,5 @@ public class Activity {
 		Activity other = (Activity) obj;
 		return id == other.id;
 	}
-	
-	
-}
 
+}
