@@ -41,6 +41,9 @@ public class User {
 	@OneToMany(mappedBy="user")
 	private List<Activity> activity;
 	
+	@OneToMany(mappedBy="user")
+	private List<Comment> comments;
+	
 	
 	public List<Activity> getActivity() {
 		return activity;
