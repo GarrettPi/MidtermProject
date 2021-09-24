@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Experience {
@@ -22,6 +24,20 @@ public class Experience {
 	
 	private int rating;
 	
+	@ManyToOne
+	@JoinColumn(name="interest_id")
+	private Interest interest;
+	
+	public Interest getInterest() {
+		return interest;
+	}
+
+
+	public void setInterest(Interest interest) {
+		this.interest = interest;
+	}
+
+
 	public int getId() {
 		return id;
 	}
