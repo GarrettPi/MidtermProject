@@ -1,6 +1,8 @@
 package com.skilldistillery.activepotato.entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Activity {
@@ -30,6 +33,9 @@ public class Activity {
 	@Column(name="create_date")
 	private LocalDate createDate;
 
+	@OneToMany(mappedBy="activity")
+	private List<ActivityRating> activityRatings;
+	
 	public int getId() {
 		return id;
 	}
@@ -84,6 +90,14 @@ public class Activity {
 
 	public void setCreateDate(LocalDate createDate) {
 		this.createDate = createDate;
+	}
+
+	public List<ActivityRating> getActivityRatings() {
+		return new ArrayList<>(activityRatings);
+	}
+
+	public void setActivityRatings(List<ActivityRating> activityRatings) {
+		this.activityRatings = activityRatings;
 	}
 
 	@Override
