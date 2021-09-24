@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Table(name="activity_rating")
@@ -43,6 +45,10 @@ public class ActivityRating {
 	public void setUrl(String url) {
 		this.url = url;
 	}
+	
+	@ManyToOne
+	@JoinColumn(name="activity_id")
+	private Activity activity;
 
 	@Override
 	public String toString() {
