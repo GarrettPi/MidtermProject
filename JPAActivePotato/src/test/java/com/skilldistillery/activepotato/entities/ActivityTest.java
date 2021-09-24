@@ -46,11 +46,11 @@ class ActivityTest {
 		a = null;
 	}
 
-//	@Test
-//	void test_User_entity_mapping() {
-//		assertNotNull(a);
-//		assertEquals("jt", a.getName());
-//	}
+	@Test
+	void test_User_entity_mapping() {
+		assertNotNull(a);
+		//assertEquals("jt", a.getName());
+	}
 //
 //	@Test
 //	void test_activity_OneToMany_activityRatings_mapping() {
