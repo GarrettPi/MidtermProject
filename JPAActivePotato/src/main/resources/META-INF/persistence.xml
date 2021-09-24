@@ -10,6 +10,7 @@
 
 		<class>com.skilldistillery.activepotato.entities.Activity</class>
 		<class>com.skilldistillery.activepotato.entities.Comment</class>
+		<class>com.skilldistillery.activepotato.entities.Experience</class>
 		<class>com.skilldistillery.activepotato.entities.User</class>
 
 		<properties>

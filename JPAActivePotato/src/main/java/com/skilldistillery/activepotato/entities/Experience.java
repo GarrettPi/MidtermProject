@@ -10,52 +10,57 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Comment {
+public class Experience {
 
+	public Experience() {
+		super();
+	}
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	private String comment;
+	private int rating;
 	
-	@Column(name="comment_date")
-	private LocalDate commentDate;
-	
-	
-
-	public Comment() {
-		super();
-	}
-
 	public int getId() {
 		return id;
 	}
+
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getComment() {
-		return comment;
+
+	public int getRating() {
+		return rating;
 	}
 
-	public void setComment(String comment) {
-		this.comment = comment;
+
+	public void setRating(int rating) {
+		this.rating = rating;
 	}
 
-	public LocalDate getCommentDate() {
-		return commentDate;
+
+	public LocalDate getExperienceDate() {
+		return experienceDate;
 	}
 
-	public void setCommentDate(LocalDate commentDate) {
-		this.commentDate = commentDate;
+
+	public void setExperienceDate(LocalDate experienceDate) {
+		this.experienceDate = experienceDate;
 	}
+
+
+	@Column(name="experience_date")
+	private LocalDate experienceDate;
 
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
-	
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -64,14 +69,16 @@ public class Comment {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Comment other = (Comment) obj;
+		Experience other = (Experience) obj;
 		return id == other.id;
 	}
 
+
 	@Override
 	public String toString() {
-		return "Comment [id=" + id + ", comment=" + comment + ", commentDate=" + commentDate + "]";
+		return "Experience [id=" + id + ", rating=" + rating + ", experienceDate=" + experienceDate + "]";
 	}
-
-
+	
+	
+	
 }
