@@ -8,6 +8,8 @@
 	<provider>org.hibernate.jpa.HibernatePersistenceProvider
     </provider>
 
+		<class>com.skilldistillery.activepotato.entities.Activity</class>
+		<class>com.skilldistillery.activepotato.entities.Comment</class>
 		<class>com.skilldistillery.activepotato.entities.User</class>
 
 		<properties>
