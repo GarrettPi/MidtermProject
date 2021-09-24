@@ -18,30 +18,50 @@ public class User {
 	}
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String username;
-	
+
 	private String password;
-	
-	@Column(name="first_name")
+
+	@Column(name = "first_name")
 	private String firstName;
-	
-	@Column(name="last_name")
+
+	@Column(name = "last_name")
 	private String lastName;
 
 	private String email;
-	
+
 	private boolean enabled;
-	
+
 	private String role;
 
+	@OneToMany(mappedBy = "user")
+	private List<Interest> interest;
 
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy = "user")
 	private List<Activity> activity;
-	
-	
+
+	@OneToMany(mappedBy = "user")
+	private List<Comment> comments;
+
+	public List<Interest> getInterest() {
+		return interest;
+	}
+
+	public void setInterest(List<Interest> interest) {
+		this.interest = interest;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
 	public List<Activity> getActivity() {
 		return activity;
 	}
