@@ -42,6 +42,10 @@ public class Activity {
 	@JoinColumn(name="activity_type_id")
 	private ActivityType activityType;
 	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
+	
 	public int getId() {
 		return id;
 	}
