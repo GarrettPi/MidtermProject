@@ -44,8 +44,7 @@ class CommentTest {
 	@Test
 	void test_User_entity_mapping() {
 		assertNotNull(c);
-		//TODO assertEquals("jt", c.get);
-		//once getters/setters are update and the db is loaded
+		assertEquals("jt", c.getId());
 		
 	}
 

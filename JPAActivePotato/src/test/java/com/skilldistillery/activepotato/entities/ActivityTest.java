@@ -44,8 +44,7 @@ class ActivityTest {
 	@Test
 	void test_User_entity_mapping() {
 		assertNotNull(a);
-		//TODO assertEquals("jt", a.get);
-		//once getters/setters are update and the db is loaded
+		assertEquals("jt", a.getName());
 	}
 
 }
