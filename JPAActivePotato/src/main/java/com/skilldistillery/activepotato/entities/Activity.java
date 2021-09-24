@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -35,6 +37,10 @@ public class Activity {
 
 	@OneToMany(mappedBy="activity")
 	private List<ActivityRating> activityRatings;
+	
+	@ManyToOne
+	@JoinColumn(name="activity_type_id")
+	private ActivityType activityType;
 	
 	public int getId() {
 		return id;
@@ -98,6 +104,14 @@ public class Activity {
 
 	public void setActivityRatings(List<ActivityRating> activityRatings) {
 		this.activityRatings = activityRatings;
+	}
+
+	public ActivityType getActivityType() {
+		return activityType;
+	}
+
+	public void setActivityType(ActivityType activityType) {
+		this.activityType = activityType;
 	}
 
 	@Override
