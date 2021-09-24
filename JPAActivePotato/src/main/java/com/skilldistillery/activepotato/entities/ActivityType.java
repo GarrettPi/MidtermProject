@@ -1,11 +1,13 @@
 package com.skilldistillery.activepotato.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class ActivityType {
@@ -24,12 +26,23 @@ public class ActivityType {
 		return id;
 	}
 
+	@OneToMany(mappedBy="activityType")
+	private List<Activity> activity;
+		
 	public void setId(int id) {
 		this.id = id;
 	}
 
 	public String getName() {
 		return name;
+	}
+
+	public List<Activity> getActivity() {
+		return activity;
+	}
+
+	public void setActivity(List<Activity> activity) {
+		this.activity = activity;
 	}
 
 	public void setName(String name) {
