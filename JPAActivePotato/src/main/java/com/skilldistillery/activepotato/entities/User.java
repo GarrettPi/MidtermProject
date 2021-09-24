@@ -37,6 +37,25 @@ public class User {
 	
 	private String role;
 
+	@OneToMany(mappedBy="user")
+	private List<Interest> interest;
+	
+	
+	public List<Interest> getInterest() {
+		return interest;
+	}
+
+	public void setInterest(List<Interest> interest) {
+		this.interest = interest;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
 
 	@OneToMany(mappedBy="user")
 	private List<Activity> activity;
