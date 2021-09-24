@@ -40,6 +40,15 @@ public class User {
 	@OneToMany(mappedBy="user")
 	private List<Interest> interest;
 	
+	@OneToMany(mappedBy="user")
+	private List<Activity> activity;
+	
+	@OneToMany(mappedBy="user")
+	private List<Comment> comments;
+	
+	
+	
+	
 	
 	public List<Interest> getInterest() {
 		return interest;
@@ -57,11 +66,6 @@ public class User {
 		this.comments = comments;
 	}
 
-	@OneToMany(mappedBy="user")
-	private List<Activity> activity;
-	
-	@OneToMany(mappedBy="user")
-	private List<Comment> comments;
 	
 	
 	public List<Activity> getActivity() {
