@@ -1,5 +1,9 @@
 package com.skilldistillery.activepotato.entities;
 
+import java.time.LocalDate;
+import java.util.Objects;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +16,99 @@ public class Activity {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
+	private String name;
 	
+	@Column(name="expected_duration")
+	private int expectedDuration;
+	
+	private String description;
+	private String url;
+	
+	@Column(name="image_url")
+	private String imageUrl;
 
+	@Column(name="create_date")
+	private LocalDate createDate;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getExpectedDuration() {
+		return expectedDuration;
+	}
+
+	public void setExpectedDuration(int expectedDuration) {
+		this.expectedDuration = expectedDuration;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	public LocalDate getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(LocalDate createDate) {
+		this.createDate = createDate;
+	}
+
+	@Override
+	public String toString() {
+		return "Activity [id=" + id + ", name=" + name + ", expectedDuration=" + expectedDuration + ", description="
+				+ description + ", url=" + url + ", imageUrl=" + imageUrl + ", createDate=" + createDate + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Activity other = (Activity) obj;
+		return id == other.id;
+	}
+	
+	
 }
+
