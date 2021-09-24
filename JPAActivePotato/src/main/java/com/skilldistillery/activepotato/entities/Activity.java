@@ -48,17 +48,8 @@ public class Activity {
 
 	@OneToMany(mappedBy = "activity")
 	private List<Comment> comments;
-
-	@OneToMany(mappedBy = "activity")
-	private List<Interest> interest;
-
-	public List<Interest> getInterest() {
-		return interest;
-	}
-
-	public void setInterest(List<Interest> interest) {
-		this.interest = interest;
-	}
+	
+	@OneToMany(mappedBy = "")
 
 	public int getId() {
 		return id;
