@@ -69,6 +69,7 @@ public class UserController {
 	@RequestMapping(path = "edit.do", method = RequestMethod.POST)
 	public ModelAndView submitEdits(User user, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		User u = userDao.findByUserId(0);
 		mv.setViewName("userHome");
 		return mv;
 	}
