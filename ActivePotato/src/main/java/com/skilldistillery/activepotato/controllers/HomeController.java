@@ -14,19 +14,27 @@ import com.skilldistillery.activepotato.data.UserDAO;
 public class HomeController {
 
 	@Autowired
-	private UserDAO dao;
+	private UserDAO userDao;
 
 	@RequestMapping(path = { "/", "home.do" })
 	public String home(Model model, HttpSession session) {
-		model.addAttribute("DEBUG", dao.findByUsername("jt"));
-		return "home";
+		if (session.getAttribute("user") == null) {
+			model.addAttribute("DEBUG", userDao.findByUsername("test"));
+			return "home";
+		} else {
+			return "userHome";
+		}
 	}
 
 	// Directs to page with login form
 	@RequestMapping(path = "loginpage.do")
 	public ModelAndView login(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("userLogin");
+		if (session.getAttribute("user") == null) {
+			mv.setViewName("userLogin");
+		} else {
+			mv.setViewName("userHome");
+		}
 		return mv;
 	}
 

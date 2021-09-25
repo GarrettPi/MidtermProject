@@ -14,7 +14,7 @@ import com.skilldistillery.activepotato.entities.Activity;
 public class ActivityController {
 
 	@Autowired
-	private ActivityDAO dao;
+	private ActivityDAO activityDao;
 
 	//Submits active search form and directs to results page
 	@RequestMapping(path = "searchActive.do")
