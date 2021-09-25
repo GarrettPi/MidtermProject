@@ -16,10 +16,7 @@
 	<form action="couch.do" method="POST">
 		Search Couch Potato! <br>
 		<input type="submit" />
-	</form>
-	
-${DEBUG }
-
+	</form>	
 <a href="loginpage.do">User Login</a><br/>
 <a href="couch.do">Indoor Search</a><br/>
 <a href="active.do">Outdoor Search</a><br/>

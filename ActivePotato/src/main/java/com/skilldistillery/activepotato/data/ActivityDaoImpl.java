@@ -1,5 +1,6 @@
 package com.skilldistillery.activepotato.data;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -61,27 +62,22 @@ public class ActivityDaoImpl implements ActivityDAO {
 	}
 
 	@Override
-	public Activity updateActivity(Activity activity) {
+	public Activity updateActivity(int id, Activity activity) {
 		
-		//Add to controller, then delete//
-//		Activity dbActivity = em.find(Activity.class, id);
-//		LocalDate now = LocalDate.now();
-//		dbActivity.setName(activity.getName());
-//		dbActivity.setExpectedDuration(activity.getExpectedDuration());
-//		dbActivity.setDescription(activity.getDescription());
-//		dbActivity.setUrl(activity.getUrl());
-//		dbActivity.setImageUrl(activity.getImageUrl());
-//		dbActivity.setActivityType(activity.getActivityType());
-//		dbActivity.setUser(activity.getUser());
-//		dbActivity.setLastUpdateDate(now);
-//		dbActivity.setComments(activity.getComments());
-//		dbActivity.setActivityRatings(activity.getActivityRatings());
-		//Add to controller, then delete//
-
-		em.persist(activity);
-		em.flush();
+		Activity dbActivity = em.find(Activity.class, id);
+		LocalDate now = LocalDate.now();
+		dbActivity.setName(activity.getName());
+		dbActivity.setExpectedDuration(activity.getExpectedDuration());
+		dbActivity.setDescription(activity.getDescription());
+		dbActivity.setUrl(activity.getUrl());
+		dbActivity.setImageUrl(activity.getImageUrl());
+		dbActivity.setActivityType(activity.getActivityType());
+		dbActivity.setUser(activity.getUser());
+		dbActivity.setLastUpdateDate(now);
+		dbActivity.setComments(activity.getComments());
+		dbActivity.setActivityRatings(activity.getActivityRatings());
 		
-		return activity;
+		return dbActivity;
 	}
 	
 }
