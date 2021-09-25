@@ -12,7 +12,8 @@
 
 ${DEBUG }
 
-<a href="createProfile.do">Create new profile</a><br/>
+<a href="login.do">User home</a><br/>
+<a href="registerpage.do">Create new profile</a><br/>
 <a href="home.do">Return to Home</a><br/>
 </body>
 </html>

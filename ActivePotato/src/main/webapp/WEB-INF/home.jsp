@@ -10,6 +10,11 @@
 <body>
 <h1>Welcome to Active Potato, you swamp monster!</h1>
 
+
 ${DEBUG }
+
+<a href="loginpage.do">User Login</a><br/>
+<a href="couch.do">Indoor Search</a><br/>
+<a href="active.do">Outdoor Search</a><br/>
 </body>
 </html>
