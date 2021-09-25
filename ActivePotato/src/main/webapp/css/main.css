@@ -1,0 +1,18 @@
+
+body {
+	background-color: lightgrey;
+	color: blue;
+}	
+
+
+.update{
+    display: inline-block;
+    clear: left;
+    width: 250px;
+    text-align: left;
+}
+
+.updateinput {
+  display: inline-block;
+  
+}
