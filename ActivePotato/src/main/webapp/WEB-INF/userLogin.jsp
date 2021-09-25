@@ -11,8 +11,18 @@
 <h1>Please Login!</h1>
 
 ${DEBUG }
-
-<a href="login.do">User home</a><br/>
+		<form action="active.do" method="POST">
+			Search Active Potato!<br>
+			 <input type="submit" />
+		</form>
+		<form action="couch.do" method="POST">
+			Search Couch Potato! <br><input type="submit" />
+		</form>
+		<form action="login.do" method="POST">
+			Straight to user home for testing purposes! <br><input type="submit" />
+		</form>
+		
+<!-- <a href="login.do">User home</a><br/> -->
 <a href="registerpage.do">Create new profile</a><br/>
 <a href="home.do">Return to Home</a><br/>
 </body>
