@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Persistence;
 
 import org.junit.jupiter.api.AfterAll;
@@ -42,10 +44,23 @@ class CommentTest {
 	}
 
 	@Test
-	void test_User_entity_mapping() {
+	void test_comment_entity_mapping() {
 		assertNotNull(c);
 		assertEquals("it was great", c.getComment());
 		
 	}
 
+	@Test
+	void test_comment_ManyToOne_activity_mapping() {
+		assertNotNull(c);
+		assertEquals("Movie", c.getActivity().getActivityType().getName());
+		
+	}
+
+	@Test
+	void test_comment_ManyToOne_user_mapping() {
+		assertNotNull(c);
+		assertEquals("insert", c.getUser().getFirstName());
+		
+	}
 }
