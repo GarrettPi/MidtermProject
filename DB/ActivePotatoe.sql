@@ -78,6 +78,7 @@ CREATE TABLE IF NOT EXISTS `activity` (
   `activity_type_id` INT NOT NULL,
   `activity_category_id` INT NOT NULL,
   `create_date` DATE NOT NULL,
+  `last_update_date` DATE NULL,
   `user_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_activity_activity_type1_idx` (`activity_type_id` ASC),
@@ -350,7 +351,7 @@ INSERT INTO `activity` (`id`, `name`, `expected_duration`, `description`, `url`,
 INSERT INTO `activity` (`id`, `name`, `expected_duration`, `description`, `url`, `image_url`, `activity_type_id`, `activity_category_id`, `create_date`, `user_id`) VALUES (88, 'Spencer', 111, '', 'https://www.imdb.com/title/tt12536294/', '', 1, 1, '2021-09-24', 1);
 INSERT INTO `activity` (`id`, `name`, `expected_duration`, `description`, `url`, `image_url`, `activity_type_id`, `activity_category_id`, `create_date`, `user_id`) VALUES (89, 'Interstellar', 169, '', 'https://www.imdb.com/title/tt0816692/', '', 1, 1, '2021-09-24', 1);
 INSERT INTO `activity` (`id`, `name`, `expected_duration`, `description`, `url`, `image_url`, `activity_type_id`, `activity_category_id`, `create_date`, `user_id`) VALUES (90, 'Luca', 95, '', 'https://www.imdb.com/title/tt12801262/', '', 1, 1, '2021-09-24', 1);
-INSERT INTO `activity` (`id`, `name`, `expected_duration`, `description`, `url`, `image_url`, `activity_type_id`, `activity_category_id`, `create_date`, `user_id`) VALUES (91, 'Killers of the Flower Moon', null, '', 'https://www.imdb.com/title/tt5537002/', '', 1, 1, '2021-09-24', 1);
+INSERT INTO `activity` (`id`, `name`, `expected_duration`, `description`, `url`, `image_url`, `activity_type_id`, `activity_category_id`, `create_date`, `user_id`) VALUES (91, 'Killers of the Flower Moon', 91, '', 'https://www.imdb.com/title/tt5537002/', '', 1, 1, '2021-09-24', 1);
 INSERT INTO `activity` (`id`, `name`, `expected_duration`, `description`, `url`, `image_url`, `activity_type_id`, `activity_category_id`, `create_date`, `user_id`) VALUES (92, 'Lucifer', 42, '', 'https://www.imdb.com/title/tt4052886/', '', 2, 1, '2021-09-24', 1);
 INSERT INTO `activity` (`id`, `name`, `expected_duration`, `description`, `url`, `image_url`, `activity_type_id`, `activity_category_id`, `create_date`, `user_id`) VALUES (93, 'Sex Education', 45, '', 'https://www.imdb.com/title/tt7767422/', '', 2, 1, '2021-09-24', 1);
 INSERT INTO `activity` (`id`, `name`, `expected_duration`, `description`, `url`, `image_url`, `activity_type_id`, `activity_category_id`, `create_date`, `user_id`) VALUES (94, 'What If...?', null, '', 'https://www.imdb.com/title/tt10168312/', '', 2, 1, '2021-09-24', 1);
@@ -671,4 +672,3 @@ INSERT INTO `experience` (`id`, `rating`, `interest_id`, `experience_date`) VALU
 INSERT INTO `experience` (`id`, `rating`, `interest_id`, `experience_date`) VALUES (3, 5, 3, '2021-09-24');
 
 COMMIT;
-

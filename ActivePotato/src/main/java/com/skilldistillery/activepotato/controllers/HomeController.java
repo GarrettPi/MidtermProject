@@ -14,11 +14,11 @@ import com.skilldistillery.activepotato.data.UserDAO;
 public class HomeController {
 
 	@Autowired
-	private UserDAO userDao;
+	private UserDAO dao;
 
 	@RequestMapping(path = { "/", "home.do" })
 	public String home(Model model, HttpSession session) {
-		model.addAttribute("DEBUG", userDao.findByUsername("jt"));
+		model.addAttribute("DEBUG", dao.findByUsername("jt"));
 		return "home";
 	}
 
