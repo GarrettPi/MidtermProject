@@ -26,7 +26,7 @@ public class HomeController {
 	@RequestMapping(path = "loginpage.do")
 	public ModelAndView login(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-
+		mv.setViewName("userLogin");
 		return mv;
 	}
 
@@ -34,7 +34,7 @@ public class HomeController {
 	@RequestMapping(path = "couch.do")
 	public ModelAndView couch(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-
+		mv.setViewName("couchPotatoPath/indoorSearch");
 		return mv;
 	}
 
@@ -42,7 +42,7 @@ public class HomeController {
 	@RequestMapping(path = "active.do")
 	public ModelAndView active(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-
+		mv.setViewName("activePotatoPath/outdoorSearch");
 		return mv;
 	}
 }
