@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,26 +8,24 @@
 <title>Active Potato Login</title>
 </head>
 <body>
-<h1>Please Login!</h1>
+	<h1>Please Login!</h1>
 
-${DEBUG }
+	${DEBUG }
 
 
-		<form action="login.do" method="POST">
-			Enter username:<br> <input type="text" name="userName" />
-			<input type="submit" />
-		</form>
-				<form action="login.do" method="POST">
-			Enter password:<br> <input type="text" name="userPassword" />
-			<input type="submit"/>
-		</form>
+	<form action="login.do" method="POST">
 		
-		<form action="login.do" method="POST">
-			Straight to user home for testing purposes! <br><input type="submit" />
-		</form>
-		
-<!-- <a href="login.do">User home</a><br/> -->
-<a href="registerpage.do">Create new profile</a><br/>
-<a href="home.do">Return to Home</a><br/>
+	Enter username: <input type="text" value ="userName" name="userName" />
+	<br>
+	Enter password: <input type="text" value ="userPassword" name="userPassword" />
+	<br> 
+	
+	<input type="submit" name="submit" />
+	</form>
+
+	<a href="registerpage.do">Create new profile</a>
+	<br />
+	<a href="home.do">Return to Home</a>
+	<br />
 </body>
 </html>
