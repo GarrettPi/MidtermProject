@@ -44,7 +44,7 @@ class ExperienceTest {
 	}
 
 	@Test
-	void test_User_entity_mapping() {
+	void test_experience_entity_mapping() {
 		assertNotNull(e);
 		assertEquals(1, e.getRating());
 	}

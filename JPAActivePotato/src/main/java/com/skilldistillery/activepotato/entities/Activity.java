@@ -24,7 +24,7 @@ public class Activity {
 	private String name;
 
 	@Column(name = "expected_duration")
-	private int expectedDuration;
+	private Integer expectedDuration;
 
 	private String description;
 	private String url;
@@ -77,11 +77,11 @@ public class Activity {
 		this.name = name;
 	}
 
-	public int getExpectedDuration() {
+	public Integer getExpectedDuration() {
 		return expectedDuration;
 	}
 
-	public void setExpectedDuration(int expectedDuration) {
+	public void setExpectedDuration(Integer expectedDuration) {
 		this.expectedDuration = expectedDuration;
 	}
 

@@ -42,7 +42,7 @@ class ActivityTest {
 	}
 
 	@Test
-	void test_User_entity_mapping() {
+	void test_activity_entity_mapping() {
 		assertNotNull(a);
 		assertEquals("Malignant", a.getName());
 	}
