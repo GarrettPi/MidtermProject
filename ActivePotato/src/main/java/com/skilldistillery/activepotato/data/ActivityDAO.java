@@ -10,6 +10,6 @@ public interface ActivityDAO {
 	public Activity findActivityById(int id);
 	public Activity addNewActivity(Activity activity);
 	public boolean deleteActivity(int id);
-	public Activity updateActivity(Activity activity);
+	public Activity updateActivity(int id, Activity activity);
 	
 }
