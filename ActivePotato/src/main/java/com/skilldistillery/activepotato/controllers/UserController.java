@@ -15,12 +15,13 @@ import com.skilldistillery.activepotato.entities.User;
 public class UserController {
 
 	@Autowired
-	private UserDAO userDao;
+	private UserDAO dao;
 
 	//Submits login form and directs to user home page
 	@RequestMapping(path = "login.do", method=RequestMethod.POST)
 	public ModelAndView login(User user, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+//		User u =
 		mv.setViewName("userHome");
 		return mv;
 	}

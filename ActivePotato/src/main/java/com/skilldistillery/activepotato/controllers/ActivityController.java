@@ -7,14 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.skilldistillery.activepotato.data.UserDAO;
+import com.skilldistillery.activepotato.data.ActivityDAO;
 import com.skilldistillery.activepotato.entities.Activity;
 
 @Controller
 public class ActivityController {
 
 	@Autowired
-	private UserDAO userDao;
+	private ActivityDAO dao;
 
 	//Submits active search form and directs to results page
 	@RequestMapping(path = "searchActive.do")
