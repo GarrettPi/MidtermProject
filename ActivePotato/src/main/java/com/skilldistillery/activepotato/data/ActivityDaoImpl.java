@@ -45,7 +45,7 @@ public class ActivityDaoImpl implements ActivityDAO {
 	public Activity addNewActivity(Activity activity) {
 		Activity dbActivity = activity;
 		em.persist(dbActivity);
-				
+		em.flush();		
 		return dbActivity;
 	}
 
