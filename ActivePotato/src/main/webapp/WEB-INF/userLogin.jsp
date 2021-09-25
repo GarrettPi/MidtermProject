@@ -12,6 +12,16 @@
 
 ${DEBUG }
 
+
+		<form action="login.do" method="POST">
+			Enter username:<br> <input type="text" name="userName" />
+			<input type="submit" />
+		</form>
+				<form action="login.do" method="POST">
+			Enter password:<br> <input type="text" name="userPassword" />
+			<input type="submit"/>
+		</form>
+		
 		<form action="login.do" method="POST">
 			Straight to user home for testing purposes! <br><input type="submit" />
 		</form>
