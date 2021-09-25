@@ -7,6 +7,8 @@ import java.time.LocalDate;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Persistence;
 
 import org.junit.jupiter.api.AfterAll;
@@ -47,6 +49,12 @@ class ExperienceTest {
 	void test_experience_entity_mapping() {
 		assertNotNull(e);
 		assertEquals(1, e.getRating());
+	}
+	
+	@Test
+	void test_experience_ManyToOne_interest_mapping() {
+		assertNotNull(e);
+		assertEquals(1, e.getInterest().getId());
 	}
 
 }
