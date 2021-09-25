@@ -34,7 +34,10 @@ public class Activity {
 
 	@Column(name = "create_date")
 	private LocalDate createDate;
-
+	
+	@Column(name = "last_update_date")
+	private LocalDate lastUpdateDate;
+	
 	@OneToMany(mappedBy = "activity")
 	private List<ActivityRating> activityRatings;
 
@@ -147,6 +150,14 @@ public class Activity {
 
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
+	}
+
+	public LocalDate getLastUpdateDate() {
+		return lastUpdateDate;
+	}
+
+	public void setLastUpdateDate(LocalDate lastUpdateDate) {
+		this.lastUpdateDate = lastUpdateDate;
 	}
 
 	@Override
