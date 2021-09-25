@@ -11,6 +11,6 @@ public interface UserDAO {
 	public List<User> findAllUsers();
 	public User createUser(User user);
 	public User deleteUser(User user);
-	public User updateUser(User user);
+	public User updateUser(int id, User user);
 	public User findByUsernameAndPassword(String username, String password);
 }
