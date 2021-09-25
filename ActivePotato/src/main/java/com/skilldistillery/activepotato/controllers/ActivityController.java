@@ -1,5 +1,7 @@
 package com.skilldistillery.activepotato.controllers;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +17,7 @@ public class ActivityController {
 
 	//Submits active search form and directs to results page
 	@RequestMapping(path = "searchActive.do")
-	public ModelAndView searchActive() {
+	public ModelAndView searchActive(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 
 		return mv;
@@ -23,7 +25,7 @@ public class ActivityController {
 
 	//Submits couch search form and directs to results page
 	@RequestMapping(path = "searchCouch.do")
-	public ModelAndView searchCouch() {
+	public ModelAndView searchCouch(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 
 		return mv;
@@ -31,7 +33,7 @@ public class ActivityController {
 
 	//Submits selected active result form and directs to activity details page
 	@RequestMapping(path = "selectActive.do")
-	public ModelAndView selectActive() {
+	public ModelAndView selectActive(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 
 		return mv;
@@ -39,7 +41,7 @@ public class ActivityController {
 
 	//Submits selected couch result form and directs to activity details page
 	@RequestMapping(path = "selectCouch.do")
-	public ModelAndView selectCouch() {
+	public ModelAndView selectCouch(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 
 		return mv;
