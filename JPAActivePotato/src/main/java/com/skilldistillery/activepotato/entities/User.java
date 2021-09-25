@@ -36,6 +36,10 @@ public class User {
 	private boolean enabled;
 	
 	private String role;
+	
+	@OneToMany(mappedBy="user")
+	private List<Interest> interestList;
+
 
 	@OneToMany(mappedBy="user")
 	private List<Activity> activity;
@@ -121,6 +125,14 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public List<Interest> getInterestList() {
+		return interestList;
+	}
+	
+	public void setInterestList(List<Interest> interestList) {
+		this.interestList = interestList;
 	}
 
 	@Override

@@ -33,6 +33,7 @@ public class Interest {
 	@OneToMany(mappedBy="interest")
 	private List<Experience> experience;
 	
+		
 	public User getUser() {
 		return user;
 	}
