@@ -20,7 +20,7 @@ public class ActivityController {
 	@RequestMapping(path = "searchActive.do")
 	public ModelAndView searchActive(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-
+		mv.setViewName("activePotatoPath/activityListOutdoor");
 		return mv;
 	}
 
@@ -28,7 +28,7 @@ public class ActivityController {
 	@RequestMapping(path = "searchCouch.do")
 	public ModelAndView searchCouch(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-
+		mv.setViewName("couchPotatoPath/activityListIndoor");
 		return mv;
 	}
 
@@ -36,7 +36,7 @@ public class ActivityController {
 	@RequestMapping(path = "selectActive.do")
 	public ModelAndView selectActive(Activity activity, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-
+		mv.setViewName("activePotatoPath/detailsPageOutdoor");
 		return mv;
 	}
 
@@ -44,7 +44,7 @@ public class ActivityController {
 	@RequestMapping(path = "selectCouch.do")
 	public ModelAndView selectCouch(Activity activity, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-
+		mv.setViewName("couchPotatoPath/detailsPageIndoor");
 		return mv;
 	}
 
