@@ -70,8 +70,9 @@ public class UserController {
 	public ModelAndView submitEdits(User user, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		User sessionUser = (User) session.getAttribute("user");
-		User u = userDao.findByUserId(sessionUser.getId());
 		User updatedUser = userDao.updateUser(sessionUser.getId(), user);
+		session.removeAttribute("user");
+		session.setAttribute("user", updatedUser);
 		mv.setViewName("userHome");
 		return mv;
 	}
