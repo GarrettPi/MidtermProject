@@ -13,6 +13,7 @@ public class UserController {
 	@Autowired
 	private UserDAO userDao;
 
+	//Submits login form and directs to user home page
 	@RequestMapping(path = "login.do")
 	public ModelAndView login() {
 		ModelAndView mv = new ModelAndView();
@@ -20,6 +21,7 @@ public class UserController {
 		return mv;
 	}
 
+	//Directs to user registration page
 	@RequestMapping(path = "registerpage.do")
 	public ModelAndView newUser() {
 		ModelAndView mv = new ModelAndView();
@@ -27,17 +29,25 @@ public class UserController {
 		return mv;
 	}
 
+	//Submits registration form and directs to user home page
 	@RequestMapping(path = "register.do")
 	public ModelAndView register() {
 		ModelAndView mv = new ModelAndView();
 
 		return mv;
 	}
-
+	//Directs to edit profile page
 	@RequestMapping(path = "editProfile.do")
 	public ModelAndView editProfile() {
 		ModelAndView mv = new ModelAndView();
 
+		return mv;
+	}
+	//Submits edit details form and directs to user home page
+	@RequestMapping(path = "edit.do")
+	public ModelAndView submitEdits() {
+		ModelAndView mv = new ModelAndView();
+		
 		return mv;
 	}
 
