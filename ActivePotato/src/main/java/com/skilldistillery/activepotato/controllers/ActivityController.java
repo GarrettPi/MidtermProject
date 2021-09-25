@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.activepotato.data.UserDAO;
+import com.skilldistillery.activepotato.entities.Activity;
 
 @Controller
 public class ActivityController {
@@ -33,7 +34,7 @@ public class ActivityController {
 
 	//Submits selected active result form and directs to activity details page
 	@RequestMapping(path = "selectActive.do")
-	public ModelAndView selectActive(HttpSession session) {
+	public ModelAndView selectActive(Activity activity, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 
 		return mv;
@@ -41,7 +42,7 @@ public class ActivityController {
 
 	//Submits selected couch result form and directs to activity details page
 	@RequestMapping(path = "selectCouch.do")
-	public ModelAndView selectCouch(HttpSession session) {
+	public ModelAndView selectCouch(Activity activity, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 
 		return mv;

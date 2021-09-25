@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.activepotato.data.UserDAO;
+import com.skilldistillery.activepotato.entities.User;
 
 @Controller
 public class UserController {
@@ -17,7 +18,7 @@ public class UserController {
 
 	//Submits login form and directs to user home page
 	@RequestMapping(path = "login.do")
-	public ModelAndView login(HttpSession session) {
+	public ModelAndView login(User user, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 
 		return mv;
@@ -33,7 +34,7 @@ public class UserController {
 
 	//Submits registration form and directs to user home page
 	@RequestMapping(path = "register.do")
-	public ModelAndView register(HttpSession session) {
+	public ModelAndView register(User user, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 
 		return mv;
@@ -47,7 +48,7 @@ public class UserController {
 	}
 	//Submits edit details form and directs to user home page
 	@RequestMapping(path = "edit.do")
-	public ModelAndView submitEdits(HttpSession session) {
+	public ModelAndView submitEdits(User user, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		
 		return mv;
