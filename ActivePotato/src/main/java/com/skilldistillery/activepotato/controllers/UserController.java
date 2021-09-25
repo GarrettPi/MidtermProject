@@ -59,6 +59,8 @@ public class UserController {
 		ModelAndView mv = new ModelAndView();
 		if (session.getAttribute("user") != null) {
 			mv.setViewName("editProfile");
+			User user = (User) session.getAttribute("user");
+			mv.addObject("user", user);
 		} else {
 			mv.setViewName("userLogin");
 		}
