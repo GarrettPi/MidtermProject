@@ -50,9 +50,6 @@ class ActivityTypeTest {
 		assertEquals("Movie", at.getName());
 	}
 	
-//	@OneToMany(mappedBy="activityType")
-//	private List<Activity> activity;
-	
 	@Test
 	void test_activitytype_OneToMany_activity_mapping() {
 		assertNotNull(at);

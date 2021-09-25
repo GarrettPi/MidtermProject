@@ -3,8 +3,11 @@ package com.skilldistillery.activepotato.entities;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.OneToMany;
 import javax.persistence.Persistence;
 
 import org.junit.jupiter.api.AfterAll;
@@ -45,6 +48,19 @@ class UserTest {
 	void test_User_entity_mapping() {
 		assertNotNull(u);
 		assertEquals("insert", u.getUsername());
+	}
+	
+	
+	@Test
+	void test_User_OneToMany_activity_mapping() {
+		assertNotNull(u);
+		assertEquals(188, u.getActivity().size());
+	}
+	
+	@Test
+	void test_User_OneToMany_comment_mapping() {
+		assertNotNull(u);
+		assertEquals("it was great", u.getComments().get(0).getComment());
 	}
 
 }
