@@ -44,7 +44,7 @@ class CommentTest {
 	@Test
 	void test_User_entity_mapping() {
 		assertNotNull(c);
-		assertEquals("jt", c.getId());
+		assertEquals("it was great", c.getComment());
 		
 	}
 

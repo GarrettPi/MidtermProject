@@ -44,7 +44,7 @@ class ActivityRatingTest {
 	@Test
 	void test_User_entity_mapping() {
 		assertNotNull(ar);
-		assertEquals("jt", ar.getName());
+		assertEquals("IMDb", ar.getName());
 	}
 
 }

@@ -44,7 +44,7 @@ class ActivityTypeTest {
 	@Test
 	void test_User_entity_mapping() {
 		assertNotNull(at);
-		assertEquals("jt", at.getName());
+		assertEquals("Movie", at.getName());
 	}
 
 }

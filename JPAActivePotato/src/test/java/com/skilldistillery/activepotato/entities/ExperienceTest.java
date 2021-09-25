@@ -3,6 +3,8 @@ package com.skilldistillery.activepotato.entities;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.time.LocalDate;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -44,7 +46,7 @@ class ExperienceTest {
 	@Test
 	void test_User_entity_mapping() {
 		assertNotNull(e);
-		assertEquals("jt", e.getId());
+		assertEquals(1, e.getRating());
 	}
 
 }
