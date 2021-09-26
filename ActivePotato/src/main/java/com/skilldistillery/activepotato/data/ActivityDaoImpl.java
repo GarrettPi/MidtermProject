@@ -19,6 +19,42 @@ public class ActivityDaoImpl implements ActivityDAO {
 	private EntityManager em;
 
 	@Override
+	public List<Activity> findActiveActivity(String keyword) {
+		List<Activity> activityList = null;
+		try {
+			
+		String query = "SELECT a FROM Activity a "
+						+ "JOIN ActivityCategory ac ON a.activityCategoryId = ac.id "
+						+ "WHERE ac.id = 2 AND WHERE a.name LIKE :keyword";
+		activityList = em.createQuery(query, Activity.class)
+					.setParameter("keyword", "%" + keyword + "%")
+					.getResultList();
+		} catch (Exception e) {
+			System.out.println("No activity found matching: " + keyword);
+		
+		}	
+		
+		return activityList;
+	}
+	
+	@Override
+	public List<Activity> findCouchActivity(String keyword) {
+		List<Activity> activityList = null;
+		try {
+		String query = "SELECT a FROM Activity a "
+				+ "JOIN ActivityCategory ac ON a.activityCategoryId = ac.id "
+				+ "WHERE ac.id = 1 AND WHERE a.name LIKE :keyword";
+		activityList = em.createQuery(query, Activity.class)
+			.setParameter("keyword", "%" + keyword + "%")
+			.getResultList();
+		} catch (Exception e) {
+			System.out.println("No activity found matching: " + keyword);
+
+			}	
+				return activityList;
+	}
+
+	@Override
 	public List<Activity> findActivityByName(String search) {
 		List<Activity> activityList = null;
 		try {
@@ -79,5 +115,6 @@ public class ActivityDaoImpl implements ActivityDAO {
 		
 		return dbActivity;
 	}
+
 	
 }
