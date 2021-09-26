@@ -51,11 +51,13 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(255) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
+  `password_salt` VARCHAR(255) NULL,
   `first_name` VARCHAR(255) NULL DEFAULT NULL,
   `last_name` VARCHAR(255) NULL DEFAULT NULL,
   `email` VARCHAR(255) NULL DEFAULT NULL,
   `enabled` TINYINT NULL DEFAULT NULL,
   `role` VARCHAR(255) NULL DEFAULT NULL,
+  `profile_url` VARCHAR(1000) NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC))
 ENGINE = InnoDB
