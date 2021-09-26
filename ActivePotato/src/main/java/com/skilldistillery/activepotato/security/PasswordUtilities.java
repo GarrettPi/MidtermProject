@@ -9,7 +9,7 @@ import java.util.Random;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
  
-public class PasswordManager {
+public class PasswordUtilities {
     
     private static final Random RANDOM = new SecureRandom();
     private static final String ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -48,18 +48,18 @@ public class PasswordManager {
  
         return returnValue;
     }
-    
-    public static boolean verifyUserPassword(String providedPassword,
-            String securedPassword, String salt)
-    {
-        boolean returnValue = false;
-        
-        // Generate New secure password with the same salt
-        String newSecurePassword = generateSecurePassword(providedPassword, salt);
-        
-        // Check if two passwords are equal
-        returnValue = newSecurePassword.equalsIgnoreCase(securedPassword);
-        
-        return returnValue;
-    }
+//    
+//    public static boolean verifyUserPassword(String providedPassword,
+//            String securedPassword, String salt)
+//    {
+//        boolean returnValue = false;
+//        
+//        // Generate New secure password with the same salt
+//        String newSecurePassword = generateSecurePassword(providedPassword, salt);
+//        
+//        // Check if two passwords are equal
+//        returnValue = newSecurePassword.equalsIgnoreCase(securedPassword);
+//        
+//        return returnValue;
+//    }
 }
