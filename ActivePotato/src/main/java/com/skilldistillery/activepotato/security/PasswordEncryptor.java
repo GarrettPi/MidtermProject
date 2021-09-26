@@ -10,4 +10,13 @@ public class PasswordEncryptor {
 		password = pu.generateSecurePassword(input, salt);
 		return password;
 	}
+	
+//	public static void main(String[] args) {
+//		PasswordUtilities pu = new PasswordUtilities();
+//
+//		String salt = pu.getSalt(30);
+//		System.out.println(salt);
+//		
+//		System.out.println(pu.generateSecurePassword("123", salt));
+//	}
 }
