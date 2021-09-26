@@ -19,8 +19,11 @@
 		Search Couch Potato! <br>
 		<input type="submit" />
 	</form>
-	
-	<a href="editProfile.do">Edit profile settings</a>
+	<form action="editProfile.do" >
+		<input type="hidden" name="user" value="${user}" />
+			<input class="btn btn-primary" type="submit" value="Edit Profile" />
+	</form> 
+	<!-- <a href="editProfile.jsp">Edit profile settings</a> -->
 	<br />
 	<a href="home.do">Return to Home</a>
 	<br />
