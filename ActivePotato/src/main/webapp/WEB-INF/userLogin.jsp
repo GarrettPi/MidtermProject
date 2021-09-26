@@ -5,27 +5,45 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Active Potato Login</title>
+<jsp:include page="bootstrapHead.jsp"></jsp:include>
+<style>
+#right {
+	text-align: right;
+}
+
+#center {
+	text-align: center;
+}
+
+#left {
+	text-align: left;
+}
+</style>
+<title>Welcome to Active Potato</title>
+
 </head>
+
 <body>
-	<h1>Please Login!</h1>
 
-	${DEBUG }
+	<div id="center">
 
-
-	<form action="login.do" method="POST">
-		
-	Enter username: <input type="text" value ="Username" name="userName" />
-	<br>
-	Enter password: <input type="text" value ="Password" name="userPassword" />
-	<br> 
+		<h1>User Login</h1>
 	
+	<br>
+	<form action="login.do" method="POST">
+	<label class="update">Enter Username:</label><input class="updateinput" type="text" value ="Username" name="userName" />
+	<br>
+	<br>
+	<label class="update">Enter Password:</label><input class="updateinput" type="text" value ="Password" name="userPassword" />
+	<br> 
+	<br> 
 	<input type="submit" name="submit" />
 	</form>
-
+	<br>
 	<a href="registerpage.do">Create new profile</a>
-	<br />
-	<a href="home.do">Return to Home</a>
-	<br />
+	<br>
+	<br>
+	<a href="home.do">Return Home</a>
+	</div>
 </body>
 </html>

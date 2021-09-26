@@ -43,10 +43,10 @@
 				<label class="update">User Name: </label><input class="updateinput"	value="${user.username}" type="text" name="username"> 
 				<br> 
 				<br> 
-				<label class="update">Current Password: </label><input class="updateinput" value="${user.password}" type="password"	name="password"> 
+				<label class="update">New Password: </label><input class="updateinput" value="${user.password}" type="password"	name="password"> 
 				<br> 
 				<br> 
-				<label class="update">Verify Password: </label><input class="updateinput" type="password" name="password2" required> 
+				<label class="update">Re Type Password: </label><input class="updateinput" type="password" name="password2" required> 
 				<br> 
 				<br> 
 				<label class="update">Email Address: </label><input	class="updateinput" value="${user.email}" type="text" name="email">
