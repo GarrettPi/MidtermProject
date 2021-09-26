@@ -25,8 +25,8 @@ public class User {
 	
 	private String password;
 	
-//	@Column(name="password_salt")
-//	private String salt;
+	@Column(name="password_salt")
+	private String salt;
 	
 	@Column(name="first_name")
 	private String firstName;
@@ -39,6 +39,10 @@ public class User {
 	private boolean enabled;
 	
 	private String role;
+	
+	@Column(name="profile_url")
+	private String profileUrl;
+	
 	
 	@OneToMany(mappedBy="user")
 	private List<Interest> interestList;
@@ -90,13 +94,13 @@ public class User {
 		this.password = password;
 	}
 
-//	public String getSalt() {
-//		return salt;
-//	}
-//
-//	public void setSalt(String salt) {
-//		this.salt = salt;
-//	}
+	public String getSalt() {
+		return salt;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
 
 	public boolean isEnabled() {
 		return enabled;
@@ -144,6 +148,14 @@ public class User {
 	
 	public void setInterestList(List<Interest> interestList) {
 		this.interestList = interestList;
+	}
+
+	public String getProfileUrl() {
+		return profileUrl;
+	}
+
+	public void setProfileUrl(String profileUrl) {
+		this.profileUrl = profileUrl;
 	}
 
 	@Override

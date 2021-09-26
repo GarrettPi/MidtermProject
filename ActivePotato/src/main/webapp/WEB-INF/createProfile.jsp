@@ -45,6 +45,10 @@
 		<label class="update">Email Address: </label><input class="updateinput" type="text" name="email">
 		<br>
 		<br>
+		<label class="update">Profile Image URL: </label><input class="updateinput" type="text" name="profileUrl">
+		<br>
+		<br>
+		
 				
 		<input class="btn btn-primary" type="submit" value="Submit User Registration"> 
 			
