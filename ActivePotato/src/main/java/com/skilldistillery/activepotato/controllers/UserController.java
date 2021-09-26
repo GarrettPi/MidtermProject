@@ -69,12 +69,17 @@ public class UserController {
 
 	// Submits edit details form and directs to user home page
 	@RequestMapping(path = "edit.do", method = RequestMethod.POST)
-	public ModelAndView submitEdits(User user, HttpSession session) {
+	public ModelAndView submitEdits(String password2, User user, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		User sessionUser = (User) session.getAttribute("user");
-		User updatedUser = userDao.updateUser(sessionUser.getId(), user);
-		session.setAttribute("user", updatedUser);
-		mv.setViewName("userHome");
+		if (user.getPassword().equals(password2)) {
+			User sessionUser = (User) session.getAttribute("user");
+			User updatedUser = userDao.updateUser(sessionUser.getId(), user);
+			session.setAttribute("user", updatedUser);
+			mv.setViewName("userHome");
+		} else {
+			mv.setViewName("editProfile");
+			System.err.println("password mismatch");
+		}
 		return mv;
 	}
 
