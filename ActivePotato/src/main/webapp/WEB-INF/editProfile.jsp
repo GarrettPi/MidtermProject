@@ -47,7 +47,7 @@
 				<label class="update">User Name: </label><input class="updateinput"	value="${user.username}" type="text" name="username"> 
 				<br> 
 				<br> 
-				<label class="update">New Password: </label><input class="updateinput" value="${user.password}" type="password"	name="password"> 
+				<label class="update">New Password: </label><input class="updateinput"  type="password"	name="password1"> 
 				<br> 
 				<br> 
 				<label class="update">Re Type Password: </label><input class="updateinput" type="password" name="password2" required> 

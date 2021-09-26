@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.activepotato.entities.User;
+import com.skilldistillery.activepotato.security.PasswordUtilities;
 
 @Service
 @Transactional
@@ -83,6 +84,10 @@ public class UserDaoImpl implements UserDAO {
 		User dbUser = em.find(User.class, id);
 		dbUser.setUsername(user.getUsername());
 		dbUser.setPassword(user.getPassword());
+		dbUser.setSalt(PasswordUtilities.getSalt(30));
+		String newPassword = user.getPassword();
+		System.out.println("******************************************"+newPassword+"*****************************************************");
+		dbUser.setPassword(PasswordUtilities.generateSecurePassword(user.getPassword(), dbUser.getSalt()));
 		dbUser.setFirstName(user.getFirstName());
 		dbUser.setLastName(user.getLastName());
 		dbUser.setEmail(user.getEmail());
