@@ -9,26 +9,15 @@
 </head>
 <body>
 	<h1>Show Matching Indoor Activities</h1>
-		Checked Print
-		<c:if test="${! empty(a)}  ">
-		${a}
-		</c:if>
-		
-<%-- 		<table>
-			<c:forEach var="activity" items="${a}">
-				<tr>
-					<td>${activity.id}</td>
- <td><a href="getPokemon.do?pid=${p.id}">${p.name}</a></td>
-				</tr>
-			</c:forEach>
-			</table>
-		</c:if>
-		<c:if test="${empty a}">
-			<p>No Activity Found</p>
-		</c:if> --%>
-		
-	Default print	
-	${a}
+	Checked Print 
+	<c:if test="${not empty a }">
+	${a }
+	</c:if>
+	<br>
+	Default print ${a}
+	<c:if test="${empty a }">
+	Empty
+	</c:if>
 
 	<a href="home.do">Return to Home</a>
 	<br />
