@@ -5,19 +5,46 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Active Potato Login</title>
+<jsp:include page="bootstrapHead.jsp"></jsp:include>
+<style>
+#right {
+	text-align: right;
+}
+
+#center {
+	text-align: center;
+}
+
+#left {
+	text-align: left;
+}
+</style>
+
+<title>Welcome to Active Potato</title>
+
 </head>
 <body>
-	<h1>User Home</h1>
+	<div id="center">
 
-	<form action="active.do" method="POST">
-		Search Active Potato!<br> <input type="submit" />
+	<h1>User Home</h1>
+	<br>
+
+		<img src="${user.profileUrl}" width="100" height="100" />
+		<br>
+		<br>
+	<b> Welcome ${user.firstName} ${user.lastName}!</b>		
+		<br>
+		<br>
+	</div>
+	<div id="center">
+		<form action="active.do" method="POST">
+		<label class="update"><b>Search Active Potato!</b></label><input class="updateinput"type="text" name="keyword" /><input
+			type="submit" />
 	</form>
 	<br>
-	<br>
 	<form action="couch.do" method="POST">
-		Search Couch Potato! <br>
-		<input type="submit" />
+		<label class="update"><b>Search Couch Potato!</b></label> <input class="updateinput" type="text" name="keyword" /><input
+			type="submit" />
 	</form>
 	<br>
 	<br>
@@ -29,5 +56,7 @@
 	<br>
 	<a href="home.do">Return to Home</a>
 	<br />
+	</div>
+	
 </body>
 </html>

@@ -25,16 +25,20 @@
 
 <body>
 
+		
 	<div id="center">
-
 		<h1>Change User Profile</h1>
-
-
+		
+		<img src="${user.profileUrl}" width="100" height="100" />
+		<br>
+	<b> Welcome ${user.firstName} ${user.lastName}!</b>		
+		<br>
+	</div>
+	<div id="center">
 		<form action="edit.do" method="POST">
 			<br> 
-			<label class="update">First Name: </label><input
-				class="updateinput" value="${user.firstName}" type="text"
-				name="firstName"> 
+			 
+				<label class="update">First Name: </label><input class="updateinput" value="${user.firstName}" type="text"name="firstName"> 
 				<br> 
 				<br> 
 				<label class="update">Last Name: </label><input class="updateinput" value="${user.lastName}" type="text" name="lastName"> 
@@ -51,6 +55,9 @@
 				<br> 
 				<label class="update">Email Address: </label><input	class="updateinput" value="${user.email}" type="text" name="email">
 				<br> 
+				<br>
+				<label class="update">Profile Image URL: </label><input class="updateinput" value="${user.profileUrl}" type="text" name="profileUrl">
+				<br>
 				<br>
 				<input class="btn btn-primary" type="submit" value="Submit Profile Changes">
 
