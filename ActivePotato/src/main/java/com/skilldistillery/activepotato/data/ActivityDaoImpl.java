@@ -20,12 +20,14 @@ public class ActivityDaoImpl implements ActivityDAO {
 
 	@Override
 	public List<Activity> findActiveActivity(String keyword) {
+		
 		List<Activity> activityList = null;
+		
 		try {
 			
 		String query = "SELECT a FROM Activity a "
-						+ "JOIN ActivityCategory ac ON a.activityCategoryId = ac.id "
-						+ "WHERE ac.id = 2 AND a.name LIKE :keyword";
+						+ "JOIN a.activityCategory "
+						+ "WHERE ActivityCategory.id = 2 AND a.name LIKE :keyword";
 		activityList = em.createQuery(query, Activity.class)
 					.setParameter("keyword", "%" + keyword + "%")
 					.getResultList();
@@ -41,9 +43,14 @@ public class ActivityDaoImpl implements ActivityDAO {
 	public List<Activity> findCouchActivity(String keyword) {
 		List<Activity> activityList = null;
 		try {
-		String query = "SELECT a FROM Activity a "
-				+ "JOIN ActivityCategory ac ON a.activityCategoryId = ac.id "
-				+ "WHERE ac.id = 1 AND a.name LIKE :keyword";
+			String query = "SELECT a FROM Activity a "
+					+ "JOIN a.activityCategory "
+					+ "WHERE ActivityCategory.id = 1 AND a.name LIKE :keyword";
+			
+			
+//			String query = "SELECT a FROM Activity a "
+//				+ "JOIN a.activityCategory = ActivityCategory.id "
+//				+ "WHERE ActivityCategory.id = 1 AND a.name LIKE :keyword";
 		activityList = em.createQuery(query, Activity.class)
 			.setParameter("keyword", "%" + keyword + "%")
 			.getResultList();

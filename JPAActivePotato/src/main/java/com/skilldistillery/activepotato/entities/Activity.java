@@ -17,6 +17,11 @@ import javax.persistence.OneToMany;
 @Entity
 public class Activity {
 
+		
+	public Activity() {
+		super();
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -54,6 +59,10 @@ public class Activity {
 	
 	@OneToMany(mappedBy = "activity")
 	private List<Interest> interest;
+	
+	@ManyToOne
+	@JoinColumn(name="activity_category_id")
+	private ActivityCategory activityCategory;
 
 	public List<Interest> getInterest() {
 		return interest;
@@ -158,6 +167,14 @@ public class Activity {
 
 	public void setLastUpdateDate(LocalDate lastUpdateDate) {
 		this.lastUpdateDate = lastUpdateDate;
+	}
+
+	public ActivityCategory getActivityCategory() {
+		return activityCategory;
+	}
+
+	public void setActivityCategory(ActivityCategory activityCategory) {
+		this.activityCategory = activityCategory;
 	}
 
 	@Override

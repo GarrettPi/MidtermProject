@@ -9,6 +9,7 @@
     </provider>
 
 		<class>com.skilldistillery.activepotato.entities.Activity</class>
+		<class>com.skilldistillery.activepotato.entities.ActivityCategory</class>
 		<class>com.skilldistillery.activepotato.entities.ActivityRating</class>
 		<class>com.skilldistillery.activepotato.entities.ActivityType</class>
 		<class>com.skilldistillery.activepotato.entities.Comment</class>
