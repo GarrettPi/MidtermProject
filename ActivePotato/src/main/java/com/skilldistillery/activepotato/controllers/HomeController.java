@@ -16,6 +16,7 @@ public class HomeController {
 	@Autowired
 	private UserDAO userDao;
 
+	//directs to the appropriate home page
 	@RequestMapping(path = { "/", "home.do" })
 	public String home(Model model, HttpSession session) {
 		if (session.getAttribute("user") == null) {
