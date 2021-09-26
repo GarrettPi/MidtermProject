@@ -2,6 +2,7 @@ package com.skilldistillery.activepotato.controllers;
 
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +11,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.activepotato.data.UserDAO;
 import com.skilldistillery.activepotato.entities.User;
+import com.skilldistillery.activepotato.security.PasswordUtilities;
+import com.skilldistillery.activepotato.security.PasswordVerifier;
 
 @Controller
 public class UserController {
@@ -21,12 +24,18 @@ public class UserController {
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public ModelAndView login(String userName, String userPassword, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		User u = userDao.findByUsernameAndPassword(userName, userPassword);
+		User u = userDao.findByUsername(userName);
 		if (u == null) {
 			mv.setViewName("userLogin");
 		} else {
-			mv.setViewName("userHome");
-			session.setAttribute("user", u);
+			String salt = u.getSalt();
+			String pass = u.getPassword();
+			if (PasswordVerifier.checkPassword(userPassword, salt, pass)) {
+				mv.setViewName("userHome");
+				session.setAttribute("user", u);
+			} else {
+				mv.setViewName("userLogin");
+			}
 		}
 		return mv;
 	}
@@ -47,6 +56,9 @@ public class UserController {
 	@RequestMapping(path = "register.do", method = RequestMethod.POST)
 	public ModelAndView register(User user, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		String salt = PasswordUtilities.getSalt(30);
+		user.setSalt(salt);
+		user.setPassword(PasswordUtilities.generateSecurePassword(user.getPassword(), salt));
 		User u = userDao.createUser(user);
 		session.setAttribute("user", u);
 		mv.setViewName("userHome");
@@ -69,10 +81,11 @@ public class UserController {
 
 	// Submits edit details form and directs to user home page
 	@RequestMapping(path = "edit.do", method = RequestMethod.POST)
-	public ModelAndView submitEdits(String password2, User user, HttpSession session) {
+	public ModelAndView submitEdits(String password1, String password2, User user, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		if (user.getPassword().equals(password2)) {
+		if (password1.equals(password2)) {
 			User sessionUser = (User) session.getAttribute("user");
+			user.setPassword(password1);
 			User updatedUser = userDao.updateUser(sessionUser.getId(), user);
 			session.setAttribute("user", updatedUser);
 			mv.setViewName("userHome");
@@ -82,8 +95,8 @@ public class UserController {
 		}
 		return mv;
 	}
-	
-	//removes active user from session and directs to home page
+
+	// removes active user from session and directs to home page
 	@RequestMapping(path = "logout.do")
 	public ModelAndView logout(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -92,9 +105,9 @@ public class UserController {
 		return mv;
 
 	}
-	
-	//pulls user from session, deletes it through DAO and then directs to home page
-	@RequestMapping(path="deleteUser.do")
+
+	// pulls user from session, deletes it through DAO and then directs to home page
+	@RequestMapping(path = "deleteUser.do")
 	public ModelAndView deleteUser(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		User user = (User) session.getAttribute("user");
