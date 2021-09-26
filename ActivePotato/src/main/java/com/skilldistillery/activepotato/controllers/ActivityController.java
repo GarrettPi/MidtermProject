@@ -20,25 +20,26 @@ public class ActivityController {
 	private ActivityDAO activityDao;
 
 	// Submits active search form and directs to results page
-	@RequestMapping(path = "searchActive.do", params="keyword", method=RequestMethod.GET)
+	@RequestMapping(path = "searchActive.do", params = "keyword", method = RequestMethod.GET)
 	public ModelAndView searchActive(@RequestParam("keyword") String keyword, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		System.out.println("************* mv instant ***********************");
 		if (session.getAttribute("user") != null) {
 			mv.addObject("user", (User) session.getAttribute("user"));
 		}
 		mv.setViewName("activePotatoPath/activityListOutdoor");
-		System.out.println("************* view set ***********************");
-		mv.addObject("a", activityDao.findActivityByName(keyword));
-		System.out.println("************* object added ***********************");
+		mv.addObject("a", activityDao.findActiveActivity(keyword));
 		return mv;
 	}
 
 	// Submits couch search form and directs to results page
 	@RequestMapping(path = "searchCouch.do")
-	public ModelAndView searchCouch(HttpSession session) {
+	public ModelAndView searchCouch(String keyword, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		if (session.getAttribute("user") != null) {
+			mv.addObject("user", (User) session.getAttribute("user"));
+		}
 		mv.setViewName("couchPotatoPath/activityListIndoor");
+		mv.addObject("a", activityDao.findCouchActivity(keyword));
 		return mv;
 	}
 
