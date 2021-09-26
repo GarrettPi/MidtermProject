@@ -11,7 +11,7 @@
 	<h1>Indoor Search!</h1>
 	<br> Enter the media activity you would like to search for:
 	<br>
-	<form action="getActivity.do" method="GET">
+	<form action="searchCouch.do" method="GET">
 		Enter media tile:<br> <input type="text" name="keyword" />
 		<input type="submit" value="Show Media" />
 	</form>
