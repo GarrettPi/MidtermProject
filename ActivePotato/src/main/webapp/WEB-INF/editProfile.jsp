@@ -54,11 +54,6 @@
 				<br>
 				<input class="btn btn-primary" type="submit" value="Submit Profile Changes">
 
-
-
-
-
-
 		</form>
 	</div>
 	<br>
