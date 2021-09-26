@@ -82,5 +82,26 @@ public class UserController {
 		}
 		return mv;
 	}
+	
+	//removes active user from session and directs to home page
+	@RequestMapping(path = "logout.do")
+	public ModelAndView logout(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		session.removeAttribute("user");
+		mv.setViewName("home");
+		return mv;
+
+	}
+	
+	//pulls user from session, deletes it through DAO and then directs to home page
+	@RequestMapping(path="deleteUser.do")
+	public ModelAndView deleteUser(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		User user = (User) session.getAttribute("user");
+		userDao.deleteUser(user);
+		session.removeAttribute("user");
+		mv.setViewName("home");
+		return mv;
+	}
 
 }

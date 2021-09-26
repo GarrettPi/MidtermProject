@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` VARCHAR(255) NULL DEFAULT NULL,
   `enabled` TINYINT NULL DEFAULT NULL,
   `role` VARCHAR(255) NULL DEFAULT NULL,
-  `profile_url` VARCHAR(1000) NULL,
+  `profile_url` VARCHAR(1000) NULL DEFAULT 'https://ih1.redbubble.net/image.939692630.5711/st,small,845x845-pad,1000x1000,f8f8f8.jpg',
   PRIMARY KEY (`id`),
   UNIQUE INDEX `username_UNIQUE` (`username` ASC))
 ENGINE = InnoDB
