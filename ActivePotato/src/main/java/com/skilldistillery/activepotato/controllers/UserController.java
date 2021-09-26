@@ -73,7 +73,6 @@ public class UserController {
 		ModelAndView mv = new ModelAndView();
 		User sessionUser = (User) session.getAttribute("user");
 		User updatedUser = userDao.updateUser(sessionUser.getId(), user);
-		session.removeAttribute("user");
 		session.setAttribute("user", updatedUser);
 		mv.setViewName("userHome");
 		return mv;

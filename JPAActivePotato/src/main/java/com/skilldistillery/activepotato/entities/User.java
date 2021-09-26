@@ -25,6 +25,9 @@ public class User {
 	
 	private String password;
 	
+//	@Column(name="password_salt")
+//	private String salt;
+	
 	@Column(name="first_name")
 	private String firstName;
 	
@@ -86,6 +89,14 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+//	public String getSalt() {
+//		return salt;
+//	}
+//
+//	public void setSalt(String salt) {
+//		this.salt = salt;
+//	}
 
 	public boolean isEnabled() {
 		return enabled;
