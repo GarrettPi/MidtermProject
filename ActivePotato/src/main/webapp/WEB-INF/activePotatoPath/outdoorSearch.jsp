@@ -8,6 +8,9 @@
 <title>Active Potato</title>
 </head>
 <body>
+	<%-- <c:if test="${not empty user }">
+	${user.username }
+	</c:if> --%>
 	<h1>Outdoor Search!</h1>
 	<br> Enter the outdoor activity you would like to search for:
 	<br>

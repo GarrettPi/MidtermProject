@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.activepotato.data.UserDAO;
+import com.skilldistillery.activepotato.entities.User;
 
 @Controller
 public class HomeController {
@@ -16,12 +17,13 @@ public class HomeController {
 	@Autowired
 	private UserDAO userDao;
 
-	//directs to the appropriate home page
+	// directs to the appropriate home page
 	@RequestMapping(path = { "/", "home.do" })
 	public String home(Model model, HttpSession session) {
 		if (session.getAttribute("user") == null) {
 			return "home";
 		} else {
+			model.addAttribute("user", (User)session.getAttribute("user"));
 			return "userHome";
 		}
 	}
@@ -34,6 +36,7 @@ public class HomeController {
 			mv.setViewName("userLogin");
 		} else {
 			mv.setViewName("userHome");
+			mv.addObject("user", (User) session.getAttribute("user"));
 		}
 		return mv;
 	}
@@ -42,6 +45,9 @@ public class HomeController {
 	@RequestMapping(path = "couch.do")
 	public ModelAndView couch(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		if (session.getAttribute("user") != null) {
+			mv.addObject("user", (User) session.getAttribute("user"));
+		}
 		mv.setViewName("couchPotatoPath/indoorSearch");
 		return mv;
 	}
@@ -50,6 +56,9 @@ public class HomeController {
 	@RequestMapping(path = "active.do")
 	public ModelAndView active(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		if (session.getAttribute("user") != null) {
+			mv.addObject("user", (User) session.getAttribute("user"));
+		}
 		mv.setViewName("activePotatoPath/outdoorSearch");
 		return mv;
 	}
