@@ -8,9 +8,9 @@
 <title>Active Potato</title>
 </head>
 <body>
-<h1>Show Matching Outdoor Activities</h1>
+<h1>Show Matching Indoor Activities</h1>
 
-${DEBUG }
+${a }
 
 <a href="home.do">Return to Home</a><br/>
 </body>

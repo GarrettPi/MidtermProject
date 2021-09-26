@@ -14,74 +14,67 @@ import com.skilldistillery.activepotato.entities.Activity;
 @Service
 @Transactional
 public class ActivityDaoImpl implements ActivityDAO {
-	
+
 	@PersistenceContext
 	private EntityManager em;
 
 	@Override
 	public List<Activity> findActiveActivity(String keyword) {
-		
+
 		List<Activity> activityList = null;
-		
+
 		try {
-			
-		String query = "SELECT a FROM Activity a "
-						+ "JOIN a.activityCategory "
-						+ "WHERE ActivityCategory.id = 2 AND a.name LIKE :keyword";
-		activityList = em.createQuery(query, Activity.class)
-					.setParameter("keyword", "%" + keyword + "%")
+
+			String query = "SELECT a FROM Activity a JOIN a.activityCategory WHERE a.activityCategory.id = 2 AND a.name LIKE :keyword";
+			activityList = em.createQuery(query, Activity.class).setParameter("keyword", "%" + keyword + "%")
 					.getResultList();
 		} catch (Exception e) {
 			System.out.println("No activity found matching: " + keyword);
-		
-		}	
-		
+
+		}
+
 		return activityList;
 	}
-	
+
 	@Override
 	public List<Activity> findCouchActivity(String keyword) {
 		List<Activity> activityList = null;
 		try {
-			String query = "SELECT a FROM Activity a "
-					+ "JOIN a.activityCategory "
-					+ "WHERE ActivityCategory.id = 1 AND a.name LIKE :keyword";
-			
-			
+			String query = "SELECT a FROM Activity a JOIN a.activityCategory WHERE a.activityCategory.id = 1 AND a.name LIKE :keyword";
+
 //			String query = "SELECT a FROM Activity a "
 //				+ "JOIN a.activityCategory = ActivityCategory.id "
 //				+ "WHERE ActivityCategory.id = 1 AND a.name LIKE :keyword";
-		activityList = em.createQuery(query, Activity.class)
-			.setParameter("keyword", "%" + keyword + "%")
-			.getResultList();
+			activityList = em.createQuery(query, Activity.class).setParameter("keyword", "%" + keyword + "%")
+					.getResultList();
+			System.out.println(activityList);
 		} catch (Exception e) {
 			System.out.println("No activity found matching: " + keyword);
 
-			}	
-				return activityList;
+		}
+		return activityList;
 	}
 
 	@Override
 	public List<Activity> findActivityByName(String search) {
 		List<Activity> activityList = null;
 		try {
-			
-		String query = "SELECT a FROM Activity a WHERE a.name LIKE :act";
-		activityList = em.createQuery(query, Activity.class)
-					.setParameter("act", "%" + search + "%")
+
+			String query = "SELECT a FROM Activity a WHERE a.name LIKE :act";
+			activityList = em.createQuery(query, Activity.class).setParameter("act", "%" + search + "%")
 					.getResultList();
 		} catch (Exception e) {
 			System.out.println("No activity found matching: " + search);
-		
-		}	
-		
+
+		}
+
 		return activityList;
 	}
 
 	@Override
 	public Activity findActivityById(int id) {
 		Activity activity = em.find(Activity.class, id);
-		
+
 		return activity;
 	}
 
@@ -89,7 +82,7 @@ public class ActivityDaoImpl implements ActivityDAO {
 	public Activity addNewActivity(Activity activity) {
 		Activity dbActivity = activity;
 		em.persist(dbActivity);
-		em.flush();		
+		em.flush();
 		return dbActivity;
 	}
 
@@ -98,15 +91,15 @@ public class ActivityDaoImpl implements ActivityDAO {
 		boolean result = false;
 		Activity activity = em.find(Activity.class, id);
 		em.remove(activity);
-		
-		result = ! em.contains(activity);
-		
+
+		result = !em.contains(activity);
+
 		return result;
 	}
 
 	@Override
 	public Activity updateActivity(int id, Activity activity) {
-		
+
 		Activity dbActivity = em.find(Activity.class, id);
 		LocalDate now = LocalDate.now();
 		dbActivity.setName(activity.getName());
@@ -119,9 +112,8 @@ public class ActivityDaoImpl implements ActivityDAO {
 		dbActivity.setLastUpdateDate(now);
 		dbActivity.setComments(activity.getComments());
 		dbActivity.setActivityRatings(activity.getActivityRatings());
-		
+
 		return dbActivity;
 	}
 
-	
 }
