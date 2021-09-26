@@ -25,7 +25,7 @@ public class ActivityDaoImpl implements ActivityDAO {
 			
 		String query = "SELECT a FROM Activity a "
 						+ "JOIN ActivityCategory ac ON a.activityCategoryId = ac.id "
-						+ "WHERE ac.id = 2 AND WHERE a.name LIKE :keyword";
+						+ "WHERE ac.id = 2 AND a.name LIKE :keyword";
 		activityList = em.createQuery(query, Activity.class)
 					.setParameter("keyword", "%" + keyword + "%")
 					.getResultList();
@@ -43,7 +43,7 @@ public class ActivityDaoImpl implements ActivityDAO {
 		try {
 		String query = "SELECT a FROM Activity a "
 				+ "JOIN ActivityCategory ac ON a.activityCategoryId = ac.id "
-				+ "WHERE ac.id = 1 AND WHERE a.name LIKE :keyword";
+				+ "WHERE ac.id = 1 AND a.name LIKE :keyword";
 		activityList = em.createQuery(query, Activity.class)
 			.setParameter("keyword", "%" + keyword + "%")
 			.getResultList();
