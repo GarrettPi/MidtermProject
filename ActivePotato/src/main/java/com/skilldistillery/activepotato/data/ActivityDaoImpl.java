@@ -23,9 +23,9 @@ public class ActivityDaoImpl implements ActivityDAO {
 		List<Activity> activityList = null;
 		try {
 			
-		String query = "SELECT a FROM Activity a WHERE a.name LIKE % :act";
+		String query = "SELECT a FROM Activity a WHERE a.name LIKE :act";
 		activityList = em.createQuery(query, Activity.class)
-					.setParameter("act", search)
+					.setParameter("act", "%" + search + "%")
 					.getResultList();
 		} catch (Exception e) {
 			System.out.println("No activity found matching: " + search);

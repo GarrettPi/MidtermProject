@@ -14,7 +14,7 @@
 	<h1>Outdoor Search!</h1>
 	<br> Enter the outdoor activity you would like to search for:
 	<br>
-	<form action="getActivity.do" method="GET">
+	<form action="searchActive.do" method="GET">
 		Enter outdoor activity:<br> <input type="text" name="keyword" />
 		<input type="submit" value="Show Activities" />
 	</form>
