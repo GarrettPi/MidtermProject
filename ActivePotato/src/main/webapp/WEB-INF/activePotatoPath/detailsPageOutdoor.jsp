@@ -26,7 +26,7 @@
 	<h1>Show Outdoor Details</h1>
 	<br>
 	<br>
-	<img src="${activity.imageUrl}" width="300" height="300"/>
+	<img src="${activity.imageUrl}" width="300" height="auto"/>
 	
 	<br>
 	<br>
