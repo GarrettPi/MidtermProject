@@ -5,15 +5,33 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<jsp:include page="bootstrapHead.jsp"></jsp:include>
+<style>
+#right {
+		text-align: right;
+	}
+	
+	#center {
+		text-align: center;
+	}
+	
+	#left {
+		text-align: left;
+	}
+</style>
 <title>Active Potato</title>
 </head>
 <body>
 <h1>Show Media Details</h1>
 
 <div id="center"> 
-	<h1>Show Outdoor Details</h1>
+
 	<br>
 	<br>
+	<img src="https://m.media-amazon.com/images/M/MV5BN2FjNmEyNWMtYzM0ZS00NjIyLTg5YzYtYThlMGVjNzE1OGViXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg" width="300" height="300"/>
+	<br>
+	<br>
+	
 	<img src="${activity.imageUrl}" width="300" height="300"/>
 	
 	<br>
