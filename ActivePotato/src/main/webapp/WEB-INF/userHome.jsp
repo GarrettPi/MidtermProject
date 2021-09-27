@@ -24,6 +24,12 @@
 
 </head>
 <body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-3">
+			${acts }
+			</div>
+		<div class="col-sm-4">
 	<div id="center">
 	<a href="logout.do">Logout</a>
 	<h1>User Home</h1>
@@ -54,8 +60,11 @@
 	</form> 
 	<br>
 	<br>
-	<a href="home.do">Return to Home</a>
+	<a href="userHome.do">Return to Home</a>
 	<br />
+	</div>
+	</div>
+	</div>
 	</div>
 	
 </body>

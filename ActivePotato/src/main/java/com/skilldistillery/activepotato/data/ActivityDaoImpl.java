@@ -1,6 +1,7 @@
 package com.skilldistillery.activepotato.data;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -111,6 +112,16 @@ public class ActivityDaoImpl implements ActivityDAO {
 		dbActivity.setActivityRatings(activity.getActivityRatings());
 
 		return dbActivity;
+	}
+
+	@Override
+	public List<Activity> findActivitiesByInterestUserId(int id) {
+		List<Activity> activities = new ArrayList<>();
+		String query = "select a from Activity a join a.interest i where i.user.id = :userId ";
+
+		activities = em.createQuery(query, Activity.class).setParameter("userId", id).getResultList();
+
+		return activities;
 	}
 
 }

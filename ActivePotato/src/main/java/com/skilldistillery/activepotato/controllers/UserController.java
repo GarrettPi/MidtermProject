@@ -2,13 +2,13 @@ package com.skilldistillery.activepotato.controllers;
 
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.skilldistillery.activepotato.data.ActivityDAO;
 import com.skilldistillery.activepotato.data.UserDAO;
 import com.skilldistillery.activepotato.entities.User;
 import com.skilldistillery.activepotato.security.PasswordUtilities;
@@ -19,20 +19,23 @@ public class UserController {
 
 	@Autowired
 	private UserDAO userDao;
+	@Autowired
+	private ActivityDAO actDao;
 
 	// Submits login form and directs to user home page
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
 	public ModelAndView login(String userName, String userPassword, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		User u = userDao.findByUsername(userName);
-		if (u == null) {
+		User user = userDao.findByUsername(userName);
+		if (user == null) {
 			mv.setViewName("userLogin");
 		} else {
-			String salt = u.getSalt();
-			String pass = u.getPassword();
+			String salt = user.getSalt();
+			String pass = user.getPassword();
 			if (PasswordVerifier.checkPassword(userPassword, salt, pass)) {
+				mv.addObject("acts", actDao.findActivitiesByInterestUserId(user.getId()));
 				mv.setViewName("userHome");
-				session.setAttribute("user", u);
+				session.setAttribute("user", user);
 			} else {
 				mv.setViewName("userLogin");
 			}
@@ -47,6 +50,8 @@ public class UserController {
 		if (session.getAttribute("user") == null) {
 			mv.setViewName("createProfile");
 		} else {
+			User user = (User) session.getAttribute("user");
+			mv.addObject("acts", actDao.findActivitiesByInterestUserId(user.getId()));
 			mv.setViewName("userHome");
 		}
 		return mv;
@@ -61,6 +66,7 @@ public class UserController {
 		user.setPassword(PasswordUtilities.generateSecurePassword(user.getPassword(), salt));
 		User u = userDao.createUser(user);
 		session.setAttribute("user", u);
+		mv.addObject("acts", actDao.findActivitiesByInterestUserId(u.getId()));
 		mv.setViewName("userHome");
 		return mv;
 	}
@@ -88,6 +94,7 @@ public class UserController {
 			user.setPassword(password1);
 			User updatedUser = userDao.updateUser(sessionUser.getId(), user);
 			session.setAttribute("user", updatedUser);
+			mv.addObject("acts", actDao.findActivitiesByInterestUserId(updatedUser.getId()));
 			mv.setViewName("userHome");
 		} else {
 			mv.setViewName("editProfile");
