@@ -14,4 +14,5 @@ public interface ActivityDAO {
 	public boolean deleteActivity(int id);
 	public Activity updateActivity(int id, Activity activity);
 	public List<Activity> findActivitiesByInterestUserId(int id);
+	public Activity findActivityByInterestActivityId(int activityId);
 }

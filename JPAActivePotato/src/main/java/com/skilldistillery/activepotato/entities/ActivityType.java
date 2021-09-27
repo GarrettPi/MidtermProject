@@ -3,6 +3,7 @@ package com.skilldistillery.activepotato.entities;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,6 +24,9 @@ public class ActivityType {
 	private int id;
 	
 	private String name;
+	
+	@Column(name="activity_url")
+	private String url;
 
 	public int getId() {
 		return id;
@@ -49,6 +53,14 @@ public class ActivityType {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 	@Override
