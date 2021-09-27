@@ -28,9 +28,6 @@
 
 	<br>
 	<br>
-	<img src="https://m.media-amazon.com/images/M/MV5BN2FjNmEyNWMtYzM0ZS00NjIyLTg5YzYtYThlMGVjNzE1OGViXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg" width="300" height="300"/>
-	<br>
-	<br>
 	
 	<img src="${activity.imageUrl}" width="300" height="300"/>
 	
