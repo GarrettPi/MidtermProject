@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `activity` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
   `expected_duration` INT NULL DEFAULT NULL,
-  `description` VARCHAR(255) NULL DEFAULT NULL,
+  `description` VARCHAR(1000) NULL DEFAULT NULL,
   `url` VARCHAR(1000) NULL DEFAULT NULL,
   `image_url` VARCHAR(1000) NULL DEFAULT NULL,
   `activity_type_id` INT NOT NULL,
@@ -694,4 +694,3 @@ INSERT INTO `experience` (`id`, `rating`, `interest_id`, `experience_date`) VALU
 INSERT INTO `experience` (`id`, `rating`, `interest_id`, `experience_date`) VALUES (3, 5, 3, '2021-09-24');
 
 COMMIT;
-
