@@ -37,3 +37,7 @@ body {
 #headContainer{
 	height: 200px;
 }
+
+#interest:hover {
+	font-weight: bold;
+}

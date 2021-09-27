@@ -42,7 +42,7 @@
 			<div class="col-sm-4" id="userInterest">
 				<c:if test="${not empty user.interestList }">
 					<c:forEach var="a" items="${user.interestList }">
-						<div>
+						<div id="interest">
 						<img src="https://cdn.pixabay.com/photo/2013/07/13/13/36/film-161204_960_720.png" width="50" height="50"/>
 						${a.activity.name}Loremipsum dolor sit amet,
 							consectetur adipiscing elit. In ullamcorper maximus ante, ut
