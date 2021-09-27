@@ -63,6 +63,9 @@ public class Activity {
 	@ManyToOne
 	@JoinColumn(name="activity_category_id")
 	private ActivityCategory activityCategory;
+	
+	@OneToMany(mappedBy="activity")
+	private List<ActivityRating> activityRatingList;
 
 	public List<Interest> getInterest() {
 		return interest;
