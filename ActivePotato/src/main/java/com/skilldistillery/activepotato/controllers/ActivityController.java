@@ -66,5 +66,15 @@ public class ActivityController {
 		mv.addObject("activity", activityDao.findActivityById(actId));
 		return mv;
 	}
+	
+	@RequestMapping(path="selectActivity.do")
+	public ModelAndView selectInterestActivity(int id) {
+		ModelAndView mv = new ModelAndView();
+		System.err.println(id);
+		
+		
+		return mv;
+		
+	}
 
 }
