@@ -68,7 +68,7 @@ public class ActivityController {
 	}
 
 	@RequestMapping(path = "selectActivity.do")
-	public ModelAndView selectInterestActivity(Integer id) {
+	public ModelAndView selectInterestActivity(int id) {
 		ModelAndView mv = new ModelAndView();
 		Activity activity = activityDao.findActivityById(id);
 		if (activity.getActivityCategory().getId() == 1) {

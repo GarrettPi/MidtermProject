@@ -42,7 +42,7 @@
 			<div class="col-sm-4" id="userInterest">
 				<c:if test="${not empty acts }">
 					<c:forEach var="a" items="${acts }">
-						<a href="selectActivity.do?${a.id}" class="interestLink">
+						<a href="selectActivity.do?id=${a.id}" class="interestLink">
 						<div id="interest">
 							<img src="${a.activityType.url }" width="50" height="50" />
 							${a.name} <br> Loremipsum dolor sit amet, consectetur
@@ -56,13 +56,6 @@
 				</c:if>
 			</div>
 			<div class="col-sm-4">
-				<%-- 				<div id="center">
-					<a href="logout.do">Logout</a>
-					<h1>User Home</h1>
-					<br> <img src="${user.profileUrl}" width="100" height="100" />
-					<br> <br> <b> Welcome ${user.firstName}
-						${user.lastName}!</b> <br> <br>
-				</div> --%>
 				<div id="center">
 					<form action="active.do" method="POST">
 						<label class="update"><b>Search Active Potato!</b></label><input
