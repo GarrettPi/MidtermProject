@@ -3,6 +3,13 @@ body {
 	color: blue;
 }
 
+.table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th {
+	border: 1px solid black;
+}
+
+.table-bordered > thead > tr > th {
+	border: 1px solid black;
+}
 .update {
 	display: inline-block;
 	clear: left;
@@ -26,7 +33,6 @@ body {
 	display: flex;
 	align-items: center;
 	height: 80vh;
-	
 }
 
 #userInterest {
@@ -34,7 +40,7 @@ body {
 	height: 75%;
 }
 
-#headContainer{
+#headContainer {
 	height: 200px;
 }
 
@@ -42,6 +48,6 @@ body {
 	font-weight: bold;
 }
 
-.interestLink{
+.interestLink {
 	text-decoration: none;
 }
