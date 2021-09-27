@@ -117,11 +117,19 @@ public class ActivityDaoImpl implements ActivityDAO {
 	@Override
 	public List<Activity> findActivitiesByInterestUserId(int id) {
 		List<Activity> activities = new ArrayList<>();
-		String query = "select a from Activity a join a.interest i where i.user.id = :userId ";
+		String query = "select a from Activity a join fetch a.interest i where i.user.id = :userId ";
 
 		activities = em.createQuery(query, Activity.class).setParameter("userId", id).getResultList();
 
 		return activities;
+	}
+
+	@Override
+	public Activity findActivityByInterestActivityId(int activityId) {
+		Activity act = null;
+		String query = "select a from Activity a where id = :id";
+		act = em.createQuery(query, Activity.class).setParameter("id", activityId).getSingleResult();
+		return act;
 	}
 
 }

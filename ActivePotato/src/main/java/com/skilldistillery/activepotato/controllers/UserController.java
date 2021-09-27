@@ -10,6 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.activepotato.data.ActivityDAO;
 import com.skilldistillery.activepotato.data.UserDAO;
+import com.skilldistillery.activepotato.entities.Interest;
 import com.skilldistillery.activepotato.entities.User;
 import com.skilldistillery.activepotato.security.PasswordUtilities;
 import com.skilldistillery.activepotato.security.PasswordVerifier;
@@ -62,8 +63,9 @@ public class UserController {
 	public ModelAndView register(User user, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		String salt = PasswordUtilities.getSalt(30);
-		if(user.getProfileUrl().length() < 10)
-		user.setProfileUrl("https://ih1.redbubble.net/image.939692630.5711/st,small,845x845-pad,1000x1000,f8f8f8.jpg");
+		if (user.getProfileUrl().length() < 10)
+			user.setProfileUrl(
+					"https://ih1.redbubble.net/image.939692630.5711/st,small,845x845-pad,1000x1000,f8f8f8.jpg");
 		user.setEnabled(true);
 		user.setRole("user");
 		user.setSalt(salt);
@@ -98,7 +100,7 @@ public class UserController {
 			user.setPassword(password1);
 			User updatedUser = userDao.updateUser(sessionUser.getId(), user);
 			session.setAttribute("user", updatedUser);
-			mv.addObject("acts", actDao.findActivitiesByInterestUserId(updatedUser.getId()));
+			mv.addObject("acts", actDao.findActivitiesByInterestUserId(user.getId()));
 			mv.setViewName("userHome");
 		} else {
 			mv.setViewName("editProfile");

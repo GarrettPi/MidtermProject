@@ -1,5 +1,6 @@
 package com.skilldistillery.activepotato.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,6 +9,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.activepotato.entities.Interest;
 import com.skilldistillery.activepotato.entities.User;
 import com.skilldistillery.activepotato.security.PasswordUtilities;
 
@@ -92,8 +94,19 @@ public class UserDaoImpl implements UserDAO {
 		dbUser.setLastName(user.getLastName());
 		dbUser.setEmail(user.getEmail());
 		dbUser.setProfileUrl(user.getProfileUrl());
+		
 
 		return dbUser;
 	}
+
+	@Override
+	public List<Interest> findInterestsByUserId(int userId) {
+		List<Interest> list = new ArrayList<Interest>();
+		String query = "SELECT i from Interest i join fetch i.activity where i.user.id = :id";
+		list = em.createQuery(query, Interest.class).setParameter("id", userId).getResultList();
+		return null;
+	}
+	
+	
 
 }

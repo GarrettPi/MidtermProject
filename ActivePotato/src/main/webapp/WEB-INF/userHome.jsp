@@ -40,13 +40,14 @@
 	<div class="container">
 		<div class="row" id="userContainer">
 			<div class="col-sm-4" id="userInterest">
-				<c:if test="${not empty user.interestList }">
-					<c:forEach var="a" items="${user.interestList }">
+				<c:if test="${not empty acts }">
+					<c:forEach var="a" items="${acts }">
 						<div id="interest">
-						<img src="https://cdn.pixabay.com/photo/2013/07/13/13/36/film-161204_960_720.png" width="50" height="50"/>
-						${a.activity.name}Loremipsum dolor sit amet,
-							consectetur adipiscing elit. In ullamcorper maximus ante, ut
-							laoreet massa pharetra a.</div>
+							<img src="${a.activityType.url }" width="50" height="50" />
+							${a.name} <br> Loremipsum dolor sit amet, consectetur
+							adipiscing elit. In ullamcorper maximus ante, ut laoreet massa
+							pharetra a.
+						</div>
 						<br>
 					</c:forEach>
 
