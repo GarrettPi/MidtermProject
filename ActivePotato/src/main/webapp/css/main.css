@@ -6,10 +6,14 @@ body {
 .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th {
 	border: 1px solid black;
 }
+.table-striped > tbody > tr > td, .table-striped > tbody > tr > th {
+	color: white;
+}
 
 .table-bordered > thead > tr > th {
 	border: 1px solid black;
 }
+
 .update {
 	display: inline-block;
 	clear: left;
