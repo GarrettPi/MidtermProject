@@ -24,11 +24,41 @@
 <body>
 <div id="center"> 
 	<h1>Show Outdoor Details</h1>
-	<h2>${activity.name}</h2>
-	<p>Description: ${activty.description }</p>
-	<p>Rating found: ${activity.url}</p>
-	<p>Type: ${activty.type}</p>
-	<p>Expected Duration: ${activity.expectedDuration}</p>
+	<br>
+	<br>
+	<img src="${activity.imageUrl}" width="300" height="300"/>
+	
+	<br>
+	<br>
+	
+	<div class="container" ><table class="table thead-dark table-striped table-hover">
+		<thead>
+			<tr>
+			<th>Activity Name</th>
+			<th>Description</th>
+			<th>Find Activity Near You</th>
+			<th>Type</th>
+			<th>Expected Duration</th>
+			</tr>
+		</thead>
+	<tbody>
+		<tr>
+			<td>${activity.name}</td>
+			<td>${activity.description}</td>
+			<td><a href="${activity.url}">Google Maps</a></td>
+			<td>${activity.activityType.name}</td>
+			<td>${activity.expectedDuration}</td>
+	</tbody>
+	
+	</table>
+	</div>
+
+	<form action="addInterest.do" method="POST">
+		<input type="hidden" name="activity"/>
+		<button type="button" class="btn btn-primary">Add Activity</button>
+	
+	</form>
+	
 
 	${DEBUG }
 
