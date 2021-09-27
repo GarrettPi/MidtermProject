@@ -34,7 +34,7 @@
 	<label class="update">Enter Username:</label><input class="updateinput" type="text" placeholder ="Username" name="userName" />
 	<br>
 	<br>
-	<label class="update">Enter Password:</label><input class="updateinput" type="text" placeholder ="Password" name="userPassword" />
+	<label class="update">Enter Password:</label><input class="updateinput" type="password" placeholder ="Password" name="userPassword" />
 	<br> 
 	<br> 
 	<input type="submit" name="submit" />

@@ -42,9 +42,6 @@ public class ActivityDaoImpl implements ActivityDAO {
 		try {
 			String query = "SELECT a FROM Activity a JOIN a.activityCategory WHERE a.activityCategory.id = 1 AND a.name LIKE :keyword";
 
-//			String query = "SELECT a FROM Activity a "
-//				+ "JOIN a.activityCategory = ActivityCategory.id "
-//				+ "WHERE ActivityCategory.id = 1 AND a.name LIKE :keyword";
 			activityList = em.createQuery(query, Activity.class).setParameter("keyword", "%" + keyword + "%")
 					.getResultList();
 			System.out.println(activityList);

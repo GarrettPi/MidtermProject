@@ -8,15 +8,22 @@
 <title>Active Potato</title>
 </head>
 <body>
-	<h1>Show Matching Indoor Activities</h1>
-	Checked Print 
-	<c:if test="${not empty a }">
-	${a }
+<c:if test="${not empty a }">
+		<h1>Show Matching Outdoor Activities</h1>
+		<br>
+		<table>
+			<c:forEach var="act" items="${a }">
+				<tr>
+					<td>${act.id }</td>
+					<td>${act.name }</td>
+				</tr>
+			</c:forEach>
+		</table>
+
+
 	</c:if>
-	<br>
-	Default print ${a}
 	<c:if test="${empty a }">
-	Empty
+	No activities match that keyword.
 	</c:if>
 
 	<a href="home.do">Return to Home</a>

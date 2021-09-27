@@ -25,7 +25,7 @@
 </head>
 <body>
 	<div id="center">
-
+	<a href="logout.do">Logout</a>
 	<h1>User Home</h1>
 	<br>
 
