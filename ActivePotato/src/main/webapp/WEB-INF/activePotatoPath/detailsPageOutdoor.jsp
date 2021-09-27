@@ -53,7 +53,7 @@
 	</table>
 	</div>
 
-	<form action="addInterest.do" method="POST">
+	<form action="addInterest.do?id=${activity.id}" method="POST">
 		<input type="hidden" name="activity"/>
 		<button type="button" class="btn btn-primary">Add Activity</button>
 	

@@ -9,12 +9,48 @@
 </head>
 <body>
 <h1>Show Media Details</h1>
-		<h2> ${activity.name}</h2>
-		<%-- <p> Description: ${activty.description }</p> --%>
-		<p><a href="${activity.url}">IMDB Movie Details</a></p>
-		<p> Type: ${activty.type}</p>
-		<p> Expected Duration: ${activity.expectedDuration}</p>
 
-<a href="home.do">Return to Home</a><br/>
+<div id="center"> 
+	<h1>Show Outdoor Details</h1>
+	<br>
+	<br>
+	<img src="${activity.imageUrl}" width="300" height="300"/>
+	
+	<br>
+	<br>
+
+	<div class="container" ><table class="table thead-dark table-striped table-hover">
+		<thead>
+			<tr>
+			<th>Activity Name</th>
+			<th>Description</th>
+			<th>External Site Link</th>
+			<th>Type</th>
+			<th>Length</th>
+			</tr>
+		</thead>
+	<tbody>
+		<tr>
+			<td>${activity.name}</td>
+			<td>${activity.description}</td>
+			<td><a href="${activity.url}">Movie Rating URL</a></td>
+			<td>${activity.activityType.name}</td>
+			<td>${activity.expectedDuration}</td>
+	</tbody>
+	
+	</table>
+	</div>
+ 
+
+	<form action="addInterest.do?id=${activity.id}" method="POST">
+		<input type="hidden" name="id" />
+		<button type="submit" class="btn btn-primary">Add Activity</button>
+	</form>
+		
+		<br>
+		<a href="home.do">Return to Home</a><br/>
+</div>
+
+
 </body>
 </html>
