@@ -228,8 +228,6 @@ START TRANSACTION;
 USE `potatodb`;
 INSERT INTO `activity_category` (`id`, `name`) VALUES (1, 'Couch Potato');
 INSERT INTO `activity_category` (`id`, `name`) VALUES (2, 'Active Potato');
-INSERT INTO `activity_category` (`id`, `name`) VALUES (190, 'GOLF STRIKE');
-INSERT INTO `activity_category` (`id`, `name`) VALUES (191, 'Archery');
 
 COMMIT;
 
@@ -694,3 +692,4 @@ INSERT INTO `experience` (`id`, `rating`, `interest_id`, `experience_date`) VALU
 INSERT INTO `experience` (`id`, `rating`, `interest_id`, `experience_date`) VALUES (3, 5, 3, '2021-09-24');
 
 COMMIT;
+

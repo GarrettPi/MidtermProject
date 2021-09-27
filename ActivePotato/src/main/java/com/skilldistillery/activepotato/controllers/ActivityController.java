@@ -20,7 +20,7 @@ public class ActivityController {
 	private ActivityDAO activityDao;
 
 	// Submits active search form and directs to results page
-	@RequestMapping(path = "searchActive.do", params = "keyword", method = RequestMethod.GET)
+	@RequestMapping(path = "searchActive.do", method = RequestMethod.GET)
 	public ModelAndView searchActive(@RequestParam("keyword") String keyword, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		if (session.getAttribute("user") != null) {
@@ -64,6 +64,20 @@ public class ActivityController {
 		}
 		mv.setViewName("couchPotatoPath/detailsPageIndoor");
 		mv.addObject("activity", activityDao.findActivityById(actId));
+		return mv;
+	}
+
+	@RequestMapping(path = "selectActivity.do")
+	public ModelAndView selectInterestActivity(int id) {
+		ModelAndView mv = new ModelAndView();
+		Activity activity = activityDao.findActivityById(id);
+		if (activity.getActivityCategory().getId() == 1) {
+			mv.setViewName("couchPotatoPath/detailsPageIndoor");
+			mv.addObject("activity", activity);
+		} else {
+			mv.setViewName("activePotatoPath/detailsPageOutdoor");
+			mv.addObject("activity", activity);
+		}
 		return mv;
 	}
 
