@@ -45,17 +45,25 @@ public class ActivityController {
 
 	// Submits selected active result form and directs to activity details page
 	@RequestMapping(path = "selectActive.do")
-	public ModelAndView selectActive(Activity activity, HttpSession session) {
+	public ModelAndView selectActive(Integer actId, Activity activity, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		if (session.getAttribute("user") != null) {
+			mv.addObject("user", (User) session.getAttribute("user"));
+		}
 		mv.setViewName("activePotatoPath/detailsPageOutdoor");
+		mv.addObject("activity", activityDao.findActivityById(actId));
 		return mv;
 	}
 
 	// Submits selected couch result form and directs to activity details page
 	@RequestMapping(path = "selectCouch.do")
-	public ModelAndView selectCouch(Activity activity, HttpSession session) {
+	public ModelAndView selectCouch(Integer actId, Activity activity, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		if (session.getAttribute("user") != null) {
+			mv.addObject("user", (User) session.getAttribute("user"));
+		}
 		mv.setViewName("couchPotatoPath/detailsPageIndoor");
+		mv.addObject("activity", activityDao.findActivityById(actId));
 		return mv;
 	}
 
