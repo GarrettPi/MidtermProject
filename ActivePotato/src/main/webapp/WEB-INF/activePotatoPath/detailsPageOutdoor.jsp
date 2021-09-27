@@ -55,7 +55,7 @@
 
 	<form action="addInterest.do?id=${activity.id}" method="POST">
 		<input type="hidden" name="activity"/>
-		<button type="button" class="btn btn-primary">Add Activity</button>
+		<button type="submit" class="btn btn-primary">Add Activity</button>
 	
 	</form>
 	
