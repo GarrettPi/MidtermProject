@@ -18,7 +18,7 @@
 				<thead>
 					<tr>
 						<th>Name</th>
-						<th>Expected Duration</th>
+						<th>Expected Duration (Min)</th>
 						<th>Description</th>
 						<th>URL</th>
 						<th>Create Date</th>
