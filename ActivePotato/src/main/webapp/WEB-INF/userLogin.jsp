@@ -40,7 +40,7 @@
 	<input type="submit" name="submit" />
 	</form>
 	<br>
-	<a href="registerpage.do">Create new profile</a>
+	<a href="registerpage.do">Create New Account</a>
 	<br>
 	<br>
 	<a href="home.do">Return Home</a>
