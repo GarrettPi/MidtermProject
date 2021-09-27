@@ -42,7 +42,7 @@
 			<div class="col-sm-4" id="userInterest">
 				<c:if test="${not empty acts }">
 					<c:forEach var="a" items="${acts }">
-						<a href="selectActivity.do?${id = a.id }" class="interestLink">
+						<a href="selectActivity.do?${a.id}" class="interestLink">
 						<div id="interest">
 							<img src="${a.activityType.url }" width="50" height="50" />
 							${a.name} <br> Loremipsum dolor sit amet, consectetur
