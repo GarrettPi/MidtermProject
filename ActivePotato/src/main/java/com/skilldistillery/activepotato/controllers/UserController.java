@@ -100,7 +100,7 @@ public class UserController {
 			user.setPassword(password1);
 			User updatedUser = userDao.updateUser(sessionUser.getId(), user);
 			session.setAttribute("user", updatedUser);
-			mv.addObject("acts", actDao.findActivitiesByInterestUserId(user.getId()));
+			mv.addObject("acts", actDao.findActivitiesByInterestUserId(updatedUser.getId()));
 			mv.setViewName("userHome");
 		} else {
 			mv.setViewName("editProfile");
