@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.activepotato.entities.Activity;
 import com.skilldistillery.activepotato.entities.Interest;
 import com.skilldistillery.activepotato.entities.User;
 import com.skilldistillery.activepotato.security.PasswordUtilities;
@@ -105,6 +106,24 @@ public class UserDaoImpl implements UserDAO {
 		String query = "SELECT i from Interest i join fetch i.activity where i.user.id = :id";
 		list = em.createQuery(query, Interest.class).setParameter("id", userId).getResultList();
 		return null;
+	}
+
+	@Override
+	public boolean addActivityToUserInterest(Activity activity, User user) {
+		boolean value = false;
+		String query = "select i from Interest i where i.user.id = :userId and i.activity.id = :actId";
+		List<Interest> interests = em.createQuery(query, Interest.class).setParameter("userId", user.getId()).setParameter("actId", activity.getId()).getResultList();
+		if(interests.isEmpty()) {
+			Interest newInterest = new Interest();
+			newInterest.setUser(user);
+			newInterest.setActivity(activity);
+			em.persist(newInterest);
+			em.flush();
+			value = true;
+		}else {
+			value = false;
+		}
+		return value;
 	}
 	
 	
