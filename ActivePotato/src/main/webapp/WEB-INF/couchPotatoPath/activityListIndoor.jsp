@@ -15,7 +15,7 @@
 			<c:forEach var="act" items="${a }">
 				<tr>
 					<td>${act.id }</td>
-					<td><a href="selectCouch.do?act=${act.id}">${act.name}</a></td>
+					<td><a href="selectCouch.do?actId=${act.id}">${act.name}</a></td>
 				</tr>
 			</c:forEach>
 		</table>
