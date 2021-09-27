@@ -17,6 +17,7 @@ public class Interest {
 	public Interest() {
 		super();
 	}
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

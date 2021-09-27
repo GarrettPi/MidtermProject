@@ -57,13 +57,13 @@
 			</div>
 			<div class="col-sm-4">
 				<div id="center">
-					<form action="active.do" method="POST">
+					<form action="searchActive.do" method="GET">
 						<label class="update"><b>Search Active Potato!</b></label><input
 							class="updateinput" type="text" name="keyword" /><input
 							type="submit" />
 					</form>
 					<br>
-					<form action="couch.do" method="POST">
+					<form action="searchCouch.do" method="GET">
 						<label class="update"><b>Search Couch Potato!</b></label> <input
 							class="updateinput" type="text" name="keyword" /><input
 							type="submit" />
