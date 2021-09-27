@@ -22,6 +22,10 @@ public class ActivityRating {
 	
 	private String url;
 
+	@ManyToOne
+	@JoinColumn(name="activity_id")
+	private Activity activity;
+
 	public int getId() {
 		return id;
 	}
@@ -29,7 +33,7 @@ public class ActivityRating {
 	public void setId(int id) {
 		this.id = id;
 	}
-
+			
 	public String getName() {
 		return name;
 	}
@@ -54,9 +58,6 @@ public class ActivityRating {
 		this.url = url;
 	}
 	
-	@ManyToOne
-	@JoinColumn(name="activity_id")
-	private Activity activity;
 
 	@Override
 	public String toString() {

@@ -2,6 +2,7 @@ package com.skilldistillery.activepotato.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -11,6 +12,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class ActivityRatingTest {
@@ -46,5 +48,12 @@ class ActivityRatingTest {
 		assertNotNull(ar);
 		assertEquals("IMDb", ar.getName());
 	}
-
+	
+	@Test
+	@DisplayName("activity rating and activity entity relational mapping")
+	void test_activityRating_activity_mapping() {
+		assertNotNull(ar);
+		assertTrue( ar.getActivity().getActivityRatings().size() > 0);
+	
+	}
 }
