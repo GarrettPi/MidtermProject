@@ -28,7 +28,6 @@ public class HomeController {
 	} else {
 		User user = (User)session.getAttribute("user");
 		mv.addObject("user", user);
-		mv.addObject("acts", actDao.findActivitiesByInterestUserId(user.getId()));
 		mv.setViewName("userHome");
 	}
 		return mv;

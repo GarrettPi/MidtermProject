@@ -27,7 +27,12 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4">
-			${acts }
+			<c:if test="${not empty user.interestList }">
+			<c:forEach var="a" items="${user.interestList }">
+			${a.activity.name}
+			</c:forEach>
+			
+			</c:if>
 			</div>
 		<div class="col-sm-4">
 	<div id="center">
