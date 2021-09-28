@@ -14,68 +14,65 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Experience {
 
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+
+	private int rating;
+
+	@Column(name = "experience_date")
+	private LocalDate experienceDate;
+
+	@ManyToOne
+	@JoinColumn(name = "interest_id")
+	private Interest interest;
+
+	
+	
+	//Methods
+	
+	
 	public Experience() {
 		super();
 	}
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
-	
-	private int rating;
-	
-	@ManyToOne
-	@JoinColumn(name="interest_id")
-	private Interest interest;
-	
+
 	public Interest getInterest() {
 		return interest;
 	}
-
 
 	public void setInterest(Interest interest) {
 		this.interest = interest;
 	}
 
-
 	public int getId() {
 		return id;
 	}
-
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-
 	public int getRating() {
 		return rating;
 	}
-
 
 	public void setRating(int rating) {
 		this.rating = rating;
 	}
 
-
 	public LocalDate getExperienceDate() {
 		return experienceDate;
 	}
-
 
 	public void setExperienceDate(LocalDate experienceDate) {
 		this.experienceDate = experienceDate;
 	}
 
-
-	@Column(name="experience_date")
-	private LocalDate experienceDate;
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -89,12 +86,9 @@ public class Experience {
 		return id == other.id;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Experience [id=" + id + ", rating=" + rating + ", experienceDate=" + experienceDate + "]";
 	}
-	
-	
-	
+
 }

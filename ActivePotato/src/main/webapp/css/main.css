@@ -36,12 +36,12 @@ body {
 #userContainer {
 	display: flex;
 	align-items: center;
-	height: 80vh;
+	height: 100vh;
 }
 
 #userInterest {
 	overflow-y: scroll;
-	height: 75%;
+	height: 50%;
 }
 
 #headContainer {
@@ -55,3 +55,4 @@ body {
 .interestLink {
 	text-decoration: none;
 }
+

@@ -43,13 +43,18 @@
 				<c:if test="${not empty acts }">
 					<c:forEach var="a" items="${acts }">
 						<a href="selectActivity.do?id=${a.id}" class="interestLink">
-						<div id="interest">
-							<img src="${a.activityType.url }" width="50" height="50" />
-							${a.name} <br> Loremipsum dolor sit amet, consectetur
-							adipiscing elit. In ullamcorper maximus ante, ut laoreet massa
-							pharetra a.
-							<form action="removeInterest.do?id=${a.id }" method="POST"><input type="submit" value="Delete"></form>
-						</div>
+							<div id="interest">
+								<img src="${a.activityType.url }" width="50" height="50" />
+								${a.name} <br> Loremipsum dolor sit amet, consectetur
+								adipiscing elit. In ullamcorper maximus ante, ut laoreet massa
+								pharetra a.
+								<form action="addExperience.do?id=${a.id }" method="post">
+									<input type="submit" value="Add Experience">
+								</form>
+								<form action="removeInterest.do?id=${a.id }" method="POST">
+									<input type="submit" value="Delete">
+								</form>
+							</div>
 						</a>
 						<br>
 					</c:forEach>
@@ -79,6 +84,5 @@
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>
