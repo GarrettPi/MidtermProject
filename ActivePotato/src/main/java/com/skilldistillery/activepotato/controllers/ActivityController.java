@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.activepotato.data.ActivityDAO;
+import com.skilldistillery.activepotato.data.InterestDAO;
 import com.skilldistillery.activepotato.data.UserDAO;
 import com.skilldistillery.activepotato.entities.Activity;
 import com.skilldistillery.activepotato.entities.User;
@@ -21,6 +22,8 @@ public class ActivityController {
 	private ActivityDAO activityDao;
 	@Autowired
 	private UserDAO userDao;
+	@Autowired
+	private InterestDAO intDao;
 
 	// Submits active search form and directs to results page
 	@RequestMapping(path = "searchActive.do", method = RequestMethod.GET)
@@ -93,8 +96,19 @@ public class ActivityController {
 		}
 		Activity activity = activityDao.findActivityById(id);
 		User user = (User) session.getAttribute("user");
-		boolean success = userDao.addActivityToUserInterest(activity, user);
+		boolean success = intDao.addActivityToUserInterest(activity, user);
 		System.out.println(success);
+		mv.addObject("acts", activityDao.findActivitiesByInterestUserId(user.getId()));
+		mv.setViewName("userHome");
+		return mv;
+	}
+	
+	@RequestMapping(path="removeInterest.do", method=RequestMethod.POST)
+	public ModelAndView removeInterest(HttpSession session, int id) {
+		ModelAndView mv = new ModelAndView();
+		User user = (User) session.getAttribute("user");
+		Activity activity = activityDao.findActivityById(id);
+		intDao.removeActivityFromUserInterest(activity, user);
 		mv.addObject("acts", activityDao.findActivitiesByInterestUserId(user.getId()));
 		mv.setViewName("userHome");
 		return mv;
