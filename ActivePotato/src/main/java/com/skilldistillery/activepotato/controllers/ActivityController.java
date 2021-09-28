@@ -1,5 +1,7 @@
 package com.skilldistillery.activepotato.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.activepotato.data.ActivityDAO;
+import com.skilldistillery.activepotato.data.CommentDAO;
 import com.skilldistillery.activepotato.data.InterestDAO;
 import com.skilldistillery.activepotato.data.UserDAO;
 import com.skilldistillery.activepotato.entities.Activity;
+import com.skilldistillery.activepotato.entities.Comment;
 import com.skilldistillery.activepotato.entities.User;
 
 @Controller
@@ -24,6 +28,8 @@ public class ActivityController {
 	private UserDAO userDao;
 	@Autowired
 	private InterestDAO intDao;
+	@Autowired
+	private CommentDAO commentDao;
 
 	// Submits active search form and directs to results page
 	@RequestMapping(path = "searchActive.do", method = RequestMethod.GET)
@@ -58,6 +64,18 @@ public class ActivityController {
 		}
 		mv.setViewName("activePotatoPath/detailsPageOutdoor");
 		mv.addObject("activity", activityDao.findActivityById(actId));
+		
+		//Testing***************************************************************************************
+		System.out.println("****************** Comment List about to be made*************");
+		List<Comment> comments = commentDao.findAll(actId);
+		
+		System.out.println("****************** Comment List Made ************************");
+		for (Comment comment2 : comments) {
+			System.out.println(comment2);
+		}
+		//**********************************************************************************************
+		mv.addObject("comments", comments);
+		
 		return mv;
 	}
 

@@ -12,5 +12,6 @@ public interface CommentDAO {
 	public boolean deleteComment(int id);
 	public Comment updateComment(Comment comment);
 	List<Comment> findCommentByActivityId(int activityId);
+	List<Comment> findAll(int actId);
 	
 }

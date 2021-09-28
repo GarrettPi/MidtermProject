@@ -63,7 +63,24 @@
 	
 	</form>
 	
+			<div class="container" ><table class="table thead-dark table-striped table-hover">
+			<thead>
+				<tr>
+					<th>Comments</th>
+				</tr>
+			</thead>
 
+			<tbody>
+				<c:forEach var="c" items="${comments }">
+					<tr>
+						<td>${c.user.getUsername()}</td>
+						<td>${c.comment}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+
+		</table>
+		</div>
 	${DEBUG }
 
 	<a href="home.do">Return to Home</a>

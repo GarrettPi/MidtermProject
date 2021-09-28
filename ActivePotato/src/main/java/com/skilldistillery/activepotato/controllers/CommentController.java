@@ -1,5 +1,7 @@
 package com.skilldistillery.activepotato.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +22,6 @@ public class CommentController {
 	
 	@Autowired
 	private CommentDAO commentDao;
-	@Autowired
-	private UserDAO userDao;
 	@Autowired
 	private ActivityDAO activityDao;
 	
@@ -67,4 +67,5 @@ public class CommentController {
 		return mv;
 		
 	}
+
 }

@@ -50,6 +50,22 @@ public class CommentDAOImpl implements CommentDAO {
 		
 		return userCommentList;
 	}
+	
+
+	@Override
+	public List<Comment> findAll(int actId) {
+		List<Comment> commentList = null;
+		try {	
+			String query = "SELECT c FROM Comment c WHERE activity_id = :aid";
+			commentList = em.createQuery(query, Comment.class)
+					.setParameter("aid", actId)
+					.getResultList();
+		} catch (Exception e) {
+			System.out.println("No activity found matching: " + commentList);
+			
+		}		
+		return commentList;
+	}
 
 	@Override
 	public List<Comment> findCommentByActivityId(int activityId) {
