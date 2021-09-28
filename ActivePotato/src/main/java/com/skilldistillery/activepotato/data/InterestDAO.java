@@ -8,4 +8,6 @@ public interface InterestDAO {
 
 	public Interest addActivityToUserInterest(Activity activity, User user);
 	public void removeActivityFromUserInterest(Activity activity, User user);
+	public Interest findInterestByUserId(User user, Activity activity);
+	public Interest findInterestById(int interestId);
 }

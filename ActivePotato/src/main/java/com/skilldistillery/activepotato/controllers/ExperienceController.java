@@ -34,15 +34,23 @@ public class ExperienceController {
 		User user = (User) session.getAttribute("user");
 		Activity activity = actDao.findActivityById(id);
 		Interest interest = intDao.addActivityToUserInterest(activity, user);
+		System.out.println(interest);
 		mv.setViewName("createExperience");
 		mv.addObject("interest", interest);
 		return mv;
 	}
 
 	@RequestMapping(path = "createExperience.do", method = RequestMethod.POST)
-	public ModelAndView createExperience(HttpSession session, Experience experience) {
+	public ModelAndView createExperience(HttpSession session, Experience experience, int interest) {
 		ModelAndView mv = new ModelAndView();
+		User user = (User) session.getAttribute("user");
+		
+		Interest tempInterest = intDao.findInterestById(interest);
+		System.out.println(tempInterest);
+		experience.setInterest(tempInterest);
+		expDao.addExperience(experience);
 		mv.setViewName("userHome");
+		mv.addObject("acts", actDao.findActivitiesByInterestUserId(user.getId()));
 		return mv;
 	}
 }

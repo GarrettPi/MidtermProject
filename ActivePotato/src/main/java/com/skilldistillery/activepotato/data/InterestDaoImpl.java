@@ -56,4 +56,22 @@ public class InterestDaoImpl implements InterestDAO {
 		}
 	}
 
+	@Override
+	public Interest findInterestByUserId(User user, Activity activity) {
+		String query = "select i from Interest i where i.user.id = :userId and i.activity.id = :actId";
+		Interest interest = em.createQuery(query, Interest.class).setParameter("userId", user.getId())
+				.setParameter("actId", activity.getId()).getSingleResult();
+		
+		return interest;
+	}
+
+	@Override
+	public Interest findInterestById(int interestId) {
+		// TODO Auto-generated method stub
+		Interest newInterest = em.find(Interest.class, interestId);
+		return newInterest;
+	}
+
+
+
 }
