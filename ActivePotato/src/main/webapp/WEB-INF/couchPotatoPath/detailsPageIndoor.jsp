@@ -59,12 +59,34 @@
 	</table>
 	</div>
  
-
+ 	<form action="addComment.do?activityId=${activity.id}" method="POST">	
+	Comment: <input type="text" placeholder="comment" name="comment" />
+		<button type="submit" class="btn btn-primary">Add Comment</button>
+	</form> 
+	
 	<form action="addInterest.do?id=${activity.id}" method="POST">
 		<input type="hidden" name="id" />
 		<button type="submit" class="btn btn-primary">Add Activity</button>
 	</form>
-		
+	
+		<div class="container" ><table class="table thead-dark table-striped table-hover">
+			<thead>
+				<tr>
+					<th>Comments</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<c:forEach var="c" items="${comments }">
+					<tr>
+						<td>${c.user.getUsername()}</td>
+						<td>${c.comment}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+
+		</table>
+		</div>
 		<br>
 		<a href="home.do">Return to Home</a><br/>
 </div>

@@ -64,16 +64,7 @@ public class ActivityController {
 		}
 		mv.setViewName("activePotatoPath/detailsPageOutdoor");
 		mv.addObject("activity", activityDao.findActivityById(actId));
-		
-		//Testing***************************************************************************************
-		System.out.println("****************** Comment List about to be made*************");
 		List<Comment> comments = commentDao.findAll(actId);
-		
-		System.out.println("****************** Comment List Made ************************");
-		for (Comment comment2 : comments) {
-			System.out.println(comment2);
-		}
-		//**********************************************************************************************
 		mv.addObject("comments", comments);
 		
 		return mv;
@@ -88,6 +79,8 @@ public class ActivityController {
 		}
 		mv.setViewName("couchPotatoPath/detailsPageIndoor");
 		mv.addObject("activity", activityDao.findActivityById(actId));
+		List<Comment> comments = commentDao.findAll(actId);
+		mv.addObject("comments", comments);
 		return mv;
 	}
 
