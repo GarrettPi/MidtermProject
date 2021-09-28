@@ -22,39 +22,38 @@ public class InterestDaoImpl implements InterestDAO {
 	private EntityManager em;
 
 	@Override
-	public boolean addActivityToUserInterest(Activity activity, User user) {
-		boolean value = false;
+	public Interest addActivityToUserInterest(Activity activity, User user) {
 		String query = "select i from Interest i where i.user.id = :userId and i.activity.id = :actId";
-		List<Interest> interests = em.createQuery(query, Interest.class).setParameter("userId", user.getId()).setParameter("actId", activity.getId()).getResultList();
-		if(interests.isEmpty()) {
+		Interest interest = em.createQuery(query, Interest.class).setParameter("userId", user.getId())
+				.setParameter("actId", activity.getId()).getSingleResult();
+		if (interest == null) {
 			Interest newInterest = new Interest();
 			newInterest.setUser(user);
 			newInterest.setActivity(activity);
 			em.persist(newInterest);
 			em.flush();
-			value = true;
-		}else {
-			value = false;
+			return newInterest;
+		} else {
+			return interest;
 		}
-		return value;
 	}
 
 	@Override
 	public void removeActivityFromUserInterest(Activity activity, User user) {
 		List<Experience> experiences = new ArrayList<>();
 		String query = "select i from Interest i where i.user.id = :userId and i.activity.id = :actId";
-		Interest interest = em.createQuery(query, Interest.class).setParameter("userId", user.getId()).setParameter("actId", activity.getId()).getSingleResult();
+		Interest interest = em.createQuery(query, Interest.class).setParameter("userId", user.getId())
+				.setParameter("actId", activity.getId()).getSingleResult();
 		query = "select e from Experience e where e.interest.id = :intId";
 		experiences = em.createQuery(query, Experience.class).setParameter("intId", interest.getId()).getResultList();
-		if(experiences.isEmpty()) {
+		if (experiences.isEmpty()) {
 			em.remove(interest);
 		} else {
-			for(Experience e : experiences) {
+			for (Experience e : experiences) {
 				em.remove(e);
 			}
 			em.remove(interest);
 		}
 	}
 
-	
 }

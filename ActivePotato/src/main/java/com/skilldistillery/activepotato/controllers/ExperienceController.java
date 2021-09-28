@@ -15,6 +15,7 @@ import com.skilldistillery.activepotato.data.ExperienceDAO;
 import com.skilldistillery.activepotato.data.InterestDAO;
 import com.skilldistillery.activepotato.entities.Activity;
 import com.skilldistillery.activepotato.entities.Experience;
+import com.skilldistillery.activepotato.entities.Interest;
 import com.skilldistillery.activepotato.entities.User;
 
 @Controller
@@ -26,24 +27,22 @@ public class ExperienceController {
 	ActivityDAO actDao;
 	@Autowired
 	InterestDAO intDao;
-	
-	@RequestMapping(path="addExperience.do", method=RequestMethod.POST)
+
+	@RequestMapping(path = "addExperience.do", method = RequestMethod.POST)
 	public ModelAndView addExperience(HttpSession session, int id) {
 		ModelAndView mv = new ModelAndView();
 		User user = (User) session.getAttribute("user");
 		Activity activity = actDao.findActivityById(id);
-		List<Activity> interestActs = actDao.findActivitiesByInterestUserId(user.getId());
-		if(interestActs.isEmpty() || !interestActs.contains(activity)) {
-			intDao.addActivityToUserInterest(activity, user);
-		}
+		Interest interest = intDao.addActivityToUserInterest(activity, user);
 		mv.setViewName("createExperience");
+		mv.addObject("interest", interest);
 		return mv;
 	}
-	
-	@RequestMapping(path="createExperience.do", method=RequestMethod.POST)
+
+	@RequestMapping(path = "createExperience.do", method = RequestMethod.POST)
 	public ModelAndView createExperience(HttpSession session, Experience experience) {
 		ModelAndView mv = new ModelAndView();
-		
+		mv.setViewName("userHome");
 		return mv;
 	}
 }
