@@ -69,6 +69,7 @@
 					<th>Username</th>
 					<th>Comments</th>
 					<th>Date Added</th>
+					<th>Delete</th>
 				</tr>
 			</thead>
 
@@ -78,6 +79,7 @@
 						<td>${c.user.getUsername()}</td>
 						<td>${c.comment}</td>
 						<td>${c.commentDate}</td>
+						<td><form action="deleteComment.do?commentId=${c.id}" method="POST"> <input type="submit" value="delete"> </form></td>
 					</tr>
 				</c:forEach>
 			</tbody>

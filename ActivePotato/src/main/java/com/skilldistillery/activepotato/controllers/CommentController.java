@@ -51,13 +51,12 @@ public class CommentController {
 	}
 	
 	@RequestMapping(path = "deleteComment.do", method=RequestMethod.POST)
-	public ModelAndView deleteComment(HttpSession session, Comment comment, int activityId) {
+	public ModelAndView deleteComment(HttpSession session, int commentId) {
 		ModelAndView mv = new ModelAndView();
 		User user = (User) session.getAttribute("user");
-		comment.setUser(user);
-		Activity activity = activityDao.findActivityById(activityId);
-		comment.setActivity(activity);
-		commentDao.deleteComment(activityId);
+		int activityId = commentDao.findSingleCommentById(commentId).getActivity().getId();
+		Activity activity = commentDao.findSingleCommentById(commentId).getActivity();
+		commentDao.deleteComment(commentId);
 		
 		if (activity.getActivityCategory().getId() == 1) {
 			mv.addObject("activity", activity);
@@ -66,8 +65,10 @@ public class CommentController {
 		}
 		else {
 			mv.addObject("activity", activity);
-			mv.setViewName("couchPotatoPath/detailsPageOutdoor");
+			mv.setViewName("activePotatoPath/detailsPageOutdoor");
 		}
+		List<Comment> comments = commentDao.findAll(activityId);
+		mv.addObject("comments", comments);
 		return mv;
 		
 	}

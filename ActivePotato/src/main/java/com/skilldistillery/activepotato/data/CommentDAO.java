@@ -13,5 +13,6 @@ public interface CommentDAO {
 	public Comment updateComment(Comment comment);
 	List<Comment> findCommentByActivityId(int activityId);
 	List<Comment> findAll(int actId);
+	Comment findSingleCommentById(int commentId);
 	
 }

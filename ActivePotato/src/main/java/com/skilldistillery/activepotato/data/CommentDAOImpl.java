@@ -33,6 +33,23 @@ public class CommentDAOImpl implements CommentDAO {
 		
 		return commentList;
 	}
+	
+	@Override
+	public Comment findSingleCommentById(int commentId) {
+		Comment comment= null;
+		try {
+			
+		String query = "SELECT c FROM Comment c WHERE c.id = :cid";
+		comment = em.createQuery(query, Comment.class)
+					.setParameter("cid", commentId)
+					.getSingleResult();
+		} catch (Exception e) {
+			System.out.println("No activity found matching: " + commentId);
+		
+		}	
+		
+		return comment;
+	}
 
 	@Override
 	public List<Comment> findCommentByUserId(int userId) {
