@@ -48,7 +48,7 @@
 		<tr>
 			<td>${activity.name}</td>
 			<td>${activity.description}</td>
-			<td><a href="${activity.url}">Movie Rating URL</a></td>
+			<td><a href="${activity.url}" target="_blank">Movie Rating URL</a></td>
 			<td>${activity.activityType.name}</td>
 			<td>${activity.expectedDuration}</td>
 	</tbody>

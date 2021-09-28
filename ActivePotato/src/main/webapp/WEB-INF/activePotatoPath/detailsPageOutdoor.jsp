@@ -45,7 +45,7 @@
 		<tr>
 			<td>${activity.name}</td>
 			<td>${activity.description}</td>
-			<td><a href="${activity.url}">Google Maps</a></td>
+			<td><a href="${activity.url}" target="_blank">Google Maps</a></td>
 			<td>${activity.activityType.name}</td>
 			<td>${activity.expectedDuration}</td>
 	</tbody>
