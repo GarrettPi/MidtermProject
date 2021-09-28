@@ -28,10 +28,12 @@
 	<h1>New Experience</h1>
 		
 	
-	<form action="createExperience.do?interest=${interest.id}" method="POST">
+	<form action="createExperience.do?interestId=${interest.id}" method="POST">
 		<br>
-		<label class="update">Rating: </label><input class="updateinput" type="number" name="rating">
-		<!--  <label class="update">Date of Experience: </label><input class="updateinput" type="date" name="experienceDate"> -->
+		<label class="update">Rating: </label><input class="updateinput" type="number" placeholder="Rating out of 10" required name="rating">
+		<!-- <label class="update">Date of Experience: </label><input class="updateinput" type="date" name="experienceDate"> -->
+		<label class="update">Comments: </label><input class="updateinput" type="text" size="50" placeholder="Comments about the experience..." name="comment">
+		
 		<input class="btn btn-primary" type="submit" value="Submit New Experience">
 	</form>
 	</div>

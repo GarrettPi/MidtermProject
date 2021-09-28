@@ -18,7 +18,6 @@ public class Interest {
 		super();
 	}
 	
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;

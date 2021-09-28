@@ -28,7 +28,8 @@ public class Experience {
 	@JoinColumn(name = "interest_id")
 	private Interest interest;
 
-	
+	@Column(name="comments")
+	private String comment;
 	
 	//Methods
 	
@@ -67,6 +68,14 @@ public class Experience {
 
 	public void setExperienceDate(LocalDate experienceDate) {
 		this.experienceDate = experienceDate;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 
 	@Override
