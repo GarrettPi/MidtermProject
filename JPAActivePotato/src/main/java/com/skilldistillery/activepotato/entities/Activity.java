@@ -32,10 +32,22 @@ public class Activity {
 	private Integer expectedDuration;
 
 	private String description;
+	
 	private String url;
 
 	@Column(name = "image_url")
 	private String imageUrl;
+
+	@Column(name="trailer_url")
+	private String trailerUrl;
+
+	@ManyToOne
+	@JoinColumn(name = "activity_type_id")
+	private ActivityType activityType;
+
+	@ManyToOne
+	@JoinColumn(name="activity_category_id")
+	private ActivityCategory activityCategory;
 
 	@Column(name = "create_date")
 	private LocalDate createDate;
@@ -43,16 +55,15 @@ public class Activity {
 	@Column(name = "last_update_date")
 	private LocalDate lastUpdateDate;
 	
-	@OneToMany(mappedBy = "activity")
-	private List<ActivityRating> activityRatings;
-
-	@ManyToOne
-	@JoinColumn(name = "activity_type_id")
-	private ActivityType activityType;
-
+	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
+	
+	@OneToMany(mappedBy = "activity")
+	private List<ActivityRating> activityRatings;
+
+
 
 	@OneToMany(mappedBy = "activity")
 	private List<Comment> comments;
@@ -60,21 +71,9 @@ public class Activity {
 	@OneToMany(mappedBy = "activity")
 	private List<Interest> interest;
 	
-	@ManyToOne
-	@JoinColumn(name="activity_category_id")
-	private ActivityCategory activityCategory;
 	
 	@OneToMany(mappedBy="activity")
 	private List<ActivityRating> activityRatingList;
-
-	public List<Interest> getInterest() {
-		return interest;
-	}
-
-	public void setInterest(List<Interest> interest) {
-		this.interest = interest;
-	}
-
 
 	public int getId() {
 		return id;
@@ -124,20 +123,12 @@ public class Activity {
 		this.imageUrl = imageUrl;
 	}
 
-	public LocalDate getCreateDate() {
-		return createDate;
+	public String getTrailerUrl() {
+		return trailerUrl;
 	}
 
-	public void setCreateDate(LocalDate createDate) {
-		this.createDate = createDate;
-	}
-
-	public List<ActivityRating> getActivityRatings() {
-		return new ArrayList<>(activityRatings);
-	}
-
-	public void setActivityRatings(List<ActivityRating> activityRatings) {
-		this.activityRatings = activityRatings;
+	public void setTrailerUrl(String trailerUrl) {
+		this.trailerUrl = trailerUrl;
 	}
 
 	public ActivityType getActivityType() {
@@ -148,20 +139,20 @@ public class Activity {
 		this.activityType = activityType;
 	}
 
-	public User getUser() {
-		return user;
+	public ActivityCategory getActivityCategory() {
+		return activityCategory;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setActivityCategory(ActivityCategory activityCategory) {
+		this.activityCategory = activityCategory;
 	}
 
-	public List<Comment> getComments() {
-		return comments;
+	public LocalDate getCreateDate() {
+		return createDate;
 	}
 
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
+	public void setCreateDate(LocalDate createDate) {
+		this.createDate = createDate;
 	}
 
 	public LocalDate getLastUpdateDate() {
@@ -172,18 +163,56 @@ public class Activity {
 		this.lastUpdateDate = lastUpdateDate;
 	}
 
-	public ActivityCategory getActivityCategory() {
-		return activityCategory;
+	public User getUser() {
+		return user;
 	}
 
-	public void setActivityCategory(ActivityCategory activityCategory) {
-		this.activityCategory = activityCategory;
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public List<ActivityRating> getActivityRatings() {
+		
+		return new ArrayList<>(activityRatings);
+	}
+
+	public void setActivityRatings(List<ActivityRating> activityRatings) {
+		this.activityRatings = activityRatings;
+	}
+
+	public List<Comment> getComments() {
+		
+		return new ArrayList<>(comments);
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public List<Interest> getInterest() {
+		
+		return new ArrayList<>(interest);
+	}
+
+	public void setInterest(List<Interest> interest) {
+		this.interest = interest;
+	}
+
+	public List<ActivityRating> getActivityRatingList() {
+		
+		return new ArrayList<>(activityRatingList);
+	}
+
+	public void setActivityRatingList(List<ActivityRating> activityRatingList) {
+		this.activityRatingList = activityRatingList;
 	}
 
 	@Override
 	public String toString() {
 		return "Activity [id=" + id + ", name=" + name + ", expectedDuration=" + expectedDuration + ", description="
-				+ description + ", url=" + url + ", imageUrl=" + imageUrl + ", createDate=" + createDate + "]";
+				+ description + ", url=" + url + ", imageUrl=" + imageUrl + ", trailerUrl=" + trailerUrl
+				+ ", activityType=" + activityType + ", activityCategory=" + activityCategory + ", createDate="
+				+ createDate + ", lastUpdateDate=" + lastUpdateDate + ", user=" + user + ", interest=" + interest + "]";
 	}
 
 	@Override

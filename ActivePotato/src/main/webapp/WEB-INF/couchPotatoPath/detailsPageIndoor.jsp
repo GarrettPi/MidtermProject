@@ -33,7 +33,10 @@
 	
 	<br>
 	<br>
-
+	<p><b>Media Trailer</b></p>
+	<iframe src="${activity.trailerUrl }" width="700px" height="400"></iframe>
+	
+	
 	<div class="container" ><table class="table thead-dark table-striped table-hover">
 		<thead>
 			<tr>
@@ -48,7 +51,7 @@
 		<tr>
 			<td>${activity.name}</td>
 			<td>${activity.description}</td>
-			<td><a href="${activity.url}" target="_blank">Movie Rating URL</a></td>
+			<td><a href="${activity.url}" target="_blank">Source URL</a></td>
 			<td>${activity.activityType.name}</td>
 			<td>${activity.expectedDuration}</td>
 	</tbody>
