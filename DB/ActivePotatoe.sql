@@ -163,7 +163,7 @@ DEFAULT CHARACTER SET = utf8;
 DROP TABLE IF EXISTS `experience` ;
 
 CREATE TABLE IF NOT EXISTS `experience` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `rating` INT NOT NULL,
   `interest_id` INT NOT NULL,
   `experience_date` DATE NULL DEFAULT NULL,
