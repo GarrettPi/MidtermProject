@@ -30,7 +30,7 @@
 				<div id="center">
 					<a href="logout.do">Logout</a>
 					<h1>User Home</h1>
-					<br> <img src="${user.profileUrl}" width="100" height="100" />
+					<br> <img src="${user.profileUrl}" width="200" height="auto" />
 					<br> <br> <b> Welcome ${user.firstName}
 						${user.lastName}!</b> <br> <br>
 				</div>

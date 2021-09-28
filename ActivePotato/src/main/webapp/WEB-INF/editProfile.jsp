@@ -29,7 +29,7 @@
 	<div id="center">
 		<h1>Change User Profile</h1>
 		
-		<img src="${user.profileUrl}" width="100" height="100" />
+		<img src="${user.profileUrl}" width="200" height="auto" />
 		<br>
 	<b> Welcome ${user.firstName} ${user.lastName}!</b>		
 		<br>

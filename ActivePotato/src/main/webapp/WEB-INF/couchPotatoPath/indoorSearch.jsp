@@ -5,18 +5,48 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Active Potato</title>
+<jsp:include page="bootstrapHead.jsp"></jsp:include>
+<style>
+#right {
+	text-align: right;
+}
+
+#center {
+	text-align: center;
+}
+
+#left {
+	text-align: left;
+}
+</style>
+
+<title>Couch Potato Search</title>
 </head>
 <body>
-	<h1>Indoor Search!</h1>
-	<br> Enter the media activity you would like to search for:
+	<div class="container">
+		<div id="top">
+			<div id="center">
 	<br>
+	<h1>Welcome to Active Potato</h1>
+	<br> 
+	<br>
+	<img src="images/indoorActivities.png" height="263.54" width="400"/>
+	<br> 
+	<br>
+		<p><b>Enter keyword below to find indoor activities</b></p>
+	
+	<br>
+	
 	<form action="searchCouch.do" method="GET">
-		Enter media tile:<br> <input type="text" name="keyword" />
-		<input type="submit" value="Show Media" />
+		<b>Indoor Activity: </b><input type="text" name="keyword" />
+		<input class="btn btn-primary" type="submit" value="Search" />
 	</form>
+	<br>
 
-	${DEBUG }
 	<a href="home.do">Return to Home</a><br/>
+			</div>
+		</div>
+	</div>
+
 </body>
 </html>

@@ -5,21 +5,48 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Active Potato</title>
+<jsp:include page="bootstrapHead.jsp"></jsp:include>
+<style>
+#right {
+	text-align: right;
+}
+
+#center {
+	text-align: center;
+}
+
+#left {
+	text-align: left;
+}
+</style>
+
+<title>Active Potato Search</title>
 </head>
 <body>
-	<%-- <c:if test="${not empty user }">
-	${user.username }
-	</c:if> --%>
-	<h1>Outdoor Search!</h1>
-	<br> Enter the outdoor activity you would like to search for:
+	<div class="container">
+		<div id="top">
+			<div id="center">
 	<br>
+	<h1>Welcome to Active Potato</h1>
+	<br> 
+	<br>
+	<img src="images/outdoorActivities.png" height="263.54" width="400"/>
+	<br> 
+	<br>
+		<p><b>Enter keyword below to find outdoor activities</b></p>
+	
+	<br>
+	
 	<form action="searchActive.do" method="GET">
-		Enter outdoor activity:<br> <input type="text" name="keyword" />
-		<input type="submit" value="Show Activities" />
+		<b>Outdoor Activity: </b><input type="text" name="keyword" />
+		<input class="btn btn-primary" type="submit" value="Search" />
 	</form>
-
-	${DEBUG }
+	<br>	
+	
 	<a href="home.do">Return to Home</a><br/>
+			</div>
+		</div>
+	</div>
+
 </body>
 </html>

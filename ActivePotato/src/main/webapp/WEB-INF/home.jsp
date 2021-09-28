@@ -19,6 +19,10 @@
 #left {
 	text-align: left;
 }
+.tab {
+	padding-left: 10pt;
+}
+
 </style>
 <title>Active Potato Home Page</title>
 
@@ -27,9 +31,11 @@
 <body>
    <div class="container">
 	<div id="top">
-			Welcome to Active Potato!
+		<div id="center">
+			<h1>Welcome to Active Potato!</h1>
 			   <a href="loginpage.do">User Login</a>
-   			    <a href="registerpage.do">Create New Account</a>
+   			    <a href="registerpage.do" class="tab">Create New Account</a>
+	</div>
 	</div>
 
 	<a href="active.do" class="homeButton">
