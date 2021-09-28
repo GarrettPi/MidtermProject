@@ -108,24 +108,4 @@ public class UserDaoImpl implements UserDAO {
 		return null;
 	}
 
-	@Override
-	public boolean addActivityToUserInterest(Activity activity, User user) {
-		boolean value = false;
-		String query = "select i from Interest i where i.user.id = :userId and i.activity.id = :actId";
-		List<Interest> interests = em.createQuery(query, Interest.class).setParameter("userId", user.getId()).setParameter("actId", activity.getId()).getResultList();
-		if(interests.isEmpty()) {
-			Interest newInterest = new Interest();
-			newInterest.setUser(user);
-			newInterest.setActivity(activity);
-			em.persist(newInterest);
-			em.flush();
-			value = true;
-		}else {
-			value = false;
-		}
-		return value;
-	}
-	
-	
-
 }

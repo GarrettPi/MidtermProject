@@ -26,10 +26,10 @@
 
 <body>
    <div class="container">
-	<div id="topnav">
-		Welcome to Active Potato!
-			<a href="loginpage.do">User Login</a> 
-			<a href="registerpage.do">Create New Account</a>
+	<div id="top">
+			Welcome to Active Potato!
+			   <a href="loginpage.do">User Login</a>
+   			    <a href="registerpage.do">Create New Account</a>
 	</div>
 
 	<a href="active.do" class="homeButton">

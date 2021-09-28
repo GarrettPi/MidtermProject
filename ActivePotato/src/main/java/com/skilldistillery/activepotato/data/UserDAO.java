@@ -16,5 +16,4 @@ public interface UserDAO {
 	public User updateUser(int id, User user);
 	public User findByUsernameAndPassword(String username, String password);
 	public List<Interest> findInterestsByUserId(int userId);
-	public boolean addActivityToUserInterest(Activity activity, User user);
 }

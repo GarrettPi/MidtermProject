@@ -48,6 +48,7 @@
 							${a.name} <br> Loremipsum dolor sit amet, consectetur
 							adipiscing elit. In ullamcorper maximus ante, ut laoreet massa
 							pharetra a.
+							<form action="removeInterest.do?id=${a.id }" method="POST"><input type="submit" value="Delete"></form>
 						</div>
 						</a>
 						<br>
