@@ -18,6 +18,7 @@
 #left {
 	text-align: left;
 }
+
 </style>
 <title>Couch Potato</title>
 </head>
@@ -33,7 +34,7 @@
 						<th>Name</th>
 						<th>Expected Duration (Min)</th>
 						<th>Description</th>
-						<th>URL</th>
+						<th>Activiy Link</th>
 						<th>Create Date</th>
 					</tr>
 				</thead>
@@ -42,7 +43,7 @@
 						<td><a href="selectCouch.do?actId=${act.id}">${act.name}</a></td>
 						<td>${act.expectedDuration }</td>
 						<td>${act.description }</td>
-						<td>${act.url }</td>
+						<td><a href="${act.url }" target="_blank">${act.url }</a></td>
 						<td>${act.createDate }</td>
 					</tr>
 				</c:forEach>
