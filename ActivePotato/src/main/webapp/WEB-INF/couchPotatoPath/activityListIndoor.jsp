@@ -6,10 +6,23 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="bootstrapHead.jsp"></jsp:include>
-<title>Active Potato</title>
+<style>
+#right {
+	text-align: right;
+}
+
+#center {
+	text-align: center;
+}
+
+#left {
+	text-align: left;
+}
+</style>
+<title>Couch Potato</title>
 </head>
 <body>
-	<div class="container">
+	<div id="center" class="container">
 		<c:if test="${not empty a }">
 			<h1>Show Matching Indoor Activities</h1>
 			<br>
