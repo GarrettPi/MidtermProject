@@ -39,7 +39,7 @@
 	</div>
 	<div class="container">
 		<div class="row" id="userContainer">
-			<div class="col-sm-4 sidenav" id="userInterest" style="border: 2px solid black; border-radius: 5px; padding: 10px;">
+			<div class="col-sm-4 sidenav" id="userInterest" style="border: 1px dotted black; border-radius: 5px; padding: 10px;">
 				<c:if test="${not empty acts }">
 					<c:forEach var="a" items="${acts }">
 						<a href="selectActivity.do?id=${a.id}" class="interestLink">
