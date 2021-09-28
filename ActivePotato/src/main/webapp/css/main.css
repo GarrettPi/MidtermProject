@@ -34,7 +34,6 @@ body {
 }
 
 #userContainer {
-	display: flex;
 	align-items: center;
 	height: 100vh;
 }
@@ -49,7 +48,8 @@ body {
 }
 
 #interest:hover {
-	font-weight: bold;
+	color: blue;
+	border: 5px solid black;
 }
 
 .interestLink {
