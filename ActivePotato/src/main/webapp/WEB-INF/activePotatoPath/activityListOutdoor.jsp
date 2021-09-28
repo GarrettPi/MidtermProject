@@ -63,7 +63,7 @@ tr:nth-child(even) {
 			</table>
 		</c:if>
 		<c:if test="${empty a }">
-	No activities match that keyword.
+	<h3>No activities match that keyword.</h3>
 	</c:if>
 		<a href="home.do">Return to Home</a> <br />
 	</div>
