@@ -1,5 +1,6 @@
 package com.skilldistillery.activepotato.controllers;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -32,6 +33,7 @@ public class CommentController {
 		comment.setUser(user);
 		Activity activity = activityDao.findActivityById(activityId);
 		comment.setActivity(activity);
+		comment.setCommentDate(LocalDate.now());
 		commentDao.addComment(comment);
 		
 		if (activity.getActivityCategory().getId() == 1) {
@@ -43,6 +45,8 @@ public class CommentController {
 			mv.addObject("activity", activity);
 			mv.setViewName("activePotatoPath/detailsPageOutdoor");
 		}
+		List<Comment> comments = commentDao.findAll(activityId);
+		mv.addObject("comments", comments);
 		return mv;
 	}
 	

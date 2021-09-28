@@ -66,7 +66,9 @@
 			<div class="container" ><table class="table thead-dark table-striped table-hover">
 			<thead>
 				<tr>
+					<th>Username</th>
 					<th>Comments</th>
+					<th>Date Added</th>
 				</tr>
 			</thead>
 
@@ -75,6 +77,7 @@
 					<tr>
 						<td>${c.user.getUsername()}</td>
 						<td>${c.comment}</td>
+						<td>${c.commentDate}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
