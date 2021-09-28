@@ -39,11 +39,11 @@
 	</div>
 	<div class="container">
 		<div class="row" id="userContainer">
-			<div class="col-sm-4" id="userInterest">
+			<div class="col-sm-4 sidenav" id="userInterest" style="border: 2px solid black; border-radius: 5px; padding: 10px;">
 				<c:if test="${not empty acts }">
 					<c:forEach var="a" items="${acts }">
 						<a href="selectActivity.do?id=${a.id}" class="interestLink">
-							<div id="interest">
+							<div id="interest" style="border: 2px solid black; border-radius: 5px; padding: 5px;" >
 								<img src="${a.activityType.url }" width="50" height="50" />
 								${a.name} <br> Loremipsum dolor sit amet, consectetur
 								adipiscing elit. In ullamcorper maximus ante, ut laoreet massa
