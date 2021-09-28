@@ -31,8 +31,8 @@
 <body>
    <div class="container">
 	<div id="top">
-		<div id="center">
-			<h1>Welcome to Active Potato!</h1>
+		<div id="left">
+		Welcome to Active Potato!
 			   <a href="loginpage.do">User Login</a>
    			    <a href="registerpage.do" class="tab">Create New Account</a>
 	</div>

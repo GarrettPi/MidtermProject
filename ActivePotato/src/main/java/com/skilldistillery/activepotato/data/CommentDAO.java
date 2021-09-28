@@ -11,5 +11,6 @@ public interface CommentDAO {
 	public Comment addComment(Comment comment);
 	public boolean deleteComment(int id);
 	public Comment updateComment(Comment comment);
+	List<Comment> findCommentByActivityId(int activityId);
 	
 }

@@ -52,7 +52,11 @@
 	
 	</table>
 	</div>
-
+ 	<form action="addComment.do?activityId=${activity.id}" method="POST">	
+	Comment: <input type="text" placeholder="comment" name="comment" />
+		<button type="submit" class="btn btn-primary">Add Comment</button>
+	</form> 
+	
 	<form action="addInterest.do?id=${activity.id}" method="POST">
 		<input type="hidden" name="activity"/>
 		<button type="submit" class="btn btn-primary">Add Activity</button>

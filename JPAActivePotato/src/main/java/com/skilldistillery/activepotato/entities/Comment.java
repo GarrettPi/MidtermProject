@@ -1,6 +1,7 @@
 package com.skilldistillery.activepotato.entities;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Comment {
@@ -31,6 +33,30 @@ public class Comment {
 	@JoinColumn(name="user_id")
 	private User user;
 	
+	@ManyToOne
+	@JoinColumn(name="comment_id")
+	private Comment baseComment;
+	
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	@OneToMany(mappedBy="baseComment")
+	private List<Comment> comments;
+	
+	
+	public Comment getBaseComment() {
+		return baseComment;
+	}
+
+	public void setBaseComment(Comment baseComment) {
+		this.baseComment = baseComment;
+	}
+
 	public User getUser() {
 		return user;
 	}
