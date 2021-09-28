@@ -17,6 +17,7 @@ import com.skilldistillery.activepotato.data.InterestDAO;
 import com.skilldistillery.activepotato.data.UserDAO;
 import com.skilldistillery.activepotato.entities.Activity;
 import com.skilldistillery.activepotato.entities.Comment;
+import com.skilldistillery.activepotato.entities.Interest;
 import com.skilldistillery.activepotato.entities.User;
 
 @Controller
@@ -107,8 +108,7 @@ public class ActivityController {
 		}
 		Activity activity = activityDao.findActivityById(id);
 		User user = (User) session.getAttribute("user");
-		boolean success = intDao.addActivityToUserInterest(activity, user);
-		System.out.println(success);
+		Interest newInterest = intDao.addActivityToUserInterest(activity, user);
 		mv.addObject("acts", activityDao.findActivitiesByInterestUserId(user.getId()));
 		mv.setViewName("userHome");
 		return mv;
