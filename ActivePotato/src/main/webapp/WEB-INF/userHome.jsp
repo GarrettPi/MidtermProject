@@ -6,7 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <%-- <jsp:include page="bootstrapHead.jsp"></jsp:include>
- --%><style>
+ --%>
+ 
+ <style>
 #right {
 	text-align: right;
 }
@@ -18,6 +20,30 @@
 #left {
 	text-align: left;
 }
+
+
+
+#interest:hover {
+	color: blue;
+	border: 5px solid black;
+}
+
+.interestLink {
+	text-decoration: none;
+}
+
+#userContainer {
+	align-items: center;
+    height: 100vh;
+}
+
+#userInterest {
+	overflow-y: scroll;
+	height: 50%;
+}
+
+
+
 </style>
 
 <title>Active Potato User Home Menu</title>
@@ -62,7 +88,7 @@
 	</div>
 
 
-	<div class="container">
+	
 		<div id="center">
 			<form action="searchActive.do" method="GET">
 				<label class="update"><b>Search Active Potato!</b></label>
@@ -81,7 +107,7 @@
 							Activity</button>
 					</form>
 		</div>
-	</div>
+	
 	<br>
 	<hr>
 
