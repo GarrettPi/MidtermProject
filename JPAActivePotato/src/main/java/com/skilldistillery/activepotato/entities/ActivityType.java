@@ -82,10 +82,10 @@ public class ActivityType {
 		return id == other.id;
 	}
 
-//	@Override
-//	public String toString() {
-//		return "ActivityType [id=" + id + ", name=" + name + "]";
-//	}
+	@Override
+	public String toString() {
+		return "ActivityType [id=" + id + ", name=" + name + "]";
+	}
 
 	
 	

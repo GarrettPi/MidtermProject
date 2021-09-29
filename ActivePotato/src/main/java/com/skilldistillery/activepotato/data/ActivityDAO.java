@@ -19,4 +19,6 @@ public interface ActivityDAO {
 	public Activity findActivityByInterestActivityId(int activityId);
 	public List<ActivityCategory> findAllActivityCategories();
 	public List<ActivityType> findAllActivityTypes();
+	public ActivityType findTypeById(int id);
+	public ActivityCategory findCategoryById(int id);
 }

@@ -150,4 +150,16 @@ public class ActivityDaoImpl implements ActivityDAO {
 		return types;
 	}
 
+	@Override
+	public ActivityType findTypeById(int id) {
+		ActivityType type = em.find(ActivityType.class, id);
+		return type;
+	}
+
+	@Override
+	public ActivityCategory findCategoryById(int id) {
+		ActivityCategory category = em.find(ActivityCategory.class, id);
+		return category;
+	}
+
 }

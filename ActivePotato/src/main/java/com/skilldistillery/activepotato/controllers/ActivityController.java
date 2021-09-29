@@ -82,14 +82,26 @@ public class ActivityController {
 		}
 		return mv;
 	}
+
 	@RequestMapping(path = "submitActivity.do", method = RequestMethod.POST)
-	public ModelAndView newUser(Activity activity, HttpSession session) {
+	public ModelAndView newUser(Activity activity, HttpSession session, int category, int type) {
 		ModelAndView mv = new ModelAndView();
+		User user = (User) session.getAttribute("user");
+		activity.setUser(user);
+		activity.setActivityCategory(activityDao.findCategoryById(category));
+		System.out.println(category);
+		activity.setActivityType(activityDao.findTypeById(type));
+		System.out.println(type);
+		Activity newActivity = activityDao.addNewActivity(activity);
 		System.out.println(activity);
-		
+		mv.addObject("activity", newActivity);
+		if (activity.getActivityCategory().getId() == 1) {
+			mv.setViewName("couchPotatoPath/detailsPageIndoor");
+		} else {
+			mv.setViewName("activePotatoPath/detailsPageOutdoor");
+		}
 		return mv;
 	}
-	
 
 	// Submits couch search form and directs to results page
 	@RequestMapping(path = "searchCouch.do")

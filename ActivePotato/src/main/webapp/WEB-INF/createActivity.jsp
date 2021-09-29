@@ -74,23 +74,19 @@
 			<br>
 			<div class="container">
 				<label class="update">Activity Category: <br></label> 
-				<select class="updateinput" name="ActivityCategory">
-				<optgroup label="category">
+				<select class="updateinput" name="category">
 				<c:forEach var="activityCategory" items="${activityCategory}">
-				<option value = ${activityCategory }>${activityCategory.name}</option>
+				<option value = ${activityCategory.id }>${activityCategory.name}</option>
 				</c:forEach>
-				</optgroup>
 				</select>
 			</div>
 			<br>
 			<div class="container">
 				<label class="update">Activity Type: <br></label> 
-				<select class="updateinput" name="ActivityType">
-				<optgroup label="type">
+				<select class="updateinput" name="type">
 				<c:forEach var="activityType" items="${activityType }">
-				<option value = ${activityType }>${activityType.name}</option>
+				<option value = ${activityType.id }>${activityType.name}</option>
 				</c:forEach>
-				</optgroup>
 				</select>
 			</div>
 			<div class="container">

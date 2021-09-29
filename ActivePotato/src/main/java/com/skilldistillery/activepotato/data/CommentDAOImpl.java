@@ -1,5 +1,6 @@
 package com.skilldistillery.activepotato.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -127,6 +128,14 @@ public class CommentDAOImpl implements CommentDAO {
 		em.flush();
 		
 		return comment;
+	}
+
+	@Override
+	public List<Comment> findRepliesByCommentId(int commentId) {
+		List<Comment> replies = new ArrayList<Comment>();
+		String query = "select c from Comment c where c.baseComment.id = :commentId";
+		replies = em.createQuery(query, Comment.class).setParameter("commentId", commentId).getResultList();
+		return replies;
 	}
 	
 }

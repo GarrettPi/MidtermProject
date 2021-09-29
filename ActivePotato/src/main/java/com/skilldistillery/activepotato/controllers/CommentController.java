@@ -1,6 +1,7 @@
 package com.skilldistillery.activepotato.controllers;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -28,6 +29,8 @@ public class CommentController {
 	private ActivityDAO activityDao;
 	@Autowired
 	private ExperienceDAO expDao;
+	@Autowired
+	private CommentDAO comDao;
 
 	@RequestMapping(path = "addComment.do", method = RequestMethod.POST)
 	public ModelAndView addComment(HttpSession session, Comment comment, int activityId) {
@@ -50,7 +53,12 @@ public class CommentController {
 			mv.setViewName("activePotatoPath/detailsPageOutdoor");
 		}
 		List<Comment> comments = commentDao.findAll(activityId);
+		List<Comment> replies = new ArrayList<>();
+		for(Comment c : comments) {
+			replies.addAll(comDao.findRepliesByCommentId(c.getId()));
+		}
 		List<Experience> exp = expDao.findExperiencesByActivityId(activityId);
+		mv.addObject("replies", replies);
 		mv.addObject("experiences", exp);
 		mv.addObject("comments", comments);
 		return mv;
@@ -78,6 +86,13 @@ public class CommentController {
 		mv.addObject("comments", comments);
 		return mv;
 
+	}
+	//for adding replies to existing comments
+	@RequestMapping(path="addReply")
+	public ModelAndView addReply(HttpSession session, int commentId) {
+		ModelAndView mv = new ModelAndView();
+		
+		return mv;
 	}
 
 }
