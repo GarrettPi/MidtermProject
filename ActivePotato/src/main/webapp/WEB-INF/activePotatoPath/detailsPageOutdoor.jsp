@@ -78,7 +78,7 @@
 				<c:forEach var="c" items="${comments }">
 					<tr>
 						<td>${c.user.getUsername()}</td>
-						<td>${c.rating }</td>
+						<td></td>
 						<td>${c.comment}</td>
 						<td>${c.commentDate}</td>
 						<td><form action="deleteComment.do?commentId=${c.id}" method="POST"> <input type="submit" value="delete"> </form></td>

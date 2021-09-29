@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,7 +36,7 @@ public class HomeController {
 		User user = (User)session.getAttribute("user");
 		List<Comment> commentList = comDao.findCommentByUserId(user.getId());
 		mv.addObject("user", user);
-		mv.addObject("comments", commentList);
+		mv.addObject("userComments", commentList);
 		mv.addObject("acts", actDao.findActivitiesByInterestUserId(user.getId()));
 		mv.setViewName("userHome");
 	}
@@ -52,6 +53,9 @@ public class HomeController {
 		} else {
 			User user = (User) session.getAttribute("user");
 			mv.addObject("acts", actDao.findActivitiesByInterestUserId(user.getId()));
+			List<Comment> commentList = comDao.findCommentByUserId(user.getId());
+			System.out.println(commentList);
+			mv.addObject("userComments", commentList);
 			mv.addObject("user", user);
 			mv.setViewName("userHome");
 		}
