@@ -111,17 +111,16 @@
 
 				</c:if>
 			</div>
-
 			<div class="col-12 col-sm-6" id="userInterest" style="border: 1px dotted black; border-radius: 5px; padding: 10px;">
 				<div id="center">User Comments</div>
 				<c:if test="${not empty userComments }">
 					<c:forEach var="c" items="${userComments }">
 						<div id="interest" style="border: 2px solid black; border-radius: 5px; padding: 5px;">
-
+						
 							${c.comment}
 						<br>
+						</div>
 					</c:forEach>
-
 				</c:if>
 			</div>
 
@@ -141,7 +140,6 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
 
 </body>
 </html>

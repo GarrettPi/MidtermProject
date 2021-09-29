@@ -41,7 +41,7 @@ public class UserController {
 			if (PasswordVerifier.checkPassword(userPassword, salt, pass)) {
 				mv.addObject("acts", actDao.findActivitiesByInterestUserId(user.getId()));
 				List<Comment> commentList = comDao.findCommentByUserId(user.getId());
-				mv.addObject("comments", commentList);
+				mv.addObject("userComments", commentList);
 				mv.setViewName("userHome");
 				session.setAttribute("user", user);
 			} else {
