@@ -67,6 +67,7 @@
 			<thead>
 				<tr>
 					<th>Username</th>
+					<th>Rating</th>
 					<th>Comments</th>
 					<th>Date Added</th>
 					<th>Delete</th>
@@ -77,9 +78,19 @@
 				<c:forEach var="c" items="${comments }">
 					<tr>
 						<td>${c.user.getUsername()}</td>
+						<td>${c.rating }</td>
 						<td>${c.comment}</td>
 						<td>${c.commentDate}</td>
 						<td><form action="deleteComment.do?commentId=${c.id}" method="POST"> <input type="submit" value="delete"> </form></td>
+					</tr>
+				</c:forEach>
+				<c:forEach var="e" items="${experiences}">
+					<tr>
+						<td>${e.interest.user.getUsername()}
+						<td>${e.rating }</td>
+						<td>${e.comment}</td>
+						<td>${e.experienceDate}</td>
+						<td><form action="deleteExperience.do?experienceId=${e.id}" method="POST"> <input type="submit" value="delete"> </form></td>
 					</tr>
 				</c:forEach>
 			</tbody>

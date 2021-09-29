@@ -22,19 +22,20 @@ public class ExperienceDAOImpl implements ExperienceDAO {
 	private EntityManager em;
 
 	@Override
-	public List<Experience> findExperienceById(int experienceId) {
-		List <Experience> expList = null;
+	public Experience findExperienceById(int experienceId) {
+		Experience experience = null;
 		try {
-			String query = "SELECT e FROM Experience e WHERE  = :eid";
-			expList = em.createQuery(query, Experience.class)
+			String query = "SELECT e FROM Experience e WHERE id = :eid";
+			//"SELECT e FROM Experience e JOIN e.interest i WHERE i.activity.id = :eid"
+			experience = em.createQuery(query, Experience.class)
 						.setParameter("eid", experienceId)
-						.getResultList();
+						.getSingleResult();
 						
 		} catch (Exception e) {
 			System.out.println("No experiences found with Experience ID: " + experienceId);
 		}
 				
-		return expList;
+		return experience;
 	}
 
 	@Override
