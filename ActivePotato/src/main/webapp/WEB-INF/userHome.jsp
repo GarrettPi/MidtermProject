@@ -116,8 +116,13 @@
 				<c:if test="${not empty userComments }">
 					<c:forEach var="c" items="${userComments }">
 						<div id="interest" style="border: 2px solid black; border-radius: 5px; padding: 5px;">
-						
+							<c:if test="${empty c.baseComment }">
 							${c.comment}
+							</c:if>
+							<c:if test="${not empty c.baseComment }">
+							replied to ${c.baseComment.user.username } on ${c.baseComment.activity.name } "${c.baseComment.comment }" <br>
+							${c.comment }
+							</c:if>
 						<br>
 						</div>
 					</c:forEach>
