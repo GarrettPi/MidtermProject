@@ -24,8 +24,13 @@ public class InterestDaoImpl implements InterestDAO {
 	@Override
 	public Interest addActivityToUserInterest(Activity activity, User user) {
 		String query = "select i from Interest i where i.user.id = :userId and i.activity.id = :actId";
-		Interest interest = em.createQuery(query, Interest.class).setParameter("userId", user.getId())
-				.setParameter("actId", activity.getId()).getSingleResult();
+		Interest interest = null;
+		try {
+			interest = em.createQuery(query, Interest.class).setParameter("userId", user.getId()).setParameter("actId", activity.getId()).getSingleResult();
+					
+		} catch (Exception e) {
+			System.out.println("Null result from interest query" + interest);
+		}
 		if (interest == null) {
 			Interest newInterest = new Interest();
 			newInterest.setUser(user);

@@ -1,6 +1,6 @@
 package com.skilldistillery.activepotato.controllers;
 
-import java.util.List;
+import java.time.LocalDate;
 
 import javax.servlet.http.HttpSession;
 
@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.activepotato.data.ActivityDAO;
@@ -41,12 +42,14 @@ public class ExperienceController {
 	}
 
 	@RequestMapping(path = "createExperience.do", method = RequestMethod.POST)
-	public ModelAndView createExperience(HttpSession session, Experience experience, int interestId) {
+	public ModelAndView createExperience(HttpSession session, Experience experience, int interestId, @RequestParam("expDate") String date) {
+		LocalDate localDate = LocalDate.parse(date);
 		ModelAndView mv = new ModelAndView();
 		User user = (User) session.getAttribute("user");
 		Interest interest = intDao.findInterestById(interestId);
 		System.out.println("***************************************************"+interest+"*******************************************");
 		experience.setInterest(interest);
+		experience.setExperienceDate(localDate);
 		expDao.addExperience(experience);
 		mv.setViewName("userHome");
 		mv.addObject("acts", actDao.findActivitiesByInterestUserId(user.getId()));

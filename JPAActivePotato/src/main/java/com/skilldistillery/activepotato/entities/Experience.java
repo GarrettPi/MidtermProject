@@ -32,8 +32,20 @@ public class Experience {
 	private String comment;
 	
 	//Methods
+	@javax.persistence.Transient
+	private LocalDate localDateNow = LocalDate.now();
 	
 	
+	
+	
+	public LocalDate getLocalDateNow() {
+		return localDateNow;
+	}
+
+	public void setLocalDateNow(LocalDate localDateNow) {
+		this.localDateNow = localDateNow;
+	}
+
 	public Experience() {
 		super();
 	}
