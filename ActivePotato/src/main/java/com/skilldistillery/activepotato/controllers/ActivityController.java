@@ -13,10 +13,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.activepotato.data.ActivityDAO;
 import com.skilldistillery.activepotato.data.CommentDAO;
+import com.skilldistillery.activepotato.data.ExperienceDAO;
 import com.skilldistillery.activepotato.data.InterestDAO;
 import com.skilldistillery.activepotato.data.UserDAO;
 import com.skilldistillery.activepotato.entities.Activity;
 import com.skilldistillery.activepotato.entities.Comment;
+import com.skilldistillery.activepotato.entities.Experience;
 import com.skilldistillery.activepotato.entities.Interest;
 import com.skilldistillery.activepotato.entities.User;
 
@@ -31,6 +33,8 @@ public class ActivityController {
 	private InterestDAO intDao;
 	@Autowired
 	private CommentDAO commentDao;
+	@Autowired
+	private ExperienceDAO expDao;
 
 	// Submits active search form and directs to results page
 	@RequestMapping(path = "searchActive.do", method = RequestMethod.GET)
@@ -91,9 +95,13 @@ public class ActivityController {
 		Activity activity = activityDao.findActivityById(id);
 		if (activity.getActivityCategory().getId() == 1) {
 			mv.setViewName("couchPotatoPath/detailsPageIndoor");
+			List<Experience> exp = expDao.findExperiencesByActivityId(activity.getId());
+			mv.addObject("experiences", exp);
 			mv.addObject("activity", activity);
 		} else {
 			mv.setViewName("activePotatoPath/detailsPageOutdoor");
+			List<Experience> exp = expDao.findExperiencesByActivityId(activity.getId());
+			mv.addObject("experiences", exp);
 			mv.addObject("activity", activity);
 		}
 		return mv;
