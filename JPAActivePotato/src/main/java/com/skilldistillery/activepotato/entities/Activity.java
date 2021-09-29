@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class Activity {
@@ -74,6 +75,9 @@ public class Activity {
 	
 	@OneToMany(mappedBy="activity")
 	private List<ActivityRating> activityRatingList;
+	
+	@Transient
+	private Integer avgRating;
 
 	public int getId() {
 		return id;
