@@ -37,6 +37,8 @@ tr:nth-child(even) {
 						<th onclick="sortTable(0)">Name &#x25b4;&#x25be;</th>
 						<th onclick="sortTable(1)">Expected Duration (Min)
 							&#x25b4;&#x25be;</th>
+						
+						<th>Average Activity Rating</th>
 						<th>Description</th>
 						<th>URL</th>
 						<th>Create Date</th>
@@ -47,6 +49,7 @@ tr:nth-child(even) {
 					<tr>
 						<td><a href="selectActive.do?actId=${act.id}">${act.name}</a></td>
 						<td>${act.expectedDuration }</td>
+						<td>${act.avgRating }
 						<td>${act.description }</td>
 						<td>${act.url }</td>
 						<td>${act.createDate }</td>
