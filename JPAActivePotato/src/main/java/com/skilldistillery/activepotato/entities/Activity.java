@@ -211,6 +211,14 @@ public class Activity {
 		this.activityRatingList = activityRatingList;
 	}
 
+	public Integer getAvgRating() {
+		return avgRating;
+	}
+
+	public void setAvgRating(Integer avgRating) {
+		this.avgRating = avgRating;
+	}
+
 	@Override
 	public String toString() {
 		return "Activity [id=" + id + ", name=" + name + ", expectedDuration=" + expectedDuration + ", description="

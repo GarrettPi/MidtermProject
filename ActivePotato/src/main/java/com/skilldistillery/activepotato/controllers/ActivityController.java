@@ -44,10 +44,25 @@ public class ActivityController {
 			mv.addObject("user", (User) session.getAttribute("user"));
 		}
 		mv.setViewName("activePotatoPath/activityListOutdoor");
-		mv.addObject("a", activityDao.findActiveActivity(keyword));
+		List<Activity> activities = activityDao.findActiveActivity(keyword);
+		if (!activities.isEmpty()) {
+			for (Activity activity : activities) {
+				List<Experience> experiences = expDao.findExperiencesByActivityId(activity.getId());
+				int sum = 0;
+				int avg = 0;
+				if (!experiences.isEmpty()) {
+					for (Experience experience : experiences) {
+						sum += experience.getRating();
+					}
+					avg = sum / experiences.size();
+				}
+				activity.setAvgRating(avg);
+			}
+		}
+		mv.addObject("a", activities);
 		return mv;
 	}
-	
+
 	@RequestMapping(path = "createActivity.do")
 	public ModelAndView newUser(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -59,7 +74,6 @@ public class ActivityController {
 		}
 		return mv;
 	}
-	
 
 	// Submits couch search form and directs to results page
 	@RequestMapping(path = "searchCouch.do")
@@ -69,7 +83,22 @@ public class ActivityController {
 			mv.addObject("user", (User) session.getAttribute("user"));
 		}
 		mv.setViewName("couchPotatoPath/activityListIndoor");
-		mv.addObject("a", activityDao.findCouchActivity(keyword));
+		List<Activity> activities = activityDao.findActiveActivity(keyword);
+		if (!activities.isEmpty()) {
+			for (Activity activity : activities) {
+				List<Experience> experiences = expDao.findExperiencesByActivityId(activity.getId());
+				int sum = 0;
+				int avg = 0;
+				if (!experiences.isEmpty()) {
+					for (Experience experience : experiences) {
+						sum += experience.getRating();
+					}
+					avg = sum / experiences.size();
+				}
+				activity.setAvgRating(avg);
+			}
+		}
+		mv.addObject("a", activities);
 		return mv;
 	}
 
@@ -84,7 +113,7 @@ public class ActivityController {
 		mv.addObject("activity", activityDao.findActivityById(actId));
 		List<Comment> comments = commentDao.findAll(actId);
 		mv.addObject("comments", comments);
-		
+
 		return mv;
 	}
 
@@ -119,11 +148,11 @@ public class ActivityController {
 		}
 		return mv;
 	}
-	
-	@RequestMapping(path="addInterest.do", method=RequestMethod.POST)
+
+	@RequestMapping(path = "addInterest.do", method = RequestMethod.POST)
 	public ModelAndView addInterest(HttpSession session, int id) {
 		ModelAndView mv = new ModelAndView();
-		if(session.getAttribute("user")==null) {
+		if (session.getAttribute("user") == null) {
 			mv.setViewName("userLogin");
 			return mv;
 		}
@@ -134,8 +163,8 @@ public class ActivityController {
 		mv.setViewName("userHome");
 		return mv;
 	}
-	
-	@RequestMapping(path="removeInterest.do", method=RequestMethod.POST)
+
+	@RequestMapping(path = "removeInterest.do", method = RequestMethod.POST)
 	public ModelAndView removeInterest(HttpSession session, int id) {
 		ModelAndView mv = new ModelAndView();
 		User user = (User) session.getAttribute("user");
