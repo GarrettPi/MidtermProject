@@ -1,15 +1,18 @@
 package com.skilldistillery.activepotato.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.activepotato.data.ActivityDAO;
+import com.skilldistillery.activepotato.data.CommentDAO;
 import com.skilldistillery.activepotato.data.UserDAO;
+import com.skilldistillery.activepotato.entities.Comment;
 import com.skilldistillery.activepotato.entities.User;
 
 @Controller
@@ -19,6 +22,9 @@ public class HomeController {
 	private UserDAO userDao;
 	@Autowired
 	private ActivityDAO actDao;
+	
+	@Autowired
+	private CommentDAO comDao;
 
 	@RequestMapping(path = { "/", "home.do", "userHome.do" })
 	public ModelAndView home(HttpSession session) {
@@ -27,7 +33,9 @@ public class HomeController {
 		mv.setViewName("home");
 	} else {
 		User user = (User)session.getAttribute("user");
+		List<Comment> commentList = comDao.findCommentByUserId(user.getId());
 		mv.addObject("user", user);
+		mv.addObject("comments", commentList);
 		mv.addObject("acts", actDao.findActivitiesByInterestUserId(user.getId()));
 		mv.setViewName("userHome");
 	}

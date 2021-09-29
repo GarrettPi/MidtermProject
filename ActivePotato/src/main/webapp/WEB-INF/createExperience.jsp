@@ -60,8 +60,7 @@
 		<label>Comments:</label>
 		<br>
 		<br>
-		<textarea rows="5" cols="50" placeholder="Comments about the experience..." name="comment">
-		</textarea>
+		<textarea rows="5" cols="50" placeholder="Comments about the experience..." name="comment"></textarea>
 		</div>
 		<br>
 				

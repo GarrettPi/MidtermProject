@@ -79,5 +79,17 @@ public class CommentController {
 		return mv;
 
 	}
+	
+	@RequestMapping(path = "viewUserComments.do", method = RequestMethod.POST)
+	public ModelAndView viewUserComments(HttpSession session, int userId) {
+		List<Comment> commentList = commentDao.findCommentByUserId(userId);
+		ModelAndView mv = new ModelAndView();
+		if (commentList.size() > 0) {
+			mv.addObject("userComments", commentList);
+			mv.setViewName("userComments");
+		}		
+		
+		return mv;
+	}
 
 }
