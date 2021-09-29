@@ -47,6 +47,19 @@ public class ActivityController {
 		mv.addObject("a", activityDao.findActiveActivity(keyword));
 		return mv;
 	}
+	
+	@RequestMapping(path = "createActivity.do")
+	public ModelAndView newUser(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		if (session.getAttribute("user") == null) {
+			mv.setViewName("createProfile");
+		} else {
+			mv.addObject("user", (User) session.getAttribute("user"));
+			mv.setViewName("createActivity");
+		}
+		return mv;
+	}
+	
 
 	// Submits couch search form and directs to results page
 	@RequestMapping(path = "searchCouch.do")
