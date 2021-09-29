@@ -37,7 +37,6 @@ public class Experience {
 	
 	
 	
-	
 	public LocalDate getLocalDateNow() {
 		return localDateNow;
 	}
