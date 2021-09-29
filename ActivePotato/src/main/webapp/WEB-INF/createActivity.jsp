@@ -74,26 +74,19 @@
 			<br>
 			<div class="container">
 				<label class="update">Activity Category: <br></label> 
-				<select class="updateinput" name="activityCategory">
-					<option>Couch Potato</option>
-					<option>Active Potato</option>
+				<select class="updateinput" name="ActivityCategory">
+				<c:forEach var="activityCategory" items="${activityCategory}">
+				<option value = ${activityCategory }>${activityCategory.name}</option>
+				</c:forEach>
 				</select>
 			</div>
 			<br>
 			<div class="container">
 				<label class="update">Activity Type: <br></label> 
-				<select class="updateinput" name="activityType">
-					<option>Movie</option>
-					<option>TV Series</option>
-					<option>Mini Game</option>
-					<option>Archery</option>
-					<option>Baseball</option>
-					<option>Beach Volleyball</option>
-					<option>Birdwatching</option>
-					<option>Camping</option>
-					<option>Football</option>
-					<option>Frisbee</option>
-					<option>Other</option>
+				<select class="updateinput" name="ActivityType">
+				<c:forEach var="activityType" items="${activityType }">
+				<option value = ${activityType }>${activityType.name}</option>
+				</c:forEach>
 				</select>
 			</div>
 			<div class="container">

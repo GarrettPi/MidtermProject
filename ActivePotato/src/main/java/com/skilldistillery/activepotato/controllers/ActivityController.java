@@ -17,6 +17,8 @@ import com.skilldistillery.activepotato.data.ExperienceDAO;
 import com.skilldistillery.activepotato.data.InterestDAO;
 import com.skilldistillery.activepotato.data.UserDAO;
 import com.skilldistillery.activepotato.entities.Activity;
+import com.skilldistillery.activepotato.entities.ActivityCategory;
+import com.skilldistillery.activepotato.entities.ActivityType;
 import com.skilldistillery.activepotato.entities.Comment;
 import com.skilldistillery.activepotato.entities.Experience;
 import com.skilldistillery.activepotato.entities.Interest;
@@ -66,15 +68,21 @@ public class ActivityController {
 	@RequestMapping(path = "createActivity.do")
 	public ModelAndView newActivity(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		List<ActivityCategory> ac = null;
+		List<ActivityType> at = null;
 		if (session.getAttribute("user") == null) {
 			mv.setViewName("createProfile");
 		} else {
+			ac = activityDao.findAllActivityCategories();
+			at = activityDao.findAllActivityTypes();
 			mv.addObject("user", (User) session.getAttribute("user"));
+			mv.addObject("activityCategory", ac);
+			mv.addObject("activityType", at);
 			mv.setViewName("createActivity");
 		}
 		return mv;
 	}
-	@RequestMapping(path = "submitActivity.do")
+	@RequestMapping(path = "submitActivity.do", method = RequestMethod.POST)
 	public ModelAndView newUser(Activity activity, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		System.out.println(activity);
@@ -149,11 +157,15 @@ public class ActivityController {
 		Activity activity = activityDao.findActivityById(id);
 		if (activity.getActivityCategory().getId() == 1) {
 			mv.setViewName("couchPotatoPath/detailsPageIndoor");
+			List<Comment> comments = commentDao.findAll(activity.getId());
+			mv.addObject("comments", comments);
 			List<Experience> exp = expDao.findExperiencesByActivityId(id);
 			mv.addObject("experiences", exp);
 			mv.addObject("activity", activity);
 		} else {
 			mv.setViewName("activePotatoPath/detailsPageOutdoor");
+			List<Comment> comments = commentDao.findAll(activity.getId());
+			mv.addObject("comments", comments);
 			List<Experience> exp = expDao.findExperiencesByActivityId(id);
 			mv.addObject("experiences", exp);
 			mv.addObject("activity", activity);
