@@ -64,7 +64,7 @@ public class ActivityController {
 	}
 
 	@RequestMapping(path = "createActivity.do")
-	public ModelAndView newUser(HttpSession session) {
+	public ModelAndView newActivity(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		if (session.getAttribute("user") == null) {
 			mv.setViewName("createProfile");
@@ -74,6 +74,14 @@ public class ActivityController {
 		}
 		return mv;
 	}
+	@RequestMapping(path = "submitActivity.do")
+	public ModelAndView newUser(Activity activity, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		System.out.println(activity);
+		
+		return mv;
+	}
+	
 
 	// Submits couch search form and directs to results page
 	@RequestMapping(path = "searchCouch.do")
