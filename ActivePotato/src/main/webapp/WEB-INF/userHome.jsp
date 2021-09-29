@@ -125,6 +125,7 @@
 							</c:if>
 						<br>
 						</div>
+						<br>
 					</c:forEach>
 				</c:if>
 			</div>
