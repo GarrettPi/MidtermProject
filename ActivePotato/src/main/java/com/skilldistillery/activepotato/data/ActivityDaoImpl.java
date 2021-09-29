@@ -11,6 +11,8 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.activepotato.entities.Activity;
+import com.skilldistillery.activepotato.entities.ActivityCategory;
+import com.skilldistillery.activepotato.entities.ActivityType;
 
 @Service
 @Transactional
@@ -130,6 +132,22 @@ public class ActivityDaoImpl implements ActivityDAO {
 		String query = "select a from Activity a where id = :id";
 		act = em.createQuery(query, Activity.class).setParameter("id", activityId).getSingleResult();
 		return act;
+	}
+
+	@Override
+	public List<ActivityCategory> findAllActivityCategories() {
+		List<ActivityCategory> categories = new ArrayList<>();
+		String query = "select c from ActivityCategory c";
+		categories = em.createQuery(query, ActivityCategory.class).getResultList();
+		return categories;
+	}
+
+	@Override
+	public List<ActivityType> findAllActivityTypes() {
+		List<ActivityType> types = new ArrayList<>();
+		String query = "select t from ActivityType t";
+		types = em.createQuery(query, ActivityType.class).getResultList();
+		return types;
 	}
 
 }

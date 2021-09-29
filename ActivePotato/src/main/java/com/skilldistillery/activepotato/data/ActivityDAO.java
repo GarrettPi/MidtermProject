@@ -3,6 +3,8 @@ package com.skilldistillery.activepotato.data;
 import java.util.List;
 
 import com.skilldistillery.activepotato.entities.Activity;
+import com.skilldistillery.activepotato.entities.ActivityCategory;
+import com.skilldistillery.activepotato.entities.ActivityType;
 
 public interface ActivityDAO {
 
@@ -15,4 +17,6 @@ public interface ActivityDAO {
 	public Activity updateActivity(int id, Activity activity);
 	public List<Activity> findActivitiesByInterestUserId(int id);
 	public Activity findActivityByInterestActivityId(int activityId);
+	public List<ActivityCategory> findAllActivityCategories();
+	public List<ActivityType> findAllActivityTypes();
 }
