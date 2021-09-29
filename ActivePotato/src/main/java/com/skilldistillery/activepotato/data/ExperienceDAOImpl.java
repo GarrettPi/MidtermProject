@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.activepotato.entities.Activity;
 import com.skilldistillery.activepotato.entities.Experience;
 import com.skilldistillery.activepotato.entities.Interest;
 import com.skilldistillery.activepotato.entities.User;
@@ -76,6 +77,15 @@ public class ExperienceDAOImpl implements ExperienceDAO {
 		return experience;
 	}
 
+	
+	@Override
+	public List<Experience> findExperiencesByActivityId(int actId){
+		List<Experience> experiences = new ArrayList<>();
+		String query = "SELECT e FROM Experience e JOIN e.interest i WHERE i.activity.id = :id";
+		experiences = em.createQuery(query, Experience.class).setParameter("id", actId).getResultList();
+		
+		return experiences;
+	}
 
 
 }
