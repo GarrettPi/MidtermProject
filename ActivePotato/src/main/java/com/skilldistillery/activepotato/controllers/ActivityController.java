@@ -83,7 +83,7 @@ public class ActivityController {
 			mv.addObject("user", (User) session.getAttribute("user"));
 		}
 		mv.setViewName("couchPotatoPath/activityListIndoor");
-		List<Activity> activities = activityDao.findActiveActivity(keyword);
+		List<Activity> activities = activityDao.findCouchActivity(keyword);
 		if (!activities.isEmpty()) {
 			for (Activity activity : activities) {
 				List<Experience> experiences = expDao.findExperiencesByActivityId(activity.getId());
@@ -112,6 +112,8 @@ public class ActivityController {
 		mv.setViewName("activePotatoPath/detailsPageOutdoor");
 		mv.addObject("activity", activityDao.findActivityById(actId));
 		List<Comment> comments = commentDao.findAll(actId);
+		List<Experience> exp = expDao.findExperiencesByActivityId(actId);
+		mv.addObject("experiences", exp);
 		mv.addObject("comments", comments);
 
 		return mv;
@@ -127,6 +129,8 @@ public class ActivityController {
 		mv.setViewName("couchPotatoPath/detailsPageIndoor");
 		mv.addObject("activity", activityDao.findActivityById(actId));
 		List<Comment> comments = commentDao.findAll(actId);
+		List<Experience> exp = expDao.findExperiencesByActivityId(actId);
+		mv.addObject("experiences", exp);
 		mv.addObject("comments", comments);
 		return mv;
 	}
@@ -137,12 +141,12 @@ public class ActivityController {
 		Activity activity = activityDao.findActivityById(id);
 		if (activity.getActivityCategory().getId() == 1) {
 			mv.setViewName("couchPotatoPath/detailsPageIndoor");
-			List<Experience> exp = expDao.findExperiencesByActivityId(activity.getId());
+			List<Experience> exp = expDao.findExperiencesByActivityId(id);
 			mv.addObject("experiences", exp);
 			mv.addObject("activity", activity);
 		} else {
 			mv.setViewName("activePotatoPath/detailsPageOutdoor");
-			List<Experience> exp = expDao.findExperiencesByActivityId(activity.getId());
+			List<Experience> exp = expDao.findExperiencesByActivityId(id);
 			mv.addObject("experiences", exp);
 			mv.addObject("activity", activity);
 		}
