@@ -13,9 +13,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.activepotato.data.ActivityDAO;
 import com.skilldistillery.activepotato.data.CommentDAO;
-import com.skilldistillery.activepotato.data.UserDAO;
+import com.skilldistillery.activepotato.data.ExperienceDAO;
 import com.skilldistillery.activepotato.entities.Activity;
 import com.skilldistillery.activepotato.entities.Comment;
+import com.skilldistillery.activepotato.entities.Experience;
 import com.skilldistillery.activepotato.entities.User;
 
 @Controller
@@ -25,6 +26,8 @@ public class CommentController {
 	private CommentDAO commentDao;
 	@Autowired
 	private ActivityDAO activityDao;
+	@Autowired
+	private ExperienceDAO expDao;
 
 	@RequestMapping(path = "addComment.do", method = RequestMethod.POST)
 	public ModelAndView addComment(HttpSession session, Comment comment, int activityId) {
@@ -47,6 +50,8 @@ public class CommentController {
 			mv.setViewName("activePotatoPath/detailsPageOutdoor");
 		}
 		List<Comment> comments = commentDao.findAll(activityId);
+		List<Experience> exp = expDao.findExperiencesByActivityId(activityId);
+		mv.addObject("experiences", exp);
 		mv.addObject("comments", comments);
 		return mv;
 	}
@@ -68,6 +73,8 @@ public class CommentController {
 			mv.setViewName("activePotatoPath/detailsPageOutdoor");
 		}
 		List<Comment> comments = commentDao.findAll(activityId);
+		List<Experience> exp = expDao.findExperiencesByActivityId(activity.getId());
+		mv.addObject("experiences", exp);
 		mv.addObject("comments", comments);
 		return mv;
 
