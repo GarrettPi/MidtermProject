@@ -57,7 +57,7 @@ public class CommentDAOImpl implements CommentDAO {
 		List<Comment> userCommentList = null;
 		try {
 			
-			String query = "SELECT c FROM Comment c WHERE c.id = :uid";
+			String query = "SELECT c FROM Comment c WHERE c.user.id = :uid";
 			userCommentList = em.createQuery(query, Comment.class)
 					.setParameter("uid", userId)
 					.getResultList();
