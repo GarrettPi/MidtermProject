@@ -3,6 +3,7 @@ package com.skilldistillery.activepotato.data;
 import java.util.List;
 
 import com.skilldistillery.activepotato.entities.Experience;
+import com.skilldistillery.activepotato.entities.Interest;
 
 public interface ExperienceDAO {
 
@@ -11,5 +12,6 @@ public interface ExperienceDAO {
 	public Experience addExperience(Experience experience);
 	public boolean deleteExperience(int experienceId);
 	public Experience updateExperience(Experience experience);
+	public List<Experience> findExperiencesByActivityId(int actId);
 	
 }
