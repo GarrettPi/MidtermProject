@@ -6,6 +6,23 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="bootstrapHead.jsp"></jsp:include>
+
+<!-- <style>
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+	body {
+	font-family: 'Acme', sans-serif;
+	color: Black;
+	}
+	h1 {
+	font-family: 'Acme', sans-serif;
+	font-weight: bolder;
+	color: red;
+	
+	}
+
+</style> -->
+
 <style>
 		#right {
 			text-align: right;
@@ -18,26 +35,39 @@
 		}
 		
 	</style>
-	
+		
 <title>Welcome to Active Potato</title>
 </head>
 <body>
 
 	<div id="center">
 	
-	<h1>New Experience</h1>
+	<h1>Add A New Experience</h1>
 		
-	
 	<form action="createExperience.do?interestId=${interest.id}" method="POST">
 		<br>
-		<label class="update">Rating: </label><input class="updateinput" type="number" placeholder="Rating out of 10" required name="rating">
-							value="YYYY-MM-DD"
-		<input type="date" value="${experience.localDateNow}" name="expDate">
-		
-		<!-- <label class="update">Date of Experience: </label><input class="updateinput" type="date" name="expDate"> -->
-		<label class="update">Comments: </label><input class="updateinput" type="text" size="50" placeholder="Comments about the experience..." name="comment">
-		
-		<input class="btn btn-primary" type="submit" value="Submit New Experience">
+		<div class="container">
+		<label class="update">Rating: <br>
+		</label><input class="updateinput" type="number" placeholder="Rating out of 10" required name="rating">
+		</div>
+		<br>
+		<div class="container">
+		<label class="update">Date of Experience: <br>
+		</label><input class="updateinput" type="date" value="${experience.localDateNow}" name="expDate">
+		</div>
+		<br>
+		<div class="container">
+		<label>Comments:</label>
+		<br>
+		<br>
+		<textarea rows="5" cols="50" placeholder="Comments about the experience..." name="comment">
+		</textarea>
+		</div>
+		<br>
+				
+		<div class="container">
+		<input type="submit" value="Add Experience">
+		</div>
 	</form>
 	</div>
 	<br>
