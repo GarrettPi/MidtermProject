@@ -1,5 +1,6 @@
 package com.skilldistillery.activepotato.controllers;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -92,6 +93,7 @@ public class ActivityController {
 		System.out.println(category);
 		activity.setActivityType(activityDao.findTypeById(type));
 		System.out.println(type);
+		activity.setCreateDate(LocalDate.now());
 		Activity newActivity = activityDao.addNewActivity(activity);
 		System.out.println(activity);
 		mv.addObject("activity", newActivity);
