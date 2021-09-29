@@ -53,7 +53,7 @@
 		<br>
 		<div class="container">
 		<label class="update">Date of Experience: <br>
-		</label><input class="updateinput" type="date" value="${experience.localDateNow}" name="expDate">
+		</label><input class="updateinput" type="date" value="${experience.localDateNow}" required name="expDate">
 		</div>
 		<br>
 		<div class="container">
