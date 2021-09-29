@@ -37,7 +37,7 @@ DROP TABLE IF EXISTS `activity_type` ;
 CREATE TABLE IF NOT EXISTS `activity_type` (
   `id` INT NOT NULL,
   `name` VARCHAR(255) NOT NULL,
-  `activity_url` VARCHAR(1000) NOT NULL,
+  `activity_url` VARCHAR(1000) NULL DEFAULT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -249,6 +249,7 @@ INSERT INTO `activity_type` (`id`, `name`, `activity_url`) VALUES (7, 'Birdwatch
 INSERT INTO `activity_type` (`id`, `name`, `activity_url`) VALUES (8, 'Camping', 'https://image.flaticon.com/icons/png/512/1040/1040426.png');
 INSERT INTO `activity_type` (`id`, `name`, `activity_url`) VALUES (9, 'Football', 'https://img.freepik.com/free-vector/realistic-football-rugby-ball-icon-isolated_98292-4385.jpg?size=338&ext=jpg');
 INSERT INTO `activity_type` (`id`, `name`, `activity_url`) VALUES (10, 'Frisbee', 'https://image.freepik.com/free-icon/frisbee_318-1495.jpg');
+INSERT INTO `activity_type` (`id`, `name`, `activity_url`) VALUES (11, 'Other', NULL);
 
 COMMIT;
 
@@ -259,11 +260,12 @@ COMMIT;
 START TRANSACTION;
 USE `potatodb`;
 INSERT INTO `user` (`id`, `username`, `first_name`, `password`, `password_salt`, `last_name`, `email`, `enabled`, `role`, `profile_url`) VALUES (1, 'insert', 'insert', 'QbLlmoL9Xzl1nC+q7kJ9SXYiYYfZiHClGMxiD5lWDks=', 'QPlNdf2A80jziqfxbQR6Rqd5xvwQiv', 'insert', 'insert@example.com', 1, 'admin', NULL);
-INSERT INTO `user` (`id`, `username`, `first_name`, `password`, `password_salt`, `last_name`, `email`, `enabled`, `role`, `profile_url`) VALUES (2, 'jacob', 'jacob', 'j92fQuLNlLJNveikD/VNgYAiU8Gm4wwnmIzg1r4xgMY=', 'TcDu4nKBtBQGgUKjLiqdNLLdPgH930', 'tweedy', 'jacob@example.com', 1, 'admin', NULL);
-INSERT INTO `user` (`id`, `username`, `first_name`, `password`, `password_salt`, `last_name`, `email`, `enabled`, `role`, `profile_url`) VALUES (3, 'ron', 'ron', 'Aq4bfE8Hw4yTnUKeqK872MH8ZDe0CsOzHx4gy58k/94=', 'o2YPDdi0lCawyTC2ksaxs3eN6NEWLp', 'viramontes', 'ron@example.com', 1, 'admin', NULL);
-INSERT INTO `user` (`id`, `username`, `first_name`, `password`, `password_salt`, `last_name`, `email`, `enabled`, `role`, `profile_url`) VALUES (4, 'garrett', 'garrett', 'POiM3OazZnGnDH2efxjbBmGX6Dxzzv5tsAqHm9Gb5jk=', 'GsEhg00F4yXJa4epxQokW7RevXGeLL', 'pipes', 'garrett@example.com', 1, 'admin', NULL);
-INSERT INTO `user` (`id`, `username`, `first_name`, `password`, `password_salt`, `last_name`, `email`, `enabled`, `role`, `profile_url`) VALUES (5, 'cindy', 'cindy', '+7BB7C4g56fMaaRI/vxsfZYmCqSD6ilSFiiqtkETCmU=', 'SV75jdLvAY074afLR6ZapHC8rmgi2b', 'chase', 'cindy@example.com', 1, 'admin', NULL);
+INSERT INTO `user` (`id`, `username`, `first_name`, `password`, `password_salt`, `last_name`, `email`, `enabled`, `role`, `profile_url`) VALUES (2, 'jacob', 'jacob', 'j92fQuLNlLJNveikD/VNgYAiU8Gm4wwnmIzg1r4xgMY=', 'TcDu4nKBtBQGgUKjLiqdNLLdPgH930', 'tweedy', 'jacob@example.com', 1, 'admin', 'https://media.istockphoto.com/photos/white-tailed-deer-at-sunrise-picture-id1071599686?b=1&k=20&m=1071599686&s=170667a&w=0&h=1CJWe_Z1rnXw-T8umU2w-0qxFJT-fcfjZXtmJDTWxkI=');
+INSERT INTO `user` (`id`, `username`, `first_name`, `password`, `password_salt`, `last_name`, `email`, `enabled`, `role`, `profile_url`) VALUES (3, 'ron', 'ron', 'Aq4bfE8Hw4yTnUKeqK872MH8ZDe0CsOzHx4gy58k/94=', 'o2YPDdi0lCawyTC2ksaxs3eN6NEWLp', 'viramontes', 'ron@example.com', 1, 'admin', 'https://i.natgeofe.com/k/093c14b4-978e-41f7-b1aa-3aff5d1c608a/gray-wolf-closeup_2x3.jpg');
+INSERT INTO `user` (`id`, `username`, `first_name`, `password`, `password_salt`, `last_name`, `email`, `enabled`, `role`, `profile_url`) VALUES (4, 'garrett', 'garrett', 'POiM3OazZnGnDH2efxjbBmGX6Dxzzv5tsAqHm9Gb5jk=', 'GsEhg00F4yXJa4epxQokW7RevXGeLL', 'pipes', 'garrett@example.com', 1, 'admin', 'https://res.cloudinary.com/teepublic/image/private/s--6uNa0odu--/c_crop,x_10,y_10/c_fi[…]_630,q_90,w_630/v1475021111/production/designs/704457_1.jpg');
+INSERT INTO `user` (`id`, `username`, `first_name`, `password`, `password_salt`, `last_name`, `email`, `enabled`, `role`, `profile_url`) VALUES (5, 'cindy', 'cindy', '+7BB7C4g56fMaaRI/vxsfZYmCqSD6ilSFiiqtkETCmU=', 'SV75jdLvAY074afLR6ZapHC8rmgi2b', 'chase', 'cindy@example.com', 1, 'admin', 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/158.png');
 INSERT INTO `user` (`id`, `username`, `first_name`, `password`, `password_salt`, `last_name`, `email`, `enabled`, `role`, `profile_url`) VALUES (6, 'test', 'test', 'x75v9pjhF2CybXq3gjVb3EGu7pw9lJ78MlgLMmzKwDw=', 'aRFXocBwaZFi5jwEoVXekiErxPAeWJ', 'test', 'test@example.com', 1, 'admin', NULL);
+INSERT INTO `user` (`id`, `username`, `first_name`, `password`, `password_salt`, `last_name`, `email`, `enabled`, `role`, `profile_url`) VALUES (7, 'sinne24', 'sinne24', 'j92fQuLNlLJNveikD/VNgYAiU8Gm4wwnmIzg1r4xgMY=', 'TcDu4nKBtBQGgUKjLiqdNLLdPgH930', 'sinne24', 'sinne24@example.com', 1, 'admin', 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/248.png');
 
 COMMIT;
 

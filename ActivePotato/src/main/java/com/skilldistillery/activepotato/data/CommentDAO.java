@@ -14,5 +14,5 @@ public interface CommentDAO {
 	List<Comment> findCommentByActivityId(int activityId);
 	List<Comment> findAll(int actId);
 	Comment findSingleCommentById(int commentId);
-	
+	public List<Comment> findRepliesByCommentId(int commentId);
 }

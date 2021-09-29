@@ -1,5 +1,6 @@
 package com.skilldistillery.activepotato.controllers;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -17,6 +18,8 @@ import com.skilldistillery.activepotato.data.ExperienceDAO;
 import com.skilldistillery.activepotato.data.InterestDAO;
 import com.skilldistillery.activepotato.data.UserDAO;
 import com.skilldistillery.activepotato.entities.Activity;
+import com.skilldistillery.activepotato.entities.ActivityCategory;
+import com.skilldistillery.activepotato.entities.ActivityType;
 import com.skilldistillery.activepotato.entities.Comment;
 import com.skilldistillery.activepotato.entities.Experience;
 import com.skilldistillery.activepotato.entities.Interest;
@@ -64,13 +67,40 @@ public class ActivityController {
 	}
 
 	@RequestMapping(path = "createActivity.do")
-	public ModelAndView newUser(HttpSession session) {
+	public ModelAndView newActivity(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		List<ActivityCategory> ac = null;
+		List<ActivityType> at = null;
 		if (session.getAttribute("user") == null) {
 			mv.setViewName("createProfile");
 		} else {
+			ac = activityDao.findAllActivityCategories();
+			at = activityDao.findAllActivityTypes();
 			mv.addObject("user", (User) session.getAttribute("user"));
+			mv.addObject("activityCategory", ac);
+			mv.addObject("activityType", at);
 			mv.setViewName("createActivity");
+		}
+		return mv;
+	}
+
+	@RequestMapping(path = "submitActivity.do", method = RequestMethod.POST)
+	public ModelAndView newUser(Activity activity, HttpSession session, int category, int type) {
+		ModelAndView mv = new ModelAndView();
+		User user = (User) session.getAttribute("user");
+		activity.setUser(user);
+		activity.setActivityCategory(activityDao.findCategoryById(category));
+		System.out.println(category);
+		activity.setActivityType(activityDao.findTypeById(type));
+		System.out.println(type);
+		activity.setCreateDate(LocalDate.now());
+		Activity newActivity = activityDao.addNewActivity(activity);
+		System.out.println(activity);
+		mv.addObject("activity", newActivity);
+		if (activity.getActivityCategory().getId() == 1) {
+			mv.setViewName("couchPotatoPath/detailsPageIndoor");
+		} else {
+			mv.setViewName("activePotatoPath/detailsPageOutdoor");
 		}
 		return mv;
 	}
@@ -83,7 +113,7 @@ public class ActivityController {
 			mv.addObject("user", (User) session.getAttribute("user"));
 		}
 		mv.setViewName("couchPotatoPath/activityListIndoor");
-		List<Activity> activities = activityDao.findActiveActivity(keyword);
+		List<Activity> activities = activityDao.findCouchActivity(keyword);
 		if (!activities.isEmpty()) {
 			for (Activity activity : activities) {
 				List<Experience> experiences = expDao.findExperiencesByActivityId(activity.getId());
@@ -112,6 +142,8 @@ public class ActivityController {
 		mv.setViewName("activePotatoPath/detailsPageOutdoor");
 		mv.addObject("activity", activityDao.findActivityById(actId));
 		List<Comment> comments = commentDao.findAll(actId);
+		List<Experience> exp = expDao.findExperiencesByActivityId(actId);
+		mv.addObject("experiences", exp);
 		mv.addObject("comments", comments);
 
 		return mv;
@@ -127,6 +159,8 @@ public class ActivityController {
 		mv.setViewName("couchPotatoPath/detailsPageIndoor");
 		mv.addObject("activity", activityDao.findActivityById(actId));
 		List<Comment> comments = commentDao.findAll(actId);
+		List<Experience> exp = expDao.findExperiencesByActivityId(actId);
+		mv.addObject("experiences", exp);
 		mv.addObject("comments", comments);
 		return mv;
 	}
@@ -137,12 +171,16 @@ public class ActivityController {
 		Activity activity = activityDao.findActivityById(id);
 		if (activity.getActivityCategory().getId() == 1) {
 			mv.setViewName("couchPotatoPath/detailsPageIndoor");
-			List<Experience> exp = expDao.findExperiencesByActivityId(activity.getId());
+			List<Comment> comments = commentDao.findAll(activity.getId());
+			mv.addObject("comments", comments);
+			List<Experience> exp = expDao.findExperiencesByActivityId(id);
 			mv.addObject("experiences", exp);
 			mv.addObject("activity", activity);
 		} else {
 			mv.setViewName("activePotatoPath/detailsPageOutdoor");
-			List<Experience> exp = expDao.findExperiencesByActivityId(activity.getId());
+			List<Comment> comments = commentDao.findAll(activity.getId());
+			mv.addObject("comments", comments);
+			List<Experience> exp = expDao.findExperiencesByActivityId(id);
 			mv.addObject("experiences", exp);
 			mv.addObject("activity", activity);
 		}

@@ -7,7 +7,7 @@ import com.skilldistillery.activepotato.entities.Interest;
 
 public interface ExperienceDAO {
 
-	public List<Experience> findExperienceById(int experienceId);
+	public Experience findExperienceById(int experienceId);
 	public List <List<Experience>> findExperienceByUserId(int userId);
 	public Experience addExperience(Experience experience);
 	public boolean deleteExperience(int experienceId);
