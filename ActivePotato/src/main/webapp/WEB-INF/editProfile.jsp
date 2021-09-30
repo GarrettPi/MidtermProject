@@ -20,20 +20,52 @@
 }
 </style>
 <title>Welcome to Active Potato</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 </head>
 
 <body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNav" aria-controls="navbarNav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item active"><a class="nav-link" href="home.do">
+						Home <span class="sr-only">(current)</span>
+				</a></li>
+				<li class="nav-item"><a class="nav-link" href="editProfile.do">
+						Edit Profile </a></li>
+				<c:if test="${user.role == 'admin'}">
+				<li class="nav-item"><a class="nav-link" href="userAdmin.do">
+						Administrator Menu </a></li>
+				</c:if>
+				<li class="nav-item"><a class="nav-link" href="logout.do">
+						Log Out </a></li>
+			</ul>
+		</div>
+	</nav>
 
-		
-	<div id="center">
-		<h1>Change User Profile</h1>
-		
-		<img src="${user.profileUrl}" width="200" height="auto" />
-		<br>
-	<b> Welcome ${user.firstName} ${user.lastName}!</b>		
-		<br>
+	
+
+	<div class="jumbotron jumbotron-fluid bs-light" style="margin-bottom: 0;">
+		<div class="container">
+			<div id="center">
+				<h1 class="display-6">Welcome ${user.firstName}
+					${user.lastName}</h1>
+				<br> <img src="${user.profileUrl}" width="200" height="auto" />
+
+			</div>
+		</div>
 	</div>
+
+		<br>
+	
 	<div id="center">
 		<form action="edit.do" method="POST">
 			<br> 
@@ -59,14 +91,12 @@
 				<label class="update">Profile Image URL: </label><input class="updateinput" value="${user.profileUrl}" type="text" name="profileUrl">
 				<br>
 				<br>
-				<input class="btn btn-primary" type="submit" value="Submit Profile Changes">
+				<input class="btn btn-secondary" type="submit" value="Submit Profile Changes">
 
 		</form>
 	</div>
 	<br>
-	<div id="center">
-		<a href="home.do">Return Home</a> <br />
-	</div>
+	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
