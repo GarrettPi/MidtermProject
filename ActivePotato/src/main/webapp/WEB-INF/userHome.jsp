@@ -94,6 +94,10 @@ li a:hover {
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="editProfile.do">
 						Edit Profile </a></li>
+				<c:if test="${user.role == admin}">
+				<li class="nav-item"><a class="nav-link" href="userAdmin.do">
+						Administrator Menu </a></li>
+				</c:if>
 				<li class="nav-item"><a class="nav-link" href="logout.do">
 						Log Out </a></li>
 			</ul>
