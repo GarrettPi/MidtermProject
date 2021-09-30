@@ -95,6 +95,14 @@ h1{
   background-size:cover;
 }
 
+ .left:hover {
+  opacity: 0.9;
+}
+
+ .right:hover {
+  opacity: 0.9;
+}
+
 .homeButton{
 	text-decoration: none;
 }
