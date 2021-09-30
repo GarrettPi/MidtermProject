@@ -1,7 +1,5 @@
 package com.skilldistillery.activepotato.controllers;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.activepotato.data.ActivityDAO;
-import com.skilldistillery.activepotato.data.CommentDAO;
 import com.skilldistillery.activepotato.data.UserDAO;
-import com.skilldistillery.activepotato.entities.Comment;
+import com.skilldistillery.activepotato.entities.Interest;
 import com.skilldistillery.activepotato.entities.User;
 import com.skilldistillery.activepotato.security.PasswordUtilities;
 import com.skilldistillery.activepotato.security.PasswordVerifier;
@@ -25,8 +22,6 @@ public class UserController {
 	private UserDAO userDao;
 	@Autowired
 	private ActivityDAO actDao;
-	@Autowired
-	private CommentDAO comDao;
 
 	// Submits login form and directs to user home page
 	@RequestMapping(path = "login.do", method = RequestMethod.POST)
@@ -40,8 +35,6 @@ public class UserController {
 			String pass = user.getPassword();
 			if (PasswordVerifier.checkPassword(userPassword, salt, pass)) {
 				mv.addObject("acts", actDao.findActivitiesByInterestUserId(user.getId()));
-				List<Comment> commentList = comDao.findCommentByUserId(user.getId());
-				mv.addObject("userComments", commentList);
 				mv.setViewName("userHome");
 				session.setAttribute("user", user);
 			} else {

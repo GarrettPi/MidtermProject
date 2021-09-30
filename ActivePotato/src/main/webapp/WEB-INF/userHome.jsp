@@ -6,7 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <%-- <jsp:include page="bootstrapHead.jsp"></jsp:include>
- --%><style>
+ --%>
+ 
+ <style>
 #right {
 	text-align: right;
 }
@@ -18,6 +20,30 @@
 #left {
 	text-align: left;
 }
+
+
+
+#interest:hover {
+	color: blue;
+	border: 5px solid black;
+}
+
+.interestLink {
+	text-decoration: none;
+}
+
+#userContainer {
+	align-items: center;
+    height: 100vh;
+}
+
+#userInterest {
+	overflow-y: scroll;
+	height: 50%;
+}
+
+
+
 </style>
 
 <title>Active Potato User Home Menu</title>
@@ -62,7 +88,7 @@
 	</div>
 
 
-	<div class="container">
+	
 		<div id="center">
 			<form action="searchActive.do" method="GET">
 				<label class="update"><b>Search Active Potato!</b></label>
@@ -81,7 +107,7 @@
 							Activity</button>
 					</form>
 		</div>
-	</div>
+	
 	<br>
 	<hr>
 
@@ -111,22 +137,17 @@
 
 				</c:if>
 			</div>
+
 			<div class="col-12 col-sm-6" id="userInterest" style="border: 1px dotted black; border-radius: 5px; padding: 10px;">
 				<div id="center">User Comments</div>
 				<c:if test="${not empty userComments }">
 					<c:forEach var="c" items="${userComments }">
 						<div id="interest" style="border: 2px solid black; border-radius: 5px; padding: 5px;">
-							<c:if test="${empty c.baseComment }">
+
 							${c.comment}
-							</c:if>
-							<c:if test="${not empty c.baseComment }">
-							replied to ${c.baseComment.user.username } on ${c.baseComment.activity.name } "${c.baseComment.comment }" <br>
-							${c.comment }
-							</c:if>
-						<br>
-						</div>
 						<br>
 					</c:forEach>
+
 				</c:if>
 			</div>
 
@@ -146,6 +167,7 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 
 </body>
 </html>
