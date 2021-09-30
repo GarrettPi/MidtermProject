@@ -150,9 +150,7 @@ li a:hover {
 					<div id="interest" style="border: 2px solid black; border-radius: 5px; padding: 5px;">
 
 						<img src="${a.activityType.url }" width="50" height="50" />
-						${a.name} <br> Loremipsum dolor sit amet, consectetur
-						adipiscing elit. In ullamcorper maximus ante, ut laoreet massa
-						pharetra a.
+						${a.name} <br>${a.description }
 						<form action="addExperience.do?id=${a.id }" method="post">
 							<input type="submit" value="Add Experience">
 						</form>
