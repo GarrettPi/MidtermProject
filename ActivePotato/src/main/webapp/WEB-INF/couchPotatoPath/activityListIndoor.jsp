@@ -41,7 +41,7 @@ tr:nth-child(even) {
 						<th>Description</th>
 						<th>Activity Link</th>
 						<th>Create Date</th>
-						<th>Add Activity</th>
+						<th>Add Activity To Interests</th>
 					</tr>
 				</thead>
 				<c:forEach var="act" items="${a }">
