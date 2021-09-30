@@ -1,5 +1,8 @@
-const left = document.querySelector('.left');
-const right = document.querySelector('.right');
+
+const left = document.getElementById('split left');
+console.log(left);
+const right = document.getElementById('split right');
+console.log(right);
 const container = document.querySelector('.container');
 
 left.addEventListener('mouseenter', () => {
