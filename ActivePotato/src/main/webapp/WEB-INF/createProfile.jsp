@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="bootstrapHead.jsp"></jsp:include>
-<link rel="stylesheet" href="../css/Home.css">
+<link rel="stylesheet" href="/css/Home.css">
 
 <style>
 		#right {
@@ -29,7 +29,7 @@
 			<a href="home.do">Home</a><a href="loginpage.do">Login</a>
 		</div>
 	<div id="center">
-	
+	<br><br><br>
 	<h1 class="normal">New User Registration</h1>
 		
 	
