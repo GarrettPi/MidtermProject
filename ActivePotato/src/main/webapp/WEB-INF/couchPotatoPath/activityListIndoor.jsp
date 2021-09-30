@@ -26,6 +26,11 @@ tr:nth-child(even) {
 <title>Couch Potato</title>
 </head>
 <body>
+	<div class="container">
+		<div class="topnav">
+			<a href="home.do">Home</a>
+		</div>
+	</div>
 	<div id="center" class="container">
 		<c:if test="${not empty a }">
 			<h1>Show Matching Indoor Activities</h1>
