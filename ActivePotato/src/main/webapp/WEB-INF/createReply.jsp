@@ -48,7 +48,7 @@
 		<form action="createReply.do?baseCommentId=${comment.id }" method="POST"> 
 			<br>
 			<div>
-			<input type="text" name="comment" required placeholder="Enter your reply">
+			<textarea rows="5" cols="50" placeholder="Enter your reply to ${comment.user.username }..." name="comment" required></textarea>
 			</div>
 			<div class="container">
 				<input type="submit" value="Reply">
