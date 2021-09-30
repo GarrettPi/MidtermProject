@@ -1,7 +1,7 @@
 :root{
 	--container-bg-color: #333;
-	--right-bg-color: rgba(223,39,39,0.7);
-	--right-button-hover-color: rgba(161,11,11,0.3);
+	--right-bg-color: rgba(223, 39, 39, 0.7);
+	--right-button-hover-color: rgba(161, 11, 11, 0.3);
 	--left-bg-color: #20db57;
 	--left-button-hover-color: #265028;
 	--hover-width: 75%;
@@ -9,7 +9,7 @@
 	--speed: 1000ms;	
 }
 
-html,body{
+ body{
 	padding:0;
 	margin:0;
 	font-family:'Franklin Gothic Medium', 'Arial Narrow', 'Arial', 'sans-serif';
@@ -18,6 +18,7 @@ html,body{
 	overflow-x: hidden;
 	
 }
+
 
 h1{
 	font-size: 4rem;
@@ -58,7 +59,7 @@ h1{
 	background-color: var(--right-button-hover-color);
 	border-color: var(--right-button-hover-color);
 	
-}
+} 
 
 .container{
 	position: relative;
@@ -75,13 +76,14 @@ h1{
 	
 }
 
-.split .left{
+ .split .left{
 	left: 0;
 	background: url("homeImages/greenOutdoors.jpeg") center center no-repeat;
 	background-size: cover;	
-}
+} 
 
-.split.left:before{
+
+.split .left:before{
 	position:absolute;
 	content:"";
 	width: 100%;
@@ -104,3 +106,46 @@ h1{
 	background: var(--right-bg-color);	
 	
 }
+
+.split.left, .split.right, .split .right:before, .split.left:before {
+	transition: var(--speed) all ease-in-out;
+}
+
+.hover-left .left{
+	width: var(--hover-width);
+}
+.hover-left .right{
+	width: var(--other-width);
+}
+
+.hover-left .right:before{
+	z-index: 2;
+}
+
+
+.hover-right .right{
+	width: var(--hover-width);
+}
+.hover-right .left{
+	width: var(--other-width);
+}
+
+.hover-right .left:before{
+	z-index: 2;
+}
+
+@media(max-width: 800px){
+	h1 {
+		font-size: 2rem;
+	}
+	
+	.button {
+	width: 12rem;
+	}
+}
+@media(max-height: 700px){
+	
+	.button {
+		top: 70%;
+	}
+} 

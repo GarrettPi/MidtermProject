@@ -4,21 +4,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/Home2.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="css/Home2.css"> 
 <title>Active Potato</title>
 </head>
 <body>
-	<div class="container">
-		<div class="split left">
+<h1>Loaded</h1>
+	 <div class="container">
+		<div id="left">
 			<h1>Active Potato</h1>
 			<a href="#" class="button">Search Outdoor</a>
 		</div>
-		<div class="split right">
+		<div id="right">
 			<h1>Couch Potato</h1>
 			<a href="#" class="button">Search Indoor</a>		
 		</div>
 	</div>
-	
-	<script src="home.js"></script>
+	<script src="css/home.js"></script>  
 </body>
 </html>
