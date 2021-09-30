@@ -88,5 +88,11 @@ public class ExperienceDAOImpl implements ExperienceDAO {
 		return experiences;
 	}
 
+	@Override
+	public void setExperienceCommentId(int expId, int commentId) {
+		Experience experience = em.find(Experience.class, expId);
+		experience.setCommentId(commentId);
+	}
+
 
 }

@@ -26,6 +26,11 @@ tr:nth-child(even) {
 <title>Active Potato</title>
 </head>
 <body>
+	<div class="container">
+		<div class="topnav">
+			<a href="home.do">Home</a>
+		</div>
+	</div>
 	<div id="center" class="container">
 		<c:if test="${not empty a }">
 			<h1>Show Matching Outdoor Activities</h1>
@@ -37,7 +42,7 @@ tr:nth-child(even) {
 						<th onclick="sortTable(0)">Name &#x25b4;&#x25be;</th>
 						<th onclick="sortTable(1)">Expected Duration (Min)
 							&#x25b4;&#x25be;</th>
-						
+
 						<th>Average Activity Rating</th>
 						<th>Description</th>
 						<th>URL</th>
@@ -49,7 +54,12 @@ tr:nth-child(even) {
 					<tr>
 						<td><a href="selectActive.do?actId=${act.id}">${act.name}</a></td>
 						<td>${act.expectedDuration }</td>
-						<td>${act.avgRating }</td>
+						<c:if test="${act.avgRating > 0 }">
+							<td>${act.avgRating }</td>
+						</c:if>
+						<c:if test="${act.avgRating <= 0 }">
+							<td>No Ratings</td>
+						</c:if>
 						<td>${act.description }</td>
 						<td>${act.url }</td>
 						<td>${act.createDate }</td>
@@ -66,8 +76,8 @@ tr:nth-child(even) {
 			</table>
 		</c:if>
 		<c:if test="${empty a }">
-	<h3>No activities match that keyword.</h3>
-	</c:if>
+			<h3>No activities match that keyword.</h3>
+		</c:if>
 		<a href="home.do">Return to Home</a> <br />
 	</div>
 	<script>
