@@ -27,9 +27,7 @@
 <title>Active Potato</title>
 </head>
 <body>
-<<<<<<< HEAD
 	<div class="listOutdoorBody">
-		<div class=".listOutdoorBody-content">
 			<div id="center" class="container">
 				<c:if test="${not empty a }">
 					<h1>Show Matching Outdoor Activities</h1>
@@ -101,7 +99,6 @@
 									break;
 								}
 							}
-=======
 	<div class="container">
 		<div class="topnav">
 			<a href="home.do">Home</a>
@@ -174,7 +171,6 @@
 								.toLowerCase()) {
 							shouldSwitch = true;
 							break;
->>>>>>> 481f90feac810441b922949b9488d88a4315aaa4
 						}
 						if (shouldSwitch) {
 							rows[i].parentNode.insertBefore(rows[i + 1],
@@ -191,6 +187,5 @@
 				}
 			</script>
 		</div>
-	</div>
 </body>
 </html>
