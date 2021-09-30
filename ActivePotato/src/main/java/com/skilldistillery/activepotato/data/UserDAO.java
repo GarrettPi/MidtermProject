@@ -16,4 +16,5 @@ public interface UserDAO {
 	public User findByUsernameAndPassword(String username, String password);
 	public List<Interest> findInterestsByUserId(int userId);
 	public List<User> userAdminList();
+	public User userAccess(User user);
 }

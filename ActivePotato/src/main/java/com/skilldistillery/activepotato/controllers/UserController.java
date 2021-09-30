@@ -138,5 +138,18 @@ public class UserController {
 		mv.setViewName("home");
 		return mv;
 	}
-
+	
+	@RequestMapping(path = {"enableUser.do", "disableUser.do" })
+	public ModelAndView modifyUserAccess(HttpSession session, int userId) {
+		ModelAndView mv = new ModelAndView();
+		User user = userDao.findByUserId(userId);
+		user = userDao.userAccess(user);
+		mv.setViewName("userAdminMenu");
+				
+		return mv;
+	}
+	
+	
+	
+	
 }
