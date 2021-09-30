@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="bootstrapHead.jsp"></jsp:include>
+<link rel="stylesheet" href="../css/Home.css">
 <style>
 #right {
 	text-align: right;
@@ -23,27 +24,26 @@
 <title>Couch Potato Search</title>
 </head>
 <body>
-	<div class="container">
+	<div class="container-liquid">
+		<div class="topnav">
+			<a href="home.do">Home</a><a href="loginpage.do">Login</a>
+		</div>
 		<div id="top">
 			<div id="center">
-	<br>
-	<h1>Welcome to Active Potato</h1>
-	<br> 
-	<br>
-	<img src="images/indoorActivities.png" height="263.54" width="400"/>
-	<br> 
-	<br>
-		<p><b>Enter keyword below to find indoor activities</b></p>
-	
-	<br>
-	
-	<form action="searchCouch.do" method="GET">
-		<b>Indoor Activity: </b><input type="text" name="keyword" />
-		<input class="btn btn-primary" type="submit" value="Search" />
-	</form>
-	<br>
+				<br>
+				<h1 class="normal">Welcome to Couch Potato</h1>
+				<br> <br> <img src="images/indoorActivities.png"
+					height="263.54" width="400" /> <br> <br>
+				<p>
+					<b>Enter keyword below to find indoor activities</b>
+				</p>
 
-	<a href="home.do">Return to Home</a><br/>
+				<br>
+
+				<form action="searchCouch.do" method="GET">
+					<b>Indoor Activity: </b><input type="text" name="keyword" /> <input
+						class="btn btn-primary" type="submit" value="Search" />
+				</form>
 			</div>
 		</div>
 	</div>
