@@ -71,6 +71,7 @@
 					<th>Comments</th>
 					<th>Date Added</th>
 					<th>Delete</th>
+					<th>Reply</th>
 				</tr>
 			</thead>
 
@@ -81,7 +82,11 @@
 						<td></td>
 						<td>${c.comment}</td>
 						<td>${c.commentDate}</td>
-						<td><form action="deleteComment.do?commentId=${c.id}" method="POST"> <input type="submit" value="delete"> </form></td>
+						<c:if test="${c.user.id == user.id }">
+						<td><form action="deleteComment.do?commentId=${c.id}" method="POST"> <input type="submit" value="delete"> </form></td></c:if>
+						<c:if test="${c.user.id != user.id }">
+						<td></td>
+						<td><form action="addReply.do?commentId=${c.id}" method="POST"> <input type="submit" value="Reply"> </form></td></c:if>
 					</tr>
 				</c:forEach>
 				<c:forEach var="e" items="${experiences}">
