@@ -35,6 +35,8 @@ public class UserController {
 		User user = userDao.findByUsername(userName);
 		if (user == null) {
 			mv.setViewName("userLogin");
+		}else if(!user.isEnabled()) {
+			mv.setViewName("userLogin");
 		} else {
 			String salt = user.getSalt();
 			String pass = user.getPassword();
