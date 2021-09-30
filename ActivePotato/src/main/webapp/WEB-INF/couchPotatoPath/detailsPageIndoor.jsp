@@ -91,7 +91,7 @@
 		<br>
 		<form action="addInterest.do?id=${activity.id}" method="POST">
 			<input type="hidden" name="id" />
-			<button type="submit" class="btn btn-secondary">Add Activity</button>
+			<button type="submit" class="btn btn-secondary">Add Activity To Interests</button>
 		</form>
 		<br>
 		<c:if test="${user.id == activity.user.id }">
