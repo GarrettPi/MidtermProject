@@ -200,10 +200,9 @@
 							On ${c.activity.name }, "${c.comment}"
 							</c:if>
 							<c:if test="${not empty c.baseComment }">
-								You replied to ${c.baseComment.user.username} on ${c.baseComment.activity.name }, "${c.baseComment.comment }"<br>
+								You replied to ${c.baseComment.user.username} on ${c.baseComment.activity.name }, "${c.baseComment.comment }"
 								<br><b>You: </b>"${c.comment }"
 							</c:if>
-							<br>
 							<c:if test="${not empty c.comments }">
 								<c:forEach var="r" items="${c.comments }">
 									<br>

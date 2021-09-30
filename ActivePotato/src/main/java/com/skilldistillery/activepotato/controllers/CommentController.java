@@ -90,7 +90,6 @@ public class CommentController {
 
 	}
 	//for adding replies to existing comments
-	@RequestMapping(path="addReply")
 	@RequestMapping(path="addReply.do")
 	public ModelAndView addReply(HttpSession session, int commentId) {
 		ModelAndView mv = new ModelAndView();
