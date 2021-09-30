@@ -95,7 +95,12 @@
 						<td>${e.rating }</td>
 						<td>${e.comment}</td>
 						<td>${e.experienceDate}</td>
+						<c:if test="${e.interest.user.id == user.id }">
 						<td><form action="deleteExperience.do?experienceId=${e.id}" method="POST"> <input type="submit" value="delete"> </form></td>
+						</c:if>
+						<c:if test="${e.interest.user.id != user.id }">
+						<td></td>
+						</c:if>					
 					</tr>
 				</c:forEach>
 			</tbody>
