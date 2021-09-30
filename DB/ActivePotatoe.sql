@@ -250,7 +250,7 @@ INSERT INTO `activity_type` (`id`, `name`, `activity_url`) VALUES (7, 'Birdwatch
 INSERT INTO `activity_type` (`id`, `name`, `activity_url`) VALUES (8, 'Camping', 'https://image.flaticon.com/icons/png/512/1040/1040426.png');
 INSERT INTO `activity_type` (`id`, `name`, `activity_url`) VALUES (9, 'Football', 'https://img.freepik.com/free-vector/realistic-football-rugby-ball-icon-isolated_98292-4385.jpg?size=338&ext=jpg');
 INSERT INTO `activity_type` (`id`, `name`, `activity_url`) VALUES (10, 'Frisbee', 'https://image.freepik.com/free-icon/frisbee_318-1495.jpg');
-INSERT INTO `activity_type` (`id`, `name`, `activity_url`) VALUES (11, 'Other', NULL);
+INSERT INTO `activity_type` (`id`, `name`, `activity_url`) VALUES (11, 'Other', 'https://image.flaticon.com/icons/png/512/995/995217.png');
 
 COMMIT;
 
