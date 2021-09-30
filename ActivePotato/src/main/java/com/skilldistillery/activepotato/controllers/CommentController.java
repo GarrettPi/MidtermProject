@@ -94,7 +94,6 @@ public class CommentController {
 	@RequestMapping(path="addReply.do")
 	public ModelAndView addReply(HttpSession session, int commentId) {
 		ModelAndView mv = new ModelAndView();
-		
 		Comment comment = commentDao.findSingleCommentById(commentId);
 		mv.addObject("comment", comment);
 		mv.setViewName("createReply");
