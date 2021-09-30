@@ -81,6 +81,8 @@ public class CommentController {
 			mv.setViewName("activePotatoPath/detailsPageOutdoor");
 		}
 		List<Comment> comments = commentDao.findAll(activityId);
+		List<Comment> replies = commentDao.findRepliesByBaseCommentUserId(user.getId());
+		comments.addAll(replies);
 		List<Experience> exp = expDao.findExperiencesByActivityId(activity.getId());
 		mv.addObject("experiences", exp);
 		mv.addObject("comments", comments);
@@ -88,10 +90,42 @@ public class CommentController {
 
 	}
 	//for adding replies to existing comments
-	@RequestMapping(path="addReply")
+	@RequestMapping(path="addReply.do")
 	public ModelAndView addReply(HttpSession session, int commentId) {
 		ModelAndView mv = new ModelAndView();
-		
+		Comment comment = commentDao.findSingleCommentById(commentId);
+		mv.addObject("comment", comment);
+		mv.setViewName("createReply");
+		return mv;
+	}
+	
+	@RequestMapping(path="createReply.do")
+	public ModelAndView createReply(HttpSession session, String comment, int baseCommentId) {
+		ModelAndView mv = new ModelAndView();
+		User user = (User) session.getAttribute("user");
+		Comment baseComment = comDao.findSingleCommentById(baseCommentId);
+		Activity activity = baseComment.getActivity();
+		Comment reply = new Comment();
+		reply.setUser(user);
+		reply.setActivity(activity);
+		reply.setBaseComment(baseComment);
+		reply.setComment(comment);
+		comDao.addComment(reply);
+		if (activity.getActivityCategory().getId() == 1) {
+			mv.setViewName("couchPotatoPath/detailsPageIndoor");
+			List<Comment> comments = commentDao.findAll(activity.getId());
+			mv.addObject("comments", comments);
+			List<Experience> exp = expDao.findExperiencesByActivityId(activity.getId());
+			mv.addObject("experiences", exp);
+			mv.addObject("activity", activity);
+		} else {
+			mv.setViewName("activePotatoPath/detailsPageOutdoor");
+			List<Comment> comments = commentDao.findAll(activity.getId());
+			mv.addObject("comments", comments);
+			List<Experience> exp = expDao.findExperiencesByActivityId(activity.getId());
+			mv.addObject("experiences", exp);
+			mv.addObject("activity", activity);
+		}
 		return mv;
 	}
 
