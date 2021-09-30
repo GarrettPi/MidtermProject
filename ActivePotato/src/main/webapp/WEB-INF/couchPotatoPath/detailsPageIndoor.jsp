@@ -69,6 +69,12 @@
 		<button type="submit" class="btn btn-primary">Add Activity</button>
 	</form>
 	
+	<c:if test="${user.id == activity.user.id }">
+	<form action="deleteActivity.do?activityId=${activity.id}" method="POST">
+		<input type="hidden" name="activity"/>
+		<button type="submit" class="btn btn-primary">Delete Activity</button>
+	</form>
+		</c:if>
 		<div class="container" ><table class="table thead-dark table-striped table-hover">
 			<thead>
 				<tr>

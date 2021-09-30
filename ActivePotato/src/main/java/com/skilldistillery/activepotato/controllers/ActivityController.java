@@ -83,6 +83,19 @@ public class ActivityController {
 		}
 		return mv;
 	}
+	@RequestMapping(path = "deleteActivity.do", method = RequestMethod.POST)
+	public ModelAndView deleteActivity(HttpSession session, int activityId) {
+		ModelAndView mv = new ModelAndView();
+		boolean a = activityDao.deleteActivity(activityId);
+		mv.addObject(a);
+		User user = (User) session.getAttribute("user");
+		List<Comment> comments = commentDao.findAll(user.getId());
+		List<Experience> exp = expDao.findExperiencesByActivityId(user.getId());
+		mv.addObject("experiences", exp);
+		mv.addObject("comments", comments);
+		mv.setViewName("userHome");
+		return mv;
+	}
 
 	@RequestMapping(path = "submitActivity.do", method = RequestMethod.POST)
 	public ModelAndView newUser(Activity activity, HttpSession session, int category, int type) {
@@ -169,6 +182,9 @@ public class ActivityController {
 	public ModelAndView selectInterestActivity(int id, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		Activity activity = activityDao.findActivityById(id);
+		if (session.getAttribute("user") != null) {
+			mv.addObject("user", (User) session.getAttribute("user"));
+		}
 		if (activity.getActivityCategory().getId() == 1) {
 			mv.setViewName("couchPotatoPath/detailsPageIndoor");
 			List<Comment> comments = commentDao.findAll(activity.getId());
