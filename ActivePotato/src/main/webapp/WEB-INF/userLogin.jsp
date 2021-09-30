@@ -41,8 +41,8 @@
 					name="userName" /> <br> <br> <label class="update">Enter
 					Password:</label><input class="updateinput" type="password"
 					placeholder="Password" name="userPassword" /> <br> <br>
-				<input type="submit" name="submit" /> or <form action="registerpage.do"><input type="submit" value="Create New Account"></form>
-			</form>
+				<input type="submit" name="submit" /> 
+			</form> or <form action="registerpage.do"><input type="submit" value="Create New Account"></form>
 		</div>
 	</div>
 </body>

@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="bootstrapHead.jsp"></jsp:include>
+<link rel="stylesheet" href="../css/Home.css">
+
 <style>
 		#right {
 			text-align: right;
@@ -22,10 +24,13 @@
 <title>Welcome to Active Potato</title>
 </head>
 <body>
-
+<div class="container-liquid">
+		<div class="topnav">
+			<a href="home.do">Home</a><a href="loginpage.do">Login</a>
+		</div>
 	<div id="center">
 	
-	<h1>New User Registration</h1>
+	<h1 class="normal">New User Registration</h1>
 		
 	
 	<form action="register.do" method="POST">
@@ -54,9 +59,9 @@
 			
 	</form>
 	</div>
+	</div>
 	<br>
 	<div id="center">
-	<a href="home.do">Return Home</a>
 	<br />
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
