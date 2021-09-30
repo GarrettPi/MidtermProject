@@ -1,18 +1,77 @@
-/* Split the screen in half */
-/* :root{
+:root{
 	--container-bg-color: #333;
-	--left-bg-color: rgba(223, 39, 39, 0.7);
-	--left-button-hover-color: rgba(161,11,11,0.3);
-	--right-bg-color: rgba(43, 43, 43, 0.8);
-	--right-button-hover-color: rgba(92,92,92,0.3);
+	--right-bg-color: rgba(223, 39, 39, 0.7);
+	--right-button-hover-color: rgba(161, 11, 11, 0.3);
+	--left-bg-color: #20db57;
+	--left-button-hover-color: #265028;
 	--hover-width: 75%;
-	--other-width: 25%
-	-- speed: 1000ms;
-} */
-#top{
-	height: 10%;
-	width: 100%;
+	--other-width: 25%;
+	--speed: 1000ms;	
 }
+/* #top{
+	height: 100%;
+	width: 100%;
+} */
+body{
+	padding:0;
+	margin:0;
+	font-family:'Franklin Gothic Medium', 'Arial', 'sans-serif';
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+	
+}
+/* The navbar container */
+.topnav {
+  overflow: hidden;
+  background-color: #35393f;
+}
+
+/* Navbar links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Links - change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+  
+h1{
+	font-size: 4rem;
+	color: #fff;
+	position: absolute;
+	left: 50%;
+	top: 80%;
+	transform: translateX(-50%);
+	white-space: nowrap;
+}
+
+.button{
+	display: block;
+	position:absolute;
+	left: 50%;
+	top: 50%;
+	height: 2.5rem;
+	padding: .4rem;
+	width: 13rem;
+	text-align: center;
+	color: #fff;
+	border: #fff solid 0.4rem;
+	font-size: 1.1rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-decoration: none;
+	transform: translateX(-50%);
+	
+}
+
 /* Add a black background color to the top navigation */
 .top{
   background-color: #333;
@@ -20,28 +79,29 @@
 }
 
 .split {
-  height: 90%;
+  height: 100%;
   width: 50%;
   position: fixed;
   z-index: 1;
-  top: 10%;
+  top: 14px 16px;
   overflow-x: hidden;
-  padding-top: 20px;
+  padding-top: 0px;
 }
 
 /* Control the left side */
 .left {
   left: 0;
-  background: url("homeImages/greenOutdoors.jpeg") center center no-repeat;
+  background: url("homeImages/greenOutdoors5.jpg") center center no-repeat; 
   background-size:cover;
 }
+
 .homeButton{
 	text-decoration: none;
 }
 /* Control the right side */
 .right {
   right: 0;
-  background: url("homeImages/redCurtain.jpeg") center center no-repeat;
+  background: url("homeImages/redCurtain.jpeg") center center no-repeat; 
   background-size:cover;
 }
 
@@ -54,8 +114,21 @@
   text-align: center;
 }
 
-/* Style the image inside the centered container, if needed */
-.centered img {
-  width: 220px;
-  border-radius: 50%;
+.centered h1{
+  padding: 20px;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  text-align: center;
 }
+
+.centered img {
+	padding: 20px;
+	top: 10%;
+	left: 50%;
+  	width: 220px;
+    transform: translate(0%, -50%); 
+  	border-radius: 50%;
+}
+
+

@@ -165,7 +165,7 @@ DROP TABLE IF EXISTS `experience` ;
 CREATE TABLE IF NOT EXISTS `experience` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `rating` INT NOT NULL,
-  `comments` VARCHAR(1000) NULL DEFAULT NULL,
+  `comment_id` INT NULL DEFAULT NULL,
   `interest_id` INT NOT NULL,
   `experience_date` DATE NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -692,9 +692,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `potatodb`;
-INSERT INTO `experience` (`id`, `rating`, `comments`, `interest_id`, `experience_date`) VALUES (1, 1, NULL, 1, '2021-09-24');
-INSERT INTO `experience` (`id`, `rating`, `comments`, `interest_id`, `experience_date`) VALUES (2, 3, NULL, 2, '2021-09-24');
-INSERT INTO `experience` (`id`, `rating`, `comments`, `interest_id`, `experience_date`) VALUES (3, 5, NULL, 3, '2021-09-24');
+INSERT INTO `experience` (`id`, `rating`, `comment_id`, `interest_id`, `experience_date`) VALUES (1, 1, NULL, 1, '2021-09-24');
+INSERT INTO `experience` (`id`, `rating`, `comment_id`, `interest_id`, `experience_date`) VALUES (2, 3, NULL, 2, '2021-09-24');
+INSERT INTO `experience` (`id`, `rating`, `comment_id`, `interest_id`, `experience_date`) VALUES (3, 5, NULL, 3, '2021-09-24');
 
 COMMIT;
 

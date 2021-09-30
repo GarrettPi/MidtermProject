@@ -1,17 +1,17 @@
 body {
-	background-color: lightgrey;
-	color: blue;
+	background-color: rgb(234, 235, 239);
+	color: rgb(34, 36, 41);
 }
 
 .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th {
-	border: 1px solid black;
+	border: 1px solid rgb(34, 35, 41);
 }
 .table-striped > tbody > tr > td, .table-striped > tbody > tr > th {
-	color: white;
+	color: rgb(34, 35, 41);
 }
 
 .table-bordered > thead > tr > th {
-	border: 1px solid black;
+	border: 1px solid rgb(53, 57, 63);
 }
 
 .update {

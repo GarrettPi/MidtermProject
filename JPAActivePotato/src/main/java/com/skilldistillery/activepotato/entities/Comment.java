@@ -37,6 +37,20 @@ public class Comment {
 	@JoinColumn(name="comment_id")
 	private Comment baseComment;
 	
+	@OneToMany(mappedBy="baseComment")
+	private List<Comment> comments;
+	
+	@Column(name="experience_id")
+	private Integer experienceId;
+	
+	public Integer getExperienceId() {
+		return experienceId;
+	}
+
+	public void setExperienceId(Integer experienceId) {
+		this.experienceId = experienceId;
+	}
+
 	public List<Comment> getComments() {
 		return comments;
 	}
@@ -45,8 +59,6 @@ public class Comment {
 		this.comments = comments;
 	}
 
-	@OneToMany(mappedBy="baseComment")
-	private List<Comment> comments;
 	
 	
 	public Comment getBaseComment() {
