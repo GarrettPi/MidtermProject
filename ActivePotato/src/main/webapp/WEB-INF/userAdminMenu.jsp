@@ -121,7 +121,6 @@ li a:hover {
 			<th>User Role</th>
 			<th>Username</th>
 			<th>Password</th>
-			<th>Profile URL</th>
 			<th>Email</th>
 			<th>Account Active</th>
 			<th>Enable or Disable User</th>
@@ -132,7 +131,6 @@ li a:hover {
 		<tr>
 			<td>${user.id}</td>
 			<td>${user.role}</td>
-			<td><a href="${user.profileUrl}" target="_blank">Source URL</a></td>
 			<td>${user.username}</td>
 			<td>${user.password}</td>
 			<td><a href="${user.email}">${user.email}</a></td>
