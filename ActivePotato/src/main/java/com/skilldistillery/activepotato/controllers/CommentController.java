@@ -41,6 +41,7 @@ public class CommentController {
 			comment.setUser(user);
 			comment.setActivity(activity);
 			comment.setCommentDate(LocalDate.now());
+			comment.setExperienceId(null);
 			commentDao.addComment(comment);
 		}
 
@@ -91,7 +92,7 @@ public class CommentController {
 	}
 	//for adding replies to existing comments
 	@RequestMapping(path="addReply.do")
-	public ModelAndView addReply(HttpSession session, int commentId) {
+	public ModelAndView addReply(HttpSession session, Integer commentId) {
 		ModelAndView mv = new ModelAndView();
 		Comment comment = commentDao.findSingleCommentById(commentId);
 		mv.addObject("comment", comment);

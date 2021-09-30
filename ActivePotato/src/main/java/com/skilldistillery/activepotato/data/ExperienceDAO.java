@@ -13,5 +13,5 @@ public interface ExperienceDAO {
 	public boolean deleteExperience(int experienceId);
 	public Experience updateExperience(Experience experience);
 	public List<Experience> findExperiencesByActivityId(int actId);
-	
+	public void setExperienceCommentId (int expId, int commentId);
 }

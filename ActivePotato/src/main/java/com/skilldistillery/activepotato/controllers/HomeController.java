@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,6 +39,16 @@ public class HomeController {
 		mv.addObject("acts", actDao.findActivitiesByInterestUserId(user.getId()));
 		mv.setViewName("userHome");
 	}
+		return mv;
+	}
+
+	@RequestMapping(path = "userAdmin.do")
+	public ModelAndView sysAdminAcctAction(HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+			List<User> allUsers = userDao.userAdminList();
+			mv.addObject("allUsers", allUsers);
+			mv.setViewName("userAdminMenu");
+			
 		return mv;
 	}
 

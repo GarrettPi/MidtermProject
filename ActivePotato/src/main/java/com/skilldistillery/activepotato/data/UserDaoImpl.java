@@ -98,6 +98,15 @@ public class UserDaoImpl implements UserDAO {
 
 		return dbUser;
 	}
+	
+	@Override
+	public User userAccess(User user) {
+		user = em.find(User.class, user.getId());
+			
+		user.setEnabled(!user.isEnabled());
+			
+		return user;
+	}
 
 	@Override
 	public List<Interest> findInterestsByUserId(int userId) {

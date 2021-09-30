@@ -26,6 +26,11 @@ tr:nth-child(even) {
 <title>Couch Potato</title>
 </head>
 <body>
+	<div class="container">
+		<div class="topnav">
+			<a href="home.do">Home</a>
+		</div>
+	</div>
 	<div id="center" class="container">
 		<c:if test="${not empty a }">
 			<h1>Show Matching Indoor Activities</h1>
@@ -48,7 +53,10 @@ tr:nth-child(even) {
 					<tr>
 						<td><a href="selectCouch.do?actId=${act.id}">${act.name}</a></td>
 						<td>${act.expectedDuration }</td>
-						<td>${act.avgRating }</td>
+						<c:if test="${act.avgRating > 0 }">
+						<td>${act.avgRating }</td></c:if>
+						<c:if test="${act.avgRating <= 0 }">
+						<td>No Ratings</td></c:if>
 						<td>${act.description }</td>
 						<td><a href="${act.url }" target="_blank">${act.url }</a></td>
 						<td>${act.createDate }</td>
