@@ -57,6 +57,8 @@ public class ExperienceController {
 		experience.setExperienceDate(localDate);
 		expDao.addExperience(experience);
 		mv.setViewName("userHome");
+		List<Comment> commentList = commentDao.findCommentByUserId(user.getId());
+		mv.addObject("userComments", commentList);
 		mv.addObject("acts", actDao.findActivitiesByInterestUserId(user.getId()));
 		return mv;
 	}
