@@ -48,7 +48,10 @@ tr:nth-child(even) {
 					<tr>
 						<td><a href="selectCouch.do?actId=${act.id}">${act.name}</a></td>
 						<td>${act.expectedDuration }</td>
-						<td>${act.avgRating }</td>
+						<c:if test="${act.avgRating > 0 }">
+						<td>${act.avgRating }</td></c:if>
+						<c:if test="${act.avgRating <= 0 }">
+						<td>No Ratings</td></c:if>
 						<td>${act.description }</td>
 						<td><a href="${act.url }" target="_blank">${act.url }</a></td>
 						<td>${act.createDate }</td>
