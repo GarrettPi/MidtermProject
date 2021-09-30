@@ -82,145 +82,109 @@
 
 	<div class="container">
 		<div class="row">
+			<div class="col-15 col-sm-5">
 
-<<<<<<< HEAD
-			<div class="col-15 col-sm-5" >
+				<form action="searchActive.do" method="GET">
+					<label class="update"><b>Search Active Potato!</b></label> <input
+						class="updateinput" type="text" name="keyword"> <input
+						type="submit">
+				</form>
 
-					<form action="searchActive.do" method="GET">
-						<label class="update"><b>Active Potato Search  </b></label><input type="text" name="keyword"> <input type="submit">
-					</form>
-				</div>
-				
-				
-				<div class="col-15 col-sm-5" >
-					<form action="searchCouch.do" method="GET">
-						<label class="update"><b>Couch Potato Search  </b></label> <input type="text" name="keyword"> <input type="submit">
-					</form>
-				</div>
-				</div>
-				</div>
-				
-					
-					
-			
-=======
+			</div>
+			<div class="col-15 col-sm-5">
 
-	<div id="center">
-		<form action="searchActive.do" method="GET">
-			<label class="update"><b>Search Active Potato!</b></label> <input
-				class="updateinput" type="text" name="keyword"> <input
-				type="submit">
-		</form>
-		<br>
-		<form action="searchCouch.do" method="GET">
-			<label class="update"><b>Search Couch Potato!</b></label> <input
-				class="updateinput" type="text" name="keyword"> <input
-				type="submit">
-		</form>
-		<br>
-		<form action="createActivity.do" method="GET">
-			<button type="submit" class="btn btn-primary">Add Activity</button>
-		</form>
+				<form action="searchCouch.do" method="GET">
+					<label class="update"><b>Search Couch Potato!</b></label> <input
+						class="updateinput" type="text" name="keyword"> <input
+						type="submit">
+				</form>
+			</div>
+
+		</div>
+
 	</div>
->>>>>>> cb0c452ecb69b781ebb381065d58737fb1dc8b99
 
 	<br>
 	<hr>
 
 	<div class="container-fluid">
-<<<<<<< HEAD
-		<div class="row">
-			<div class="col-12 col-sm-1"></div>
-			
-			
-			<div class="col-12 col-sm-4" class="userContainer"
-				style="border: 1px dotted black; border-radius: 5px; padding: 10px;">
-				<div id="center"><b>Profile Interests</b></div>
-				<c:if test="${not empty acts }">
-					<c:forEach var="a" items="${acts }">
-						<a href="selectActivity.do?id=${a.id}" class="interestLink">
-							<div style="border: 2px solid black; border-radius: 5px; padding: 5px;">
-=======
-		<div class="row" id="userContainer">
 
-			<div class="col-12 col-sm-6" id="userInterest"
-				style="border: 1px dotted black; border-radius: 5px; padding: 10px;">
-				<div id="center">Profile Interests</div>
-				<c:if test="${not empty acts }">
-					<c:forEach var="a" items="${acts }">
-						<a href="selectActivity.do?id=${a.id}" class="interestLink">
-							<div id="interest"
-								style="border: 2px solid black; border-radius: 5px; padding: 5px;">
->>>>>>> cb0c452ecb69b781ebb381065d58737fb1dc8b99
-								<img src="${a.activityType.url }" width="50" height="50" />
-								${a.name} <br> Loremipsum dolor sit amet, consectetur
-								adipiscing elit. In ullamcorper maximus ante, ut laoreet massa
-								pharetra a.
-								<form action="addExperience.do?id=${a.id }" method="post">
-									<input type="submit" value="Add Experience">
-								</form>
-								<form action="removeInterest.do?id=${a.id }" method="POST">
-									<input type="submit" value="Delete">
-								</form>
-							</div>
-						</a>
-						<br>
-					</c:forEach>
+		<div class="row" >
 
-				</c:if>
+			<div class="col-12 col-sm-1">
 			</div>
-<<<<<<< HEAD
-			<div class="col-12 col-sm-2">
-			<div id="center">
-					Create an Activity
-					<form action="createActivity.do" method="GET">
-						<button type="submit" class="btn btn-secondary">Add New Activity</button>
-					</form>
-			
-			</div>
-			</div>
-			<div class="col-12 col-sm-4"
-				style="border: 1px dotted black; border-radius: 5px; padding: 10px;">
-				<div id="center"><b>User Comments</b></div>
-				<c:if test="${not empty userComments }">
-					<c:forEach var="c" items="${userComments }">
-						<div style="border: 2px solid black; border-radius: 5px; padding: 5px;">
+	
 
-							${c} <br>
-=======
+	<div class="col-12 col-sm-4" style="border: 1px dotted black; border-radius: 5px; padding: 10px;">
+		<div id="center">Profile Interests</div>
+		<c:if test="${not empty acts }">
+			<c:forEach var="a" items="${acts }">
+				<a href="selectActivity.do?id=${a.id}" class="interestLink">
+					<div id="interest" style="border: 2px solid black; border-radius: 5px; padding: 5px;">
 
-			<div class="col-12 col-sm-6" id="userInterest"
-				style="border: 1px dotted black; border-radius: 5px; padding: 10px;">
-				<div id="center">User Comments</div>
-				<c:if test="${not empty userComments }">
-					<c:forEach var="c" items="${userComments }">
-						<div id="interest"
-							style="border: 2px solid black; border-radius: 5px; padding: 5px;">
-							<c:if test="${empty c.baseComment }">
+						<img src="${a.activityType.url }" width="50" height="50" />
+						${a.name} <br> Loremipsum dolor sit amet, consectetur
+						adipiscing elit. In ullamcorper maximus ante, ut laoreet massa
+						pharetra a.
+						<form action="addExperience.do?id=${a.id }" method="post">
+							<input type="submit" value="Add Experience">
+						</form>
+						<form action="removeInterest.do?id=${a.id }" method="POST">
+							<input type="submit" value="Delete">
+						</form>
+					</div>
+				</a>
+				<br>
+			</c:forEach>
+
+		</c:if>
+	</div>
+
+	<div class="col-12 col-sm-2">
+		<div id="center">
+		<form action="createActivity.do" method="GET">
+			<b>New Profile Activity</b>
+			<br>
+			<button type="submit" class="btn btn-primary">Create Activity</button>
+		</form>
+		</div>
+
+	</div>
+
+
+	<div class="col-12 col-sm-4" style="border: 1px dotted black; border-radius: 5px; padding: 10px;">
+		<div id="center"><b>User Comments</b></div>
+		<c:if test="${not empty userComments }">
+			<c:forEach var="c" items="${userComments }">
+				<div id="interest"
+					style="border: 2px solid black; border-radius: 5px; padding: 5px;">
+					<c:if test="${empty c.baseComment }">
 							On ${c.activity.name }, "${c.comment}"
 							</c:if>
-							<c:if test="${not empty c.baseComment }">
-								You replied to ${c.baseComment.user.username} on ${c.baseComment.activity.name }, "${c.baseComment.comment }"<br>
-								<br><b>You: </b>"${c.comment }"
+					<c:if test="${not empty c.baseComment }">
+								You replied to ${c.baseComment.user.username} on ${c.baseComment.activity.name }, "${c.baseComment.comment }"
+								<br>
+						<b>You: </b>"${c.comment }"
 							</c:if>
+					<c:if test="${not empty c.comments }">
+						<c:forEach var="r" items="${c.comments }">
 							<br>
-							<c:if test="${not empty c.comments }">
-								<c:forEach var="r" items="${c.comments }">
-									<br>
-									<b>${r.user.username }</b> replied: "${r.comment }"
+							<b>${r.user.username }</b> replied: "${r.comment }"
 							</c:forEach>
-							</c:if>
-							<br>
-						</div>
-						<br>
->>>>>>> cb0c452ecb69b781ebb381065d58737fb1dc8b99
-					</c:forEach>
-				</c:if>
-			</div>
-				<div class="col-12 col-sm-1"></div>
+					</c:if>
+					<br>
+				</div>
+				<br>
+
+			</c:forEach>
+		</c:if>
 		</div>
-	</div>
+
+		<div class="col-12 col-sm-1">
+		</div>
 	
+	</div>
+	</div>
 	<br>
 
 
@@ -235,7 +199,5 @@
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-
 </body>
 </html>
