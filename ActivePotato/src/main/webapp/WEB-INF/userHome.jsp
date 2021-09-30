@@ -22,12 +22,11 @@ div {
 
 }
 
-ul {
+/* ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
- /*  background-color: #717171; */
 }
 
 li {
@@ -45,7 +44,7 @@ li a {
 
 li a:hover {
   background-color: #111;
-}
+} */
 
 #left {
 	text-align: left;
