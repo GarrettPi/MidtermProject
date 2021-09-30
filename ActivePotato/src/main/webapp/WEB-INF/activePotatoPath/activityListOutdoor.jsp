@@ -28,7 +28,7 @@ tr:nth-child(even) {
 <body>
 	<div id="center" class="container">
 		<c:if test="${not empty a }">
-			<h1>Show Matching Indoor Activities</h1>
+			<h1>Show Matching Outdoor Activities</h1>
 			<br>
 			<table id="myTable" class="table table-bordered">
 				<tbody>
