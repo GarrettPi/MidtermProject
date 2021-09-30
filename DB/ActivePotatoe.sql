@@ -191,6 +191,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `user_id` INT NOT NULL,
   `activity_id` INT NOT NULL,
   `comment_id` INT NULL,
+  `experience_id` INT NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_comment_user1_idx` (`user_id` ASC),
   INDEX `fk_comment_activity1_idx` (`activity_id` ASC),
