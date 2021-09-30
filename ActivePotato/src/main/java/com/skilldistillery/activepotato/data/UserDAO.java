@@ -2,7 +2,6 @@ package com.skilldistillery.activepotato.data;
 
 import java.util.List;
 
-import com.skilldistillery.activepotato.entities.Activity;
 import com.skilldistillery.activepotato.entities.Interest;
 import com.skilldistillery.activepotato.entities.User;
 
@@ -16,4 +15,5 @@ public interface UserDAO {
 	public User updateUser(int id, User user);
 	public User findByUsernameAndPassword(String username, String password);
 	public List<Interest> findInterestsByUserId(int userId);
+	public List<User> userAdminList();
 }
