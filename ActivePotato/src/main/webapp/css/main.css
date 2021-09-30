@@ -4,10 +4,10 @@ body {
 }
 
 .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th {
-	border: 1px solid rgb(255, 254, 255);
+	border: 1px solid rgb(34, 35, 41);
 }
 .table-striped > tbody > tr > td, .table-striped > tbody > tr > th {
-	color: rgb(255, 254, 255);
+	color: rgb(34, 35, 41);
 }
 
 .table-bordered > thead > tr > th {
