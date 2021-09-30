@@ -141,7 +141,7 @@ public class CommentDAOImpl implements CommentDAO {
 	@Override
 	public List<Comment> findRepliesByBaseCommentUserId(int userId) {
 		List<Comment> replies = new ArrayList<>();
-		String query = "select c from comment c where c.baseComment.user.id = :userId";
+		String query = "select c from Comment c where c.baseComment.user.id = :userId";
 		replies = em.createQuery(query, Comment.class).setParameter("userId", userId).getResultList();
 		return replies;
 	}
