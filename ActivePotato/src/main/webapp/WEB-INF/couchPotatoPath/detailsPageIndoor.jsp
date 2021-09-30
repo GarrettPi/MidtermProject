@@ -61,12 +61,12 @@
 			Comment: <input type="text" placeholder="comment" name="comment" />
 			<button type="submit" class="btn btn-primary">Add Comment</button>
 		</form>
-
+		<br>
 		<form action="addInterest.do?id=${activity.id}" method="POST">
 			<input type="hidden" name="id" />
 			<button type="submit" class="btn btn-primary">Add Activity</button>
 		</form>
-
+		<br>
 		<c:if test="${user.id == activity.user.id }">
 			<form action="deleteActivity.do?activityId=${activity.id}"
 				method="POST">
