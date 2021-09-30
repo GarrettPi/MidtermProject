@@ -34,7 +34,7 @@
 					<a href="home.do">Return to Home</a>
 					<br />
 					<br>
-					<table id="myTable" class="table table-bordered">
+					<table id="myTable" class="table table-bordered-new">
 						<tbody>
 						<thead>
 							<tr>
