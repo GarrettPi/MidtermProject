@@ -28,8 +28,8 @@ public class Experience {
 	@JoinColumn(name = "interest_id")
 	private Interest interest;
 
-	@Column(name="comments")
-	private String comment;
+	@Column(name="comment_id")
+	private Integer commentId;
 	
 	//Methods
 	@javax.persistence.Transient
@@ -81,12 +81,12 @@ public class Experience {
 		this.experienceDate = experienceDate;
 	}
 
-	public String getComment() {
-		return comment;
+	public Integer getComment() {
+		return commentId;
 	}
 
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setComment(Integer commentId) {
+		this.commentId = commentId;
 	}
 
 	@Override
