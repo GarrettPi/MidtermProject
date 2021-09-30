@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <%-- <jsp:include page="bootstrapHead.jsp"></jsp:include>
  --%>
- 
- <style>
+
+<style>
 #right {
 	text-align: right;
 }
@@ -34,16 +34,13 @@
 
 #userContainer {
 	align-items: center;
-    height: 100vh;
+	height: 100vh;
 }
 
 #userInterest {
 	overflow-y: scroll;
 	height: 50%;
 }
-
-
-
 </style>
 
 <title>Active Potato User Home Menu</title>
@@ -79,47 +76,50 @@
 			<div id="center">
 				<h1 class="display-6">Welcome ${user.firstName}
 					${user.lastName}</h1>
-				<br>
-
-				<img src="${user.profileUrl}" width="200" height="auto" />
+				<br> <img src="${user.profileUrl}" width="200" height="auto" />
 
 			</div>
 		</div>
 	</div>
 
+	<div class="container">
+		<div class="row">
 
-	
-		<div id="center">
-			<form action="searchActive.do" method="GET">
-				<label class="update"><b>Search Active Potato!</b></label>
-				<input class="updateinput" type="text" name="keyword" >
-				<input type="submit" >
-			</form>
-			<br>
-			<form action="searchCouch.do" method="GET">
-				<label class="update"><b>Search Couch Potato!</b></label>
-				<input class="updateinput" type="text" name="keyword" >
-				<input type="submit" >
-			</form>
-			<br>
-					<form action="createActivity.do" method="GET">
-						<button type="submit" class="btn btn-primary">Add
-							Activity</button>
+			<div class="col-15 col-sm-5" >
+
+					<form action="searchActive.do" method="GET">
+						<label class="update"><b>Active Potato Search  </b></label><input type="text" name="keyword"> <input type="submit">
 					</form>
-		</div>
-	
+				</div>
+				
+				
+				<div class="col-15 col-sm-5" >
+					<form action="searchCouch.do" method="GET">
+						<label class="update"><b>Couch Potato Search  </b></label> <input type="text" name="keyword"> <input type="submit">
+					</form>
+				</div>
+				</div>
+				</div>
+				
+					
+					
+			
+
 	<br>
 	<hr>
 
 	<div class="container-fluid">
-		<div class="row" id="userContainer">
-
-			<div class="col-12 col-sm-6" id="userInterest" style="border: 1px dotted black; border-radius: 5px; padding: 10px;">
-				<div id="center">Profile Interests</div>
+		<div class="row">
+			<div class="col-12 col-sm-1"></div>
+			
+			
+			<div class="col-12 col-sm-4" class="userContainer"
+				style="border: 1px dotted black; border-radius: 5px; padding: 10px;">
+				<div id="center"><b>Profile Interests</b></div>
 				<c:if test="${not empty acts }">
 					<c:forEach var="a" items="${acts }">
 						<a href="selectActivity.do?id=${a.id}" class="interestLink">
-							<div id="interest" style="border: 2px solid black; border-radius: 5px; padding: 5px;" >
+							<div style="border: 2px solid black; border-radius: 5px; padding: 5px;">
 								<img src="${a.activityType.url }" width="50" height="50" />
 								${a.name} <br> Loremipsum dolor sit amet, consectetur
 								adipiscing elit. In ullamcorper maximus ante, ut laoreet massa
@@ -137,22 +137,31 @@
 
 				</c:if>
 			</div>
-
-			<div class="col-12 col-sm-6" id="userInterest" style="border: 1px dotted black; border-radius: 5px; padding: 10px;">
-				<div id="center">User Comments</div>
+			<div class="col-12 col-sm-2">
+			<div id="center">
+					Create an Activity
+					<form action="createActivity.do" method="GET">
+						<button type="submit" class="btn btn-secondary">Add New Activity</button>
+					</form>
+			
+			</div>
+			</div>
+			<div class="col-12 col-sm-4"
+				style="border: 1px dotted black; border-radius: 5px; padding: 10px;">
+				<div id="center"><b>User Comments</b></div>
 				<c:if test="${not empty userComments }">
 					<c:forEach var="c" items="${userComments }">
-						<div id="interest" style="border: 2px solid black; border-radius: 5px; padding: 5px;">
+						<div style="border: 2px solid black; border-radius: 5px; padding: 5px;">
 
-							${c.comment}
-						<br>
+							${c} <br>
 					</c:forEach>
 
 				</c:if>
 			</div>
-
+				<div class="col-12 col-sm-1"></div>
 		</div>
 	</div>
+	
 	<br>
 
 
