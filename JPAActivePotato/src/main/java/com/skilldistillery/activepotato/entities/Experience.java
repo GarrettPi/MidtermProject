@@ -81,11 +81,11 @@ public class Experience {
 		this.experienceDate = experienceDate;
 	}
 
-	public Integer getComment() {
+	public Integer getCommentId() {
 		return commentId;
 	}
 
-	public void setComment(Integer commentId) {
+	public void setCommentId(Integer commentId) {
 		this.commentId = commentId;
 	}
 
