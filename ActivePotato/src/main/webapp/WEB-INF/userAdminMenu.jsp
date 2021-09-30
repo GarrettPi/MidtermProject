@@ -102,6 +102,17 @@ li a:hover {
 	</nav>
 <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0;">
 	<div id="center">
+		<h1 class="display-6">Active Potato <br> System Administrator Menu <br> </h1>
+				<br> <img src="${user.profileUrl}" width="200" height="auto" />
+				
+				<br>
+				<br>
+				<h3 style="border: 1px solid black">Welcome ${user.firstName}
+					${user.lastName}</h3>
+				<br>
+				<br>
+				</div>
+	<div id="center">
 	
 	<div class="container" ><table class="table thead-dark table-striped table-hover">
 		<thead>
