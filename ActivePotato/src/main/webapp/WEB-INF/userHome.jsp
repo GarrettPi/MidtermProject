@@ -17,6 +17,36 @@
 	text-align: center;
 }
 
+div {
+	
+
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+ /*  background-color: #717171; */
+}
+
+li {
+  float: left;
+  border-right: 1px solid white;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
 #left {
 	text-align: left;
 }
@@ -29,6 +59,7 @@
 .interestLink {
 	text-decoration: none;
 }
+
 
 #userContainer {
 	align-items: center;
@@ -69,7 +100,7 @@
 		</div>
 	</nav>
 
-	<div class="jumbotron jumbotron-fluid">
+	<div class="jumbotron jumbotron-fluid bs-light" style="margin-bottom: 0;">
 		<div class="container">
 			<div id="center">
 				<h1 class="display-6">Welcome ${user.firstName}
@@ -80,38 +111,30 @@
 		</div>
 	</div>
 
-	<div class="container">
-		<div class="row">
-			<div class="col-15 col-sm-5">
-
-				<form action="searchActive.do" method="GET">
-					<label class="update"><b>Search Active Potato!</b></label> <input
-						class="updateinput" type="text" name="keyword"> <input
-						type="submit">
+<div style="width: 100%;">
+        <div style="width: 50%; height: 200px; float: left; background: #343a40; padding: 25px; ">
+        	<div id="right" style="margin-top: 62px"> 
+			<form action="searchActive.do" method="GET"><label><b style="color: white">Search Active Potato!</b></label> 
+				<input type="text" name="keyword"> <input type="submit">
+				</form>     
+        	</div>
+        	</div>
+               
+        <div style="margin-left: 50%; height: 200px; background: #343a40; padding: 25px; "> 
+        	<div id="left" style="margin-top: 62px"> 
+				<form action="searchCouch.do" method="GET"><label><b style="color: white">Search Couch Potato!</b></label>
+				<input type="text" name="keyword"> <input type="submit">
 				</form>
+        	</div>
+        </div>
+        </div>
+   	<hr>
 
-			</div>
-			<div class="col-15 col-sm-5">
-
-				<form action="searchCouch.do" method="GET">
-					<label class="update"><b>Search Couch Potato!</b></label> <input
-						class="updateinput" type="text" name="keyword"> <input
-						type="submit">
-				</form>
-			</div>
-
-		</div>
-
-	</div>
-
-	<br>
-	<hr>
-
-	<div class="container-fluid">
+	<div class="container-fluid" >
 
 		<div class="row" >
 
-			<div class="col-12 col-sm-1">
+			<div class="col-12 col-sm-1" style="background: #343a40;" >
 			</div>
 	
 
@@ -140,24 +163,24 @@
 		</c:if>
 	</div>
 
-	<div class="col-12 col-sm-2">
+	<div class="col-12 col-sm-2" style="background: #343a40;" >
 		<div id="center">
+		
 		<form action="createActivity.do" method="GET">
-			<b>New Profile Activity</b>
+			<b style="color: white; margin-bottom: 20px; margin-top:25px;">New Profile Activity</b>
 			<br>
-			<button type="submit" class="btn btn-primary">Create Activity</button>
+			<button type="submit" class="btn btn-light">Create Activity</button>
 		</form>
-		</div>
+		
 
 	</div>
-
+		</div>
 
 	<div class="col-12 col-sm-4" style="border: 1px dotted black; border-radius: 5px; padding: 10px;">
 		<div id="center"><b>User Comments</b></div>
 		<c:if test="${not empty userComments }">
 			<c:forEach var="c" items="${userComments }">
-				<div id="interest"
-					style="border: 2px solid black; border-radius: 5px; padding: 5px;">
+				<div id="interest" style="border: 2px solid black; border-radius: 5px; padding: 5px;">
 					<c:if test="${empty c.baseComment }">
 							On ${c.activity.name }, "${c.comment}"
 							</c:if>
@@ -180,7 +203,7 @@
 		</c:if>
 		</div>
 
-		<div class="col-12 col-sm-1">
+		<div class="col-12 col-sm-1" style="background: #343a40;">
 		</div>
 	
 	</div>
