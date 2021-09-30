@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="bootstrapHead.jsp"></jsp:include>
+<link rel="stylesheet" href="../css/Home.css">
+
 <style>
 #right {
 	text-align: right;
@@ -24,26 +26,24 @@
 </head>
 
 <body>
+	<div class="container-liquid">
+		<div class="topnav">
+			<a href="home.do">Home</a><a href="registerpage.do">Create New Account</a>
+		</div>
+		<div id="center">
+<br><br><br>
+			<h1 class="normal">User Login</h1>
 
-	<div id="center">
-
-		<h1>User Login</h1>
-	
-	<br>
-	<form action="login.do" method="POST">
-	<label class="update">Enter Username:</label><input class="updateinput" type="text" placeholder ="Username" name="userName" />
-	<br>
-	<br>
-	<label class="update">Enter Password:</label><input class="updateinput" type="password" placeholder ="Password" name="userPassword" />
-	<br> 
-	<br> 
-	<input type="submit" name="submit" />
-	</form>
-	<br>
-	<a href="registerpage.do">Create New Account</a>
-	<br>
-	<br>
-	<a href="home.do">Return Home</a>
+			<br>
+			<form action="login.do" method="POST">
+				<label class="update">Enter Username:</label><input
+					class="updateinput" type="text" placeholder="Username"
+					name="userName" /> <br> <br> <label class="update">Enter
+					Password:</label><input class="updateinput" type="password"
+					placeholder="Password" name="userPassword" /> <br> <br>
+				<input type="submit" name="submit" /> or <form action="registerpage.do"><input type="submit" value="Create New Account"></form>
+			</form>
+		</div>
 	</div>
 </body>
 </html>
