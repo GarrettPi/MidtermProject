@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="bootstrapHead.jsp"></jsp:include>
-<link rel="stylesheet" href="../css/Home.css">
+<link rel="stylesheet" href="/css/Home.css">
 
 <style>
 #right {
