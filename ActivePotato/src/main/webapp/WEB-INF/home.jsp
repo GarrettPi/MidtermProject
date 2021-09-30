@@ -36,12 +36,12 @@
 		</div>
 		<div class="split left">
 			<div class="centered">
-				<a href="couch.do" class="homeButton"> <img
+				<a href="active.do" class="homeButton"> <img
 					src="images/activepotato.gif" width="200" height="200" />
 				</a>
 			</div>
 			<div class="centered">
-				<a href="couch.do" class="homeButton">
+				<a href="active.do" class="homeButton">
 					<h1>Active Potato</h1>
 				</a>
 			</div>

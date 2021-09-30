@@ -19,103 +19,107 @@
 	text-align: left;
 }
 
-tr:nth-child(even) {
+/* tr:nth-child(even) {
 	background-color: #adadad
-}
+} */
 </style>
 <title>Couch Potato</title>
 </head>
-<body>
-	<div class="container">
-		<div class="topnav">
-			<a href="home.do">Home</a>
+<body class="indoorList">
+	<div class="listIndoorBody">
+		<div class="container">
+			<div class="topnav">
+				<a href="home.do">Home</a>
+			</div>
 		</div>
-	</div>
-	<div id="center" class="container">
-		<c:if test="${not empty a }">
-			<h1>Show Matching Indoor Activities</h1>
-			<br>
-			<table id="myTable" class="table table-bordered">
-				<tbody>
-				<thead>
-					<tr>
-						<th onclick="sortTable(0)">Name &#x25b4;&#x25be;</th>
-						<th onclick="sortTable(1)">Expected Duration (Min)
-							&#x25b4;&#x25be;</th>
-						<th>Average Activity Rating</th>
-						<th>Description</th>
-						<th>Activity Link</th>
-						<th>Create Date</th>
-						<th>Add Activity To Interests</th>
-					</tr>
-				</thead>
-				<c:forEach var="act" items="${a }">
-					<tr>
-						<td><a href="selectCouch.do?actId=${act.id}">${act.name}</a></td>
-						<td>${act.expectedDuration }</td>
-						<c:if test="${act.avgRating > 0 }">
-						<td>${act.avgRating }</td></c:if>
-						<c:if test="${act.avgRating <= 0 }">
-						<td>No Ratings</td></c:if>
-						<td>${act.description }</td>
-						<td><a href="${act.url }" target="_blank">${act.url }</a></td>
-						<td>${act.createDate }</td>
-						<td>
-							<form action="addInterest.do?id=${act.id}" method="POST">
-								<input type="hidden" name="id" />
-								<button type="submit" class="btn btn-primary">Add
-									Activity</button>
-							</form>
-						</td>
-					</tr>
-				</c:forEach>
-				</tbody>
-			</table>
-		</c:if>
-		<c:if test="${empty a }">
-	<h3>No activities match that keyword.</h3>
-	</c:if>
-		<a href="home.do">Return to Home</a> <br />
-	</div>
-	<script>
-		function sortTable(n) {
-			var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-			table = document.getElementById("myTable");
-			switching = true;
-			dir = "asc";
-			while (switching) {
-				switching = false;
-				rows = table.rows;
-				for (i = 1; i < (rows.length - 1); i++) {
-					shouldSwitch = false;
-					x = rows[i].getElementsByTagName("TD")[n];
-					y = rows[i + 1].getElementsByTagName("TD")[n];
-					if (dir == "asc") {
-						if (x.innerHTML.toLowerCase() > y.innerHTML
-								.toLowerCase()) {
-							shouldSwitch = true;
-							break;
-						}
-					} else if (dir == "desc") {
-						if (x.innerHTML.toLowerCase() < y.innerHTML
-								.toLowerCase()) {
-							shouldSwitch = true;
-							break;
+		<div id="center" class="container">
+			<c:if test="${not empty a }">
+				<h1>Show Matching Indoor Activities</h1>
+				<a href="home.do">Return to Home</a> <br />
+				<br>
+				<table id="myTable" class="table table-bordered" style="color: rgb(234, 234, 234)">
+					<tbody>
+					<thead>
+						<tr>
+							<th onclick="sortTable(0)">Name &#x25b4;&#x25be;</th>
+							<th onclick="sortTable(1)">Expected Duration (Min)
+								&#x25b4;&#x25be;</th>
+							<th>Average Activity Rating</th>
+							<th>Description</th>
+							<th>Activity Link</th>
+							<th>Create Date</th>
+							<th>Add Activity To Interests</th>
+						</tr>
+					</thead>
+					<c:forEach var="act" items="${a }">
+						<tr>
+							<td><a href="selectCouch.do?actId=${act.id}">${act.name}</a></td>
+							<td>${act.expectedDuration }</td>
+							<c:if test="${act.avgRating > 0 }">
+								<td>${act.avgRating }</td>
+							</c:if>
+							<c:if test="${act.avgRating <= 0 }">
+								<td>No Ratings</td>
+							</c:if>
+							<td>${act.description }</td>
+							<td><a href="${act.url }" target="_blank">${act.url }</a></td>
+							<td>${act.createDate }</td>
+							<td>
+								<form action="addInterest.do?id=${act.id}" method="POST">
+									<input type="hidden" name="id" />
+									<button type="submit" class="btn btn-primary">Add
+										Activity</button>
+								</form>
+							</td>
+						</tr>
+					</c:forEach>
+					</tbody>
+				</table>
+			</c:if>
+			<c:if test="${empty a }">
+				<h3>No activities match that keyword.</h3>
+			</c:if>
+		</div>
+		<script>
+			function sortTable(n) {
+				var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+				table = document.getElementById("myTable");
+				switching = true;
+				dir = "asc";
+				while (switching) {
+					switching = false;
+					rows = table.rows;
+					for (i = 1; i < (rows.length - 1); i++) {
+						shouldSwitch = false;
+						x = rows[i].getElementsByTagName("TD")[n];
+						y = rows[i + 1].getElementsByTagName("TD")[n];
+						if (dir == "asc") {
+							if (x.innerHTML.toLowerCase() > y.innerHTML
+									.toLowerCase()) {
+								shouldSwitch = true;
+								break;
+							}
+						} else if (dir == "desc") {
+							if (x.innerHTML.toLowerCase() < y.innerHTML
+									.toLowerCase()) {
+								shouldSwitch = true;
+								break;
+							}
 						}
 					}
-				}
-				if (shouldSwitch) {
-					rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-					switching = true;
-					switchcount++;
-				} else {
-					if (switchcount == 0 && dir == "asc") {
-						dir = "desc";
+					if (shouldSwitch) {
+						rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
 						switching = true;
+						switchcount++;
+					} else {
+						if (switchcount == 0 && dir == "asc") {
+							dir = "desc";
+							switching = true;
+						}
 					}
 				}
 			}
-		}
-	</script>
+		</script>
+	</div>
 </body>
 </html>
