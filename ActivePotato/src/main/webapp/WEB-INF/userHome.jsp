@@ -7,8 +7,8 @@
 <meta charset="UTF-8">
 <%-- <jsp:include page="bootstrapHead.jsp"></jsp:include>
  --%>
- 
- <style>
+
+<style>
 #right {
 	text-align: right;
 }
@@ -21,8 +21,6 @@
 	text-align: left;
 }
 
-
-
 #interest:hover {
 	color: blue;
 	border: 5px solid black;
@@ -34,16 +32,13 @@
 
 #userContainer {
 	align-items: center;
-    height: 100vh;
+	height: 100vh;
 }
 
 #userInterest {
 	overflow-y: scroll;
 	height: 50%;
 }
-
-
-
 </style>
 
 <title>Active Potato User Home Menu</title>
@@ -79,47 +74,46 @@
 			<div id="center">
 				<h1 class="display-6">Welcome ${user.firstName}
 					${user.lastName}</h1>
-				<br>
-
-				<img src="${user.profileUrl}" width="200" height="auto" />
+				<br> <img src="${user.profileUrl}" width="200" height="auto" />
 
 			</div>
 		</div>
 	</div>
 
 
-	
-		<div id="center">
-			<form action="searchActive.do" method="GET">
-				<label class="update"><b>Search Active Potato!</b></label>
-				<input class="updateinput" type="text" name="keyword" >
-				<input type="submit" >
-			</form>
-			<br>
-			<form action="searchCouch.do" method="GET">
-				<label class="update"><b>Search Couch Potato!</b></label>
-				<input class="updateinput" type="text" name="keyword" >
-				<input type="submit" >
-			</form>
-			<br>
-					<form action="createActivity.do" method="GET">
-						<button type="submit" class="btn btn-primary">Add
-							Activity</button>
-					</form>
-		</div>
-	
+
+	<div id="center">
+		<form action="searchActive.do" method="GET">
+			<label class="update"><b>Search Active Potato!</b></label> <input
+				class="updateinput" type="text" name="keyword"> <input
+				type="submit">
+		</form>
+		<br>
+		<form action="searchCouch.do" method="GET">
+			<label class="update"><b>Search Couch Potato!</b></label> <input
+				class="updateinput" type="text" name="keyword"> <input
+				type="submit">
+		</form>
+		<br>
+		<form action="createActivity.do" method="GET">
+			<button type="submit" class="btn btn-primary">Add Activity</button>
+		</form>
+	</div>
+
 	<br>
 	<hr>
 
 	<div class="container-fluid">
 		<div class="row" id="userContainer">
 
-			<div class="col-12 col-sm-6" id="userInterest" style="border: 1px dotted black; border-radius: 5px; padding: 10px;">
+			<div class="col-12 col-sm-6" id="userInterest"
+				style="border: 1px dotted black; border-radius: 5px; padding: 10px;">
 				<div id="center">Profile Interests</div>
 				<c:if test="${not empty acts }">
 					<c:forEach var="a" items="${acts }">
 						<a href="selectActivity.do?id=${a.id}" class="interestLink">
-							<div id="interest" style="border: 2px solid black; border-radius: 5px; padding: 5px;" >
+							<div id="interest"
+								style="border: 2px solid black; border-radius: 5px; padding: 5px;">
 								<img src="${a.activityType.url }" width="50" height="50" />
 								${a.name} <br> Loremipsum dolor sit amet, consectetur
 								adipiscing elit. In ullamcorper maximus ante, ut laoreet massa
@@ -138,16 +132,31 @@
 				</c:if>
 			</div>
 
-			<div class="col-12 col-sm-6" id="userInterest" style="border: 1px dotted black; border-radius: 5px; padding: 10px;">
+			<div class="col-12 col-sm-6" id="userInterest"
+				style="border: 1px dotted black; border-radius: 5px; padding: 10px;">
 				<div id="center">User Comments</div>
 				<c:if test="${not empty userComments }">
 					<c:forEach var="c" items="${userComments }">
-						<div id="interest" style="border: 2px solid black; border-radius: 5px; padding: 5px;">
-
-							${c.comment}
+						<div id="interest"
+							style="border: 2px solid black; border-radius: 5px; padding: 5px;">
+							<c:if test="${empty c.baseComment }">
+							On ${c.activity.name }, "${c.comment}"
+							</c:if>
+							<c:if test="${not empty c.baseComment }">
+								You replied to ${c.baseComment.user.username} on ${c.baseComment.activity.name }, "${c.baseComment.comment }"<br>
+								<br><b>You: </b>"${c.comment }"
+							</c:if>
+							<br>
+							<c:if test="${not empty c.comments }">
+								<c:forEach var="r" items="${c.comments }">
+									<br>
+									<b>${r.user.username }</b> replied: "${r.comment }"
+							</c:forEach>
+							</c:if>
+							<br>
+						</div>
 						<br>
 					</c:forEach>
-
 				</c:if>
 			</div>
 
