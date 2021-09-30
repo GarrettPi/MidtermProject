@@ -47,7 +47,7 @@ public class ExperienceController {
 	}
 
 	@RequestMapping(path = "createExperience.do", method = RequestMethod.POST)
-	public ModelAndView createExperience(HttpSession session, Experience experience, int interestId, @RequestParam("expDate") String date) {
+	public ModelAndView createExperience(HttpSession session, Experience experience, int interestId, @RequestParam("expDate") String date, String newComment) {
 		LocalDate localDate = LocalDate.parse(date);
 		ModelAndView mv = new ModelAndView();
 		User user = (User) session.getAttribute("user");
@@ -55,7 +55,14 @@ public class ExperienceController {
 		System.out.println("***************************************************"+interest+"*******************************************");
 		experience.setInterest(interest);
 		experience.setExperienceDate(localDate);
-		expDao.addExperience(experience);
+		experience = expDao.addExperience(experience);
+		Comment comment = new Comment();
+		comment.setActivity(interest.getActivity());
+		comment.setUser(user);
+		comment.setExperienceId(experience.getId());
+		comment.setComment(newComment);
+		comment = commentDao.addComment(comment);
+		expDao.setExperienceCommentId(experience.getId(), comment.getId());
 		mv.setViewName("userHome");
 		List<Comment> commentList = commentDao.findCommentByUserId(user.getId());
 		mv.addObject("userComments", commentList);
