@@ -42,13 +42,13 @@ public class HomeController {
 		return mv;
 	}
 
-	@RequestMapping(path = { "userAdmin.do" })
-	public ModelAndView sysAdminAcctAction (HttpSession session) {
+	@RequestMapping(path = "userAdmin.do")
+	public ModelAndView sysAdminAcctAction(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 			List<User> allUsers = userDao.userAdminList();
 			mv.addObject("allUsers", allUsers);
 			mv.setViewName("userAdminMenu");
-
+			
 		return mv;
 	}
 

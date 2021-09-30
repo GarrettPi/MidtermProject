@@ -94,7 +94,7 @@ li a:hover {
 				</a></li>
 				<li class="nav-item"><a class="nav-link" href="editProfile.do">
 						Edit Profile </a></li>
-				<c:if test="${user.role == admin}">
+				<c:if test="${user.role == 'admin'}">
 				<li class="nav-item"><a class="nav-link" href="userAdmin.do">
 						Administrator Menu </a></li>
 				</c:if>
@@ -103,6 +103,8 @@ li a:hover {
 			</ul>
 		</div>
 	</nav>
+
+	
 
 	<div class="jumbotron jumbotron-fluid bs-light" style="margin-bottom: 0;">
 		<div class="container">

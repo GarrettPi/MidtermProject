@@ -102,7 +102,7 @@ public class UserDaoImpl implements UserDAO {
 	@Override
 	public User userAccess(User user) {
 		user = em.find(User.class, user.getId());
-		
+			
 		user.setEnabled(!user.isEnabled());
 			
 		return user;

@@ -102,6 +102,7 @@ li a:hover {
 	</nav>
 <div class="jumbotron jumbotron-fluid" style="margin-bottom: 0;">
 	<div id="center">
+	
 	<div class="container" ><table class="table thead-dark table-striped table-hover">
 		<thead>
 			<tr>
@@ -116,6 +117,7 @@ li a:hover {
 			</tr>
 		</thead>
 	<tbody>
+			<c:forEach var="user" items="${allUsers }">
 		<tr>
 			<td>${user.id}</td>
 			<td>${user.role}</td>
@@ -124,14 +126,17 @@ li a:hover {
 			<td>${user.password}</td>
 			<td><a href="${user.email}">${user.email}</a></td>
 			<td>${user.enabled}</td>
-			<c:if test="${user.enabled == 0}">
-			<td><form action="enableAccount.do?userId=${user.id }" method="POST"></form><input type="submit"  value="Enable Account"></td>
+			<c:if test="${user.enabled == false}">
+			<td><form action="enableAccount.do?userId=${user.id }" method="POST"><input type="submit"  value="Enable Account"></form></td>
 			</c:if>	
 		
-			<c:if test="${user.enabled == 1}">
+			<c:if test="${user.enabled == true}">
 			
-				<td><form action="disableAccount.do?userId=${user.id }" method="POST"></form><input type="submit"   value="Disable Account"></td>
+				<td><form action="disableAccount.do?userId=${user.id }" method="POST"><input type="submit"   value="Disable Account"></form></td>
 			</c:if>
+			</tr>
+			</c:forEach>
+			
 			
 	</tbody>
 	
