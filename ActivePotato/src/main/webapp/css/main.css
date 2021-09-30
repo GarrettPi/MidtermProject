@@ -4,12 +4,16 @@ body {
 }
 
 .listOutdoorBody {
+  width: 100%;
+  height: 100%;
+  color: rgb(53, 68, 63);
+}
+
+.outdoorList{
   background: url("homeImages/greenOutdoors2.jpeg") center center no-repeat; 
   background-size: cover;
   background-blend-mode: darken; 
-  width: 100%;
-  height: 100%;
-  color: rgb(53, 58, 63);
+	
 }
 
 .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th {

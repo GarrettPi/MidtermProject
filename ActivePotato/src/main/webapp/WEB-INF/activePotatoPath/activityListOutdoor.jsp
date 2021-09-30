@@ -26,7 +26,7 @@
 </style>
 <title>Active Potato</title>
 </head>
-<body>
+<body class="outdoorList">
 	<div class="listOutdoorBody">
 			<div id="center" class="container">
 				<c:if test="${not empty a }">
