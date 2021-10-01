@@ -45,7 +45,7 @@
 	   	 </c:if>
     </div>
   </nav>
-	<br>
+	
 
 <div class="jumbotron jumbotron-fluid bs-light"
 		style="margin-bottom: 0;">
