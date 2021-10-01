@@ -6,6 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <jsp:include page="bootstrapHead.jsp"></jsp:include>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 <style>
 #right {
 	text-align: right;
@@ -20,38 +25,20 @@
 }
 </style>
 <title>Welcome to Active Potato</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarNav" aria-controls="navbarNav"
-			aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav">
-				<li class="nav-item active"><a class="nav-link" href="home.do">
-						Home <span class="sr-only">(current)</span>
-				</a></li>
-				<li class="nav-item"><a class="nav-link" href="editProfile.do">
-						Edit Profile </a></li>
-				<c:if test="${user.role == 'admin'}">
-				<li class="nav-item"><a class="nav-link" href="userAdmin.do">
-						Administrator Menu </a></li>
-				</c:if>
-				<li class="nav-item"><a class="nav-link" href="logout.do">
-						Log Out </a></li>
-			</ul>
-		</div>
-	</nav>
-
 	
+
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    	Menu
+    </button>
+    	  <div class="dropdown-menu">
+    	 <a class="dropdown-item" href="home.do">Home</a>
+    	 <a class="dropdown-item" href="logout.do">Logout</a>
+		</div>    
+  </nav>
 
 	<div class="jumbotron jumbotron-fluid bs-light" style="margin-bottom: 0;">
 		<div class="container">

@@ -5,8 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<%-- <jsp:include page="bootstrapHead.jsp"></jsp:include>
- --%>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 
 <style>
 #right {
@@ -17,88 +20,50 @@
 	text-align: center;
 }
 
-div {
-	
-}
-
-/* ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-li {
-  float: left;
-  border-right: 1px solid white;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: #111;
-} */
 #left {
 	text-align: left;
 }
 
+.update {
+	display: inline-block;
+	clear: left;
+	width: 250px;
+	text-align: left;
+}
+
+.updateinput {
+	display: inline-block;
+}
+
 #interest:hover {
 	color: blue;
-	border: 5px solid black;
+	border: 5px solid rgb(53, 58, 63);
 }
 
 .interestLink {
 	text-decoration: none;
 }
 
-#userContainer {
-	align-items: center;
-	height: 100vh;
-}
-
-#userInterest {
-	overflow-y: scroll;
-	height: 50%;
-}
 </style>
 
 <title>Active Potato User Home Menu</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarNav" aria-controls="navbarNav"
-			aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav">
-				<li class="nav-item active"><a class="nav-link" href="home.do">
-						Home <span class="sr-only">(current)</span>
-				</a></li>
-				<li class="nav-item"><a class="nav-link" href="editProfile.do">
-						Edit Profile </a></li>
-				<c:if test="${user.role == 'admin'}">
-					<li class="nav-item"><a class="nav-link" href="userAdmin.do">
-							Administrator Menu </a></li>
-				</c:if>
-				<li class="nav-item"><a class="nav-link" href="logout.do">
-						Log Out </a></li>
-			</ul>
-		</div>
-	</nav>
+	<nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    	Menu
+    </button>
+    	  <div class="dropdown-menu">
+    	 <a class="dropdown-item" href="home.do">Home</a>
+    	 <a class="dropdown-item" href="editProfile.do">Edit Profile</a>
+    	 <c:if test="${user.role == 'admin'}">
+    	 <a class="dropdown-item" href="userAdmin.do">Administrator Menu</a>
+    	 </c:if>
+    	 <a class="dropdown-item" href="logout.do">Logout</a>
+		</div>    
+  </nav>
 
 
 
@@ -150,9 +115,8 @@ li a:hover {
 				</div>
 				<c:if test="${not empty acts }">
 					<c:forEach var="a" items="${acts }">
-						<a href="selectActivity.do?id=${a.id}" class="interestLink" style="text-decoration: none">
-							<div id="interest"
-								style="border: 2px solid black; border-radius: 5px; padding: 5px;">
+						<a href="selectActivity.do?id=${a.id}" class="interestLink" style="text-decoration: none;">
+							<div id="interest" style="border: 2px solid black; border-radius: 5px; padding: 5px;">
 
 								<img src="${a.activityType.url }" width="50" height="50" />
 								${a.name} <br>${a.description }
@@ -193,8 +157,7 @@ li a:hover {
 					<c:forEach var="c" items="${userComments }">
 						<a href="selectActivity.do?id=${c.activity.id}"
 							class="interestLink" style="text-decoration: none">
-							<div id="interest"
-								style="border: 2px solid black; border-radius: 5px; padding: 5px;">
+							<div id="interest" style="border: 2px solid black; border-radius: 5px; padding: 5px;">
 								<c:if test="${empty c.baseComment }">
 							On ${c.activity.name }, "${c.comment}"
 							</c:if>

@@ -22,12 +22,27 @@
 	</style>
 	
 <title>Welcome to Active Potato</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+
 </head>
 <body>
+	<nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    	Menu
+    </button>
+    	  <div class="dropdown-menu">
+    	 <a class="dropdown-item" href="home.do">Home</a>
+    	 <a class="dropdown-item" href="loginpage.do">Login</a>
+		</div>    
+  </nav>
+
+
 <div class="container-liquid">
-		<div class="topnav">
-			<a href="home.do">Home</a><a href="loginpage.do">Login</a>
-		</div>
+		
 	<div id="center">
 	<br><br><br>
 	<h1 class="normal">New User Registration</h1>
