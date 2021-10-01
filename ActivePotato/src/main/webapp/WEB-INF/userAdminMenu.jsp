@@ -63,13 +63,12 @@
 				</div>
 	<div id="center">
 	
-	<div class="container" ><table class="table thead-dark table-striped table-hover">
+	<div class="container-fluid" ><table class="table thead-dark table-striped table-hover">
 		<thead>
 			<tr>
 			<th>User ID</th>
 			<th>User Role</th>
 			<th>Username</th>
-			<th>Password</th>
 			<th>Email</th>
 			<th>Account Active</th>
 			<th>Enable or Disable User</th>
@@ -81,7 +80,6 @@
 			<td>${user.id}</td>
 			<td>${user.role}</td>
 			<td>${user.username}</td>
-			<td>${user.password}</td>
 			<td><a href="${user.email}">${user.email}</a></td>
 			<td>${user.enabled}</td>
 			<c:if test="${user.enabled == false}">
