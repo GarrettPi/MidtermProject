@@ -213,6 +213,7 @@ public class ActivityController {
 		Activity activity = activityDao.findActivityById(id);
 		User user = (User) session.getAttribute("user");
 		Interest newInterest = intDao.addActivityToUserInterest(activity, user);
+		mv.addObject("userComments", commentDao.findCommentByUserId(user.getId()));
 		mv.addObject("acts", activityDao.findActivitiesByInterestUserId(user.getId()));
 		mv.setViewName("userHome");
 		return mv;
