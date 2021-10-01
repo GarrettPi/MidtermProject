@@ -92,7 +92,7 @@ public class ActivityController {
 		List<Comment> comments = commentDao.findAll(user.getId());
 		List<Experience> exp = expDao.findExperiencesByActivityId(user.getId());
 		mv.addObject("experiences", exp);
-		mv.addObject("comments", comments);
+		mv.addObject("userComments", comments);
 		mv.setViewName("userHome");
 		return mv;
 	}
@@ -225,6 +225,7 @@ public class ActivityController {
 		User user = (User) session.getAttribute("user");
 		Activity activity = activityDao.findActivityById(id);
 		intDao.removeActivityFromUserInterest(activity, user);
+		mv.addObject("userComments", commentDao.findCommentByUserId(user.getId()));
 		mv.addObject("acts", activityDao.findActivitiesByInterestUserId(user.getId()));
 		mv.setViewName("userHome");
 		return mv;
