@@ -28,4 +28,9 @@ As a team, flexibility during the OOM process ensured that we were able to discu
 Overall, the development of Active Potato was a fun and challenging project that was dependent on Agile Software Development and incorporating Scrum. Our team was able to resolve all of our challenges with backend – front end integration through excellent inter-team communication, peer programming, and many times, walking away from the computer for a short period.
 We are very proud of the end product, and amazed at what we were collectively able to produce in eight days.
 ### Future Enhancements
-* 
+* Allow users to create custom Activity Types
+* Expand sorting functionality
+* Integration of google APIs for using locational data to identify activities that are near the user.
+* Integration of IMDB or other open-source media rating site, to populate realtime media data without having to redirect the user to an external site.
+* Expansion of pre-populated activity data.
+* Build out additional social media style features that would enable users to interact with other users in realtime messaging and following/favoriting of activities from a specific user.
