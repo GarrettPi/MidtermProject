@@ -50,7 +50,8 @@
   </nav>
 
 	<div class="listOutdoorBody">
-		<div id="center" class="container">
+	<div class="container-liquid" style="padding-left: 30px; padding-right: 30px;" >
+		<div id="center">
 			<c:if test="${not empty a }">
 				<br>
 				<h1>Show Matching Outdoor Activities</h1>
@@ -215,7 +216,8 @@
 				}
 			</script>
 	</div>
-	
+	</div>
+	<div style="height: 500px; width: 100%;"></div>
 		<footer class="footer mt-auto py-3 bg-dark">
 				<div class="container">
 					<span class="text-muted"> Active Potato </span>

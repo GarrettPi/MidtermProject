@@ -49,10 +49,8 @@
   </nav>
 
 <div class="listIndoorBody">
-		<div class="container">
-			<div class="topnav"></div>
-		</div>
-		<div id="center" class="container">
+		<div class="container-liquid" style="padding-left: 30px; padding-right: 30px;" >
+			<div id="center">
 			<c:if test="${not empty a }">
 
 				<br>
@@ -61,7 +59,7 @@
 				<br>
 				<br>
 				<table id="myTable" class="table table-bordered"
-					style="color: rgb(234, 234, 234)">
+					style="color: rgb(234, 234, 234) ">
 					<tbody>
 					<thead>
 						<tr>
@@ -144,6 +142,7 @@
 				}
 			}
 		</script>
+	</div>
 	</div>
 	<footer class="footer mt-auto py-3 bg-dark">
 		<div class="container">
