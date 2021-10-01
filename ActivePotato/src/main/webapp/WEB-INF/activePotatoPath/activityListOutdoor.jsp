@@ -25,14 +25,41 @@
 }  */
 </style>
 <title>Active Potato</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+
 </head>
 <body class="outdoorList">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNav" aria-controls="navbarNav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item active"><a class="nav-link" href="home.do">
+						Home <span class="sr-only">(current)</span>
+				</a></li>
+				
+				<li class="nav-item"><a class="nav-link" href="loginpage.do">
+						Login </a></li>
+				<li class="nav-item"><a class="nav-link" href="registerpage.do">
+						Register </a></li>
+			</ul>
+		</div>
+	</nav>
+
 	<div class="listOutdoorBody">
 			<div id="center" class="container">
 				<c:if test="${not empty a }">
+					<br>
 					<h1>Show Matching Outdoor Activities</h1>
-					<a href="home.do">Return to Home</a>
-					<br />
+					
+					<br>
 					<br>
 					<table id="myTable" class="table table-bordered-new">
 						<tbody>
@@ -60,7 +87,7 @@
 								<td>
 									<form action="addInterest.do?id=${act.id}" method="POST">
 										<input type="hidden" name="id" />
-										<button type="submit" class="btn btn-primary">Add
+										<button type="submit" class="btn btn-secondary">Add
 											Activity</button>
 									</form>
 								</td>
@@ -139,7 +166,7 @@
 						<td>
 							<form action="addInterest.do?id=${act.id}" method="POST">
 								<input type="hidden" name="id" />
-								<button type="submit" class="btn btn-primary">Add
+								<button type="submit" class="btn btn-secondary">Add
 									Activity</button>
 							</form>
 						</td>
@@ -151,7 +178,7 @@
 		<c:if test="${empty a }">
 			<h3>No activities match that keyword.</h3>
 		</c:if>
-		<a href="home.do">Return to Home</a> <br />
+		
 	</div>
 	<script>
 		function sortTable(n) {

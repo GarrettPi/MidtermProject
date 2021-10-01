@@ -24,18 +24,49 @@
 } */
 </style>
 <title>Couch Potato</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 </head>
+
 <body class="indoorList">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNav" aria-controls="navbarNav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item active"><a class="nav-link" href="home.do">
+						Home <span class="sr-only">(current)</span>
+				</a></li>
+				
+				<li class="nav-item"><a class="nav-link" href="loginpage.do">
+						Login </a></li>
+				<li class="nav-item"><a class="nav-link" href="registerpage.do">
+						Register </a></li>
+			</ul>
+		</div>
+	</nav>
+
+
+
+
 	<div class="listIndoorBody">
 		<div class="container">
 			<div class="topnav">
-				<a href="home.do">Home</a>
-			</div>
+				</div>
 		</div>
 		<div id="center" class="container">
 			<c:if test="${not empty a }">
+				
+				<br>
 				<h1>Show Matching Indoor Activities</h1>
-				<a href="home.do">Return to Home</a> <br />
+				
+				<br>
 				<br>
 				<table id="myTable" class="table table-bordered" style="color: rgb(234, 234, 234)">
 					<tbody>
@@ -67,7 +98,7 @@
 							<td>
 								<form action="addInterest.do?id=${act.id}" method="POST">
 									<input type="hidden" name="id" />
-									<button type="submit" class="btn btn-primary">Add
+									<button type="submit" class="btn btn-secondary">Add
 										Activity</button>
 								</form>
 							</td>
@@ -121,5 +152,17 @@
 			}
 		</script>
 	</div>
+	<footer class="footer mt-auto py-3 bg-dark">
+				<div class="container">
+					<span class="text-muted"> Active Potato </span>
+				</div>
+			</footer>
+
+			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+			<script
+				src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+			<script
+				src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	
 </body>
 </html>

@@ -42,7 +42,7 @@
 
 				<form action="searchCouch.do" method="GET">
 					<b>Indoor Activity: </b><input type="text" name="keyword" /> <input
-						class="btn btn-primary" type="submit" value="Search" />
+						class="btn btn-secondary" type="submit" value="Search" />
 				</form>
 			</div>
 		</div>
