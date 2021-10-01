@@ -76,9 +76,6 @@
 				<label class="update">Last Name: </label><input class="updateinput" value="${user.lastName}" type="text" name="lastName"> 
 				<br> 
 				<br> 
-				<label class="update">User Name: </label><input class="updateinput"	value="${user.username}" type="text" name="username"> 
-				<br> 
-				<br> 
 				<label class="update">New Password: </label><input class="updateinput"  type="password"	name="password1"> 
 				<br> 
 				<br> 

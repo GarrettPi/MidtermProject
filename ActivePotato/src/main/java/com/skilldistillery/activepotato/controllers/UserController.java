@@ -107,6 +107,7 @@ public class UserController {
 		if (password1.equals(password2)) {
 			User sessionUser = (User) session.getAttribute("user");
 			user.setPassword(password1);
+			user.setUsername(sessionUser.getUsername());
 			User updatedUser = userDao.updateUser(sessionUser.getId(), user);
 			session.setAttribute("user", updatedUser);
 			mv.addObject("acts", actDao.findActivitiesByInterestUserId(updatedUser.getId()));
