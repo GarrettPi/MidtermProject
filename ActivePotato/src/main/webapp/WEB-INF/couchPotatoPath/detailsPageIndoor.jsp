@@ -47,7 +47,8 @@
   </nav>
 	<br>
 
-
+<div class="jumbotron jumbotron-fluid bs-light"
+		style="margin-bottom: 0;">
 	<div id="center">
 		<h1>Show Media Details</h1>
 
@@ -58,6 +59,8 @@
 		</p>
 		<iframe src="${activity.trailerUrl }" width="700px" height="400"></iframe>
 
+<br>
+<br>
 
 		<div class="container">
 			<table class="table thead-dark table-striped table-hover">
@@ -101,8 +104,13 @@
 					Activity</button>
 			</form>
 		</c:if>
-		<div class="container">
-			<table class="table thead-dark table-striped table-hover">
+		
+		<br>
+		<br>
+		
+		
+		<div class="container" >
+			<table class="table thead-dark table-striped table-hover" >
 				<thead>
 					<tr>
 						<th>Username</th>
@@ -170,6 +178,7 @@
 
 			</table>
 		</div>
+	</div>
 	</div>
 	<br>
 
