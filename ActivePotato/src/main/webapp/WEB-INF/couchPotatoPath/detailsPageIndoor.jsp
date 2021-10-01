@@ -38,7 +38,7 @@
     	 <a class="dropdown-item" href="loginpage.do">Login</a>
     	 </c:if>
     	 <c:if test="${not empty user }">
-    	 <a class="dropdown-item" href="logoutpage.do">Logout </a>
+    	 <a class="dropdown-item" href="logout.do">Logout </a>
     	 </c:if>
     	 <c:if test="${empty user }">
     	 <a class="dropdown-item" href="registerpage.do">Register</a>
