@@ -92,7 +92,7 @@
 								<td>No Ratings</td>
 							</c:if>
 							<td>${act.description }</td>
-							<td>${act.url }</td>
+							<td><a href="${act.url }" target="_blank">${act.url }</a></td>
 							<td>${act.createDate }</td>
 							<td>
 								<form action="addInterest.do?id=${act.id}" method="POST">
@@ -171,7 +171,7 @@
 							<td>No Ratings</td>
 						</c:if>
 						<td>${act.description }</td>
-						<td>${act.url }</td>
+						<td><a href="${act.url }" target="_blank">${act.url }</a></td>
 						<td>${act.createDate }</td>
 						<td>
 							<form action="addInterest.do?id=${act.id}" method="POST">
