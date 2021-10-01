@@ -110,6 +110,7 @@ public class UserController {
 			user.setUsername(sessionUser.getUsername());
 			User updatedUser = userDao.updateUser(sessionUser.getId(), user);
 			session.setAttribute("user", updatedUser);
+			mv.addObject("user", updatedUser);
 			mv.addObject("acts", actDao.findActivitiesByInterestUserId(updatedUser.getId()));
 			mv.setViewName("userHome");
 		} else {
