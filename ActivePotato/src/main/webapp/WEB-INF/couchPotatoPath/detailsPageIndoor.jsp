@@ -39,19 +39,24 @@
 				<li class="nav-item active"><a class="nav-link" href="home.do">
 						Home <span class="sr-only">(current)</span>
 				</a></li>
-				<li class="nav-item"><a class="nav-link" href="loginpage.do">
-						Login </a></li>
-				
-				<li class="nav-item"><a class="nav-link" href="registerpage.do">
-						Register </a></li>
+				<c:if test="${empty user }">
+					<li class="nav-item"><a class="nav-link" href="loginpage.do">
+							Login </a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="registerpage.do"> Register </a></li>
+				</c:if>
+				<c:if test="${not empty user }">
+					<li class="nav-item"><a class="nav-link" href="logout.do">
+							Logout </a></li>
+				</c:if>
 			</ul>
 		</div>
 	</nav>
 	<br>
-	
+
 
 	<div id="center">
-	<h1>Show Media Details</h1>
+		<h1>Show Media Details</h1>
 
 		<br> <br> <img src="${activity.imageUrl}" width="300"
 			height="auto" /> <br> <br>
@@ -91,7 +96,8 @@
 		<br>
 		<form action="addInterest.do?id=${activity.id}" method="POST">
 			<input type="hidden" name="id" />
-			<button type="submit" class="btn btn-secondary">Add Activity To Interests</button>
+			<button type="submit" class="btn btn-secondary">Add Activity
+				To Interests</button>
 		</form>
 		<br>
 		<c:if test="${user.id == activity.user.id }">
@@ -172,22 +178,22 @@
 			</table>
 		</div>
 	</div>
-<br>
-	
+	<br>
+
 	<br>
 
 
 
-			<footer class="footer mt-auto py-3 bg-dark">
-				<div class="container">
-					<span class="text-muted"> Active Potato </span>
-				</div>
-			</footer>
+	<footer class="footer mt-auto py-3 bg-dark">
+		<div class="container">
+			<span class="text-muted"> Active Potato </span>
+		</div>
+	</footer>
 
-			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-			<script
-				src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-			<script
-				src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
