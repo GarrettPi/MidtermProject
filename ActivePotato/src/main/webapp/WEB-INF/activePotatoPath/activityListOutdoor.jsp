@@ -92,8 +92,8 @@
 							<td>
 								<form action="addInterest.do?id=${act.id}" method="POST">
 									<input type="hidden" name="id" />
-									<button type="submit" class="btn btn-secondary">Add
-										Activity</button>
+									<button type="submit" class="btn btn-secondary">Add To
+										Interests</button>
 								</form>
 							</td>
 						</tr>
