@@ -48,12 +48,12 @@
    	  <div class="dropdown-menu">
     	 <a class="dropdown-item" href="home.do">Home</a>
     	 <a class="dropdown-item" href="loginpage.do">Login</a>
-		</div>    
+		</div>
   </nav>
 
 	<div class="jumbotron jumbotron-fluid bs-light"
 		style="margin-bottom: 500;">
-		
+
 		<div id="center">
 <br><br><h1 class="normal">Welcome to Active Potato</h1><br>
 			<h2 class="normal">User Login</h2>
@@ -65,11 +65,15 @@
 					name="userName" /> <br> <br> <label class="update">Enter
 					Password:</label><input class="updateinput" type="password"
 					placeholder="Password" name="userPassword" /> <br> <br>
-				<input type="submit" name="submit" /> 
-			</form><b> or </b><form action="registerpage.do"><input type="submit" value="Create New Account"></form>
+				<input type="submit" name="submit" />
+			</form>
+			or
+			<form action="registerpage.do">
+				<input type="submit" value="Create New Account">
+			</form>
 		</div>
 	</div><br><br><br>
-	
+
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
