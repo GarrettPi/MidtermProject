@@ -7,6 +7,11 @@
 <meta charset="UTF-8">
 <jsp:include page="bootstrapHead.jsp"></jsp:include>
 <link rel="stylesheet" href="/css/Home.css">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 
 <style>
 #right {
@@ -23,22 +28,23 @@
 </style>
 
 <title>Welcome to Active Potato</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+
 
 </head>
 <body>
 	<nav class="navbar navbar-dark bg-dark">
     <button class="navbar-toggler" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    	Menu
+    	<b style="color: white;">Menu</b>
     </button>
-    	  <div class="dropdown-menu">
+   	  <div class="dropdown-menu">
     	 <a class="dropdown-item" href="home.do">Home</a>
+    	 <c:if test="${empty user }">
     	 <a class="dropdown-item" href="loginpage.do">Login</a>
-		</div>
+    	 </c:if>
+    	 <c:if test="${empty user }">
+    	 <a class="dropdown-item" href="registerpage.do">Register</a>
+	   	 </c:if>
+    </div>
   </nav>
 
 
@@ -77,9 +83,7 @@
 	</div>
 	</div>
 	<br>
-	<div id="center">
-		<br />
-	</div>
+	
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"

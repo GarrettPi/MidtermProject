@@ -32,7 +32,8 @@
 
   <nav class="navbar navbar-dark bg-dark">
     <button class="navbar-toggler" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    	Menu
+    	    	<b style="color: white;">Menu</b>
+
     </button>
     	  <div class="dropdown-menu">
     	 <a class="dropdown-item" href="home.do">Home</a>

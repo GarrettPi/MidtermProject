@@ -7,6 +7,11 @@
 <meta charset="UTF-8">
 <jsp:include page="bootstrapHead.jsp"></jsp:include>
 <link rel="stylesheet" href="/css/Home.css">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 <style>
 #right {
 	text-align: right;
@@ -24,12 +29,26 @@
 <title>Couch Potato Search</title>
 </head>
 <body>
-	<div class="container-liquid">
-		<div class="topnav">
-			<a href="home.do">Home</a><a href="loginpage.do">Login</a>
-		</div>
-		<div id="top">
-			<div id="center">
+	<nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    	<b style="color: white;">Menu</b>
+    </button>
+   	  <div class="dropdown-menu">
+    	 <a class="dropdown-item" href="home.do">Home</a>
+    	 <c:if test="${empty user }">
+    	 <a class="dropdown-item" href="loginpage.do">Login</a>
+    	 </c:if>
+    	 <c:if test="${not empty user }">
+    	 <a class="dropdown-item" href="logoutpage.do">Logout </a>
+    	 </c:if>
+    	 <c:if test="${empty user }">
+    	 <a class="dropdown-item" href="registerpage.do">Register</a>
+	   	 </c:if>
+    </div>
+  </nav>
+	
+		<div class="jumbotron jumbotron-fluid bs-light" style="margin-bottom: 0;">
+				<div id="center">
 				<br>
 				<h1 class="normal">Welcome to Couch Potato</h1>
 				<br> <br> <img src="images/indoorActivities.png"
@@ -46,7 +65,10 @@
 				</form>
 			</div>
 		</div>
-	</div>
-
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
