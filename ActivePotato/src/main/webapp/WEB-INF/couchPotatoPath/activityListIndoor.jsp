@@ -43,11 +43,17 @@
 				<li class="nav-item active"><a class="nav-link" href="home.do">
 						Home <span class="sr-only">(current)</span>
 				</a></li>
-				
-				<li class="nav-item"><a class="nav-link" href="loginpage.do">
-						Login </a></li>
-				<li class="nav-item"><a class="nav-link" href="registerpage.do">
-						Register </a></li>
+
+				<c:if test="${empty user }">
+					<li class="nav-item"><a class="nav-link" href="loginpage.do">
+							Login </a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="registerpage.do"> Register </a></li>
+				</c:if>
+				<c:if test="${not empty user }">
+					<li class="nav-item"><a class="nav-link" href="logout.do">
+							Logout </a></li>
+				</c:if>
 			</ul>
 		</div>
 	</nav>
@@ -57,18 +63,18 @@
 
 	<div class="listIndoorBody">
 		<div class="container">
-			<div class="topnav">
-				</div>
+			<div class="topnav"></div>
 		</div>
 		<div id="center" class="container">
 			<c:if test="${not empty a }">
-				
+
 				<br>
 				<h1>Show Matching Indoor Activities</h1>
-				
+
 				<br>
 				<br>
-				<table id="myTable" class="table table-bordered" style="color: rgb(234, 234, 234)">
+				<table id="myTable" class="table table-bordered"
+					style="color: rgb(234, 234, 234)">
 					<tbody>
 					<thead>
 						<tr>
@@ -153,16 +159,16 @@
 		</script>
 	</div>
 	<footer class="footer mt-auto py-3 bg-dark">
-				<div class="container">
-					<span class="text-muted"> Active Potato </span>
-				</div>
-			</footer>
+		<div class="container">
+			<span class="text-muted"> Active Potato </span>
+		</div>
+	</footer>
 
-			<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-			<script
-				src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-			<script
-				src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-	
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 </body>
 </html>
