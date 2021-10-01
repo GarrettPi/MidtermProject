@@ -27,11 +27,25 @@
 
 <body>
 	<div class="container-liquid">
-		<div class="topnav">
-			<a href="home.do">Home</a><a href="registerpage.do">Create New Account</a>
-		</div>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNav" aria-controls="navbarNav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" href="home.do">
+							Home </a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="registerpage.do"> Register </a></li>
+				</ul>
+			</div>
+		</nav>
 		<div id="center">
-<br><br><br>
+			<br>
+			<br>
+			<br>
 			<h1 class="normal">User Login</h1>
 
 			<br>
@@ -41,8 +55,12 @@
 					name="userName" /> <br> <br> <label class="update">Enter
 					Password:</label><input class="updateinput" type="password"
 					placeholder="Password" name="userPassword" /> <br> <br>
-				<input type="submit" name="submit" /> 
-			</form> or <form action="registerpage.do"><input type="submit" value="Create New Account"></form>
+				<input type="submit" name="submit" />
+			</form>
+			or
+			<form action="registerpage.do">
+				<input type="submit" value="Create New Account">
+			</form>
 		</div>
 	</div>
 </body>
